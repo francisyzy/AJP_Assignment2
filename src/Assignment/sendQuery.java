@@ -5,10 +5,14 @@
  */
 package Assignment;
 
+import java.net.HttpURLConnection;
 /**
  *
  * @author francisyzy
+ * google search engine api key  AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok 
  */
 public class sendQuery {
-    
+    public void send(){
+        
+    }
 }
