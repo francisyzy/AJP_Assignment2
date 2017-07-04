@@ -41,6 +41,6 @@ public class PageRead {
 
     public static void main(String arg[]){
 
-		System.out.println(readPage("http://www.google.com"));
+		System.out.println(readPage("http://www.bing.com/search?q=test"));
     }
 }
