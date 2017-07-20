@@ -5,9 +5,16 @@
  */
 package Assignment;
 
+import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection ;
+import java.net.URLEncoder;
+import java.util.List;
+import com.google.gson.*;
+import java.io.InputStreamReader;
+import java.io.Reader;
 /**
  *
  * @author francisyzy
@@ -23,8 +30,8 @@ public class sendQuery {
         String charset = "UTF-8";
 
         URL url = new URL(google + URLEncoder.encode(search, charset));
-        Reader reader = new InputStreamReader(url.openStream(), charset);
-        GoogleResults results = new Gson().fromJson(reader, GoogleResults.class);
+        java.io.Reader reader = new InputStreamReader(url.openStream(), charset);
+        GoogleSearch results = new Gson().fromJson(reader, GoogleSearch.class);
 
         // Show title and URL of 1st result.
         System.out.println(results.getResponseData().getResults().get(0).getTitle());
