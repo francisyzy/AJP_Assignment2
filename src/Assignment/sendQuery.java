@@ -19,11 +19,9 @@ import java.io.Reader;
  *
  * @author francisyzy
  * google search engine api key  AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok 
+ *  search engine ID 002976313549948865923:30uboh7bkhw
  */
 public class sendQuery {
-    public void send(){
-        
-    }
     public static void main(String[] args) throws Exception {
         String google = "http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=";
         String search = "stackoverflow";
