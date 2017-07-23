@@ -8,7 +8,8 @@ package Assignment;
 import java.io.*;
 import java.net.*;
 import javax.net.ssl.HttpsURLConnection;
-
+//import com.google.gson.*;
+import javax.json.*;
 /**
  *
  * @author francisyzy
@@ -59,22 +60,96 @@ public class GoogleSearchRestTest {
 //    }
     
     //working Restful Json request
-    public static void main(String[] args)throws Exception{
+//    public static void main(String[] args)throws Exception{
+//        String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
+//        URL myurl = new URL(httpsURL);
+//        HttpsURLConnection con = (HttpsURLConnection)myurl.openConnection();
+//        InputStream ins = con.getInputStream();
+//        InputStreamReader isr = new InputStreamReader(ins);
+//        BufferedReader in = new BufferedReader(isr);
+//        
+//        String inputLine;
+//
+//        while ((inputLine = in.readLine()) != null)
+//        {
+//          System.out.println(inputLine);
+//        }
+//
+//        in.close();
+//    }
+    
+    public void ConnectGoogle() throws Exception{
         String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
         URL myurl = new URL(httpsURL);
         HttpsURLConnection con = (HttpsURLConnection)myurl.openConnection();
+        System.out.println("Connecting");
         InputStream ins = con.getInputStream();
         InputStreamReader isr = new InputStreamReader(ins);
         BufferedReader in = new BufferedReader(isr);
-
-        String inputLine;
-
-        while ((inputLine = in.readLine()) != null)
-        {
-          System.out.println(inputLine);
-        }
-
+        System.out.println("Got Buffer Reader");
+        WriteJson(in);
+        System.out.println("Calling write json");
         in.close();
+        //return in;
+    }
+    
+    public JsonObject loadJsonObject() throws Exception {
+        
+        ConnectGoogle();
+        
+        JsonReader reader = Json.createReader(new FileReader("Results.json"));
+        //System.out.println("Dont like google file");
+        JsonObject jsonObject = reader.readObject();
+
+        return jsonObject;
+    }
+    
+    public static void WriteJson(BufferedReader in) throws IOException{
+        
+//        String inputLine;
+//
+//        while ((inputLine = in.readLine()) != null){
+//            System.out.println(inputLine);
+//        }
+        
+        File newFile = new File("Results.json");
+        if (newFile.exists()){
+            System.out.println(" File aleady Exist");
+            try{
+                FileWriter fileW = new FileWriter(newFile, true);
+                BufferedWriter buffW = new BufferedWriter(fileW);
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    //System.out.println(inputLine);
+                    buffW.write(inputLine);
+                }
+                buffW.close();
+                System.out.println("File Written");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            try{
+                newFile.createNewFile();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            
+            try{
+                FileWriter fileW = new FileWriter(newFile);
+                BufferedWriter buffW = new BufferedWriter(fileW);
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    //System.out.println(inputLine);
+                    buffW.write(inputLine);
+                }
+                buffW.close();
+                System.out.println("File Written");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        } 
     }
  
 }
