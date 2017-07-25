@@ -61,7 +61,8 @@ public class GoogleSearchRestTest {
     
     //working Restful Json request
 //    public static void main(String[] args)throws Exception{
-//        String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
+//        String httpsURL = "http://acronyms.thefreedictionary.com/B%26I";
+//        //String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
 //        URL myurl = new URL(httpsURL);
 //        HttpsURLConnection con = (HttpsURLConnection)myurl.openConnection();
 //        InputStream ins = con.getInputStream();
@@ -120,8 +121,8 @@ public class GoogleSearchRestTest {
                 BufferedWriter buffW = new BufferedWriter(fileW);
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
-                    //System.out.println(inputLine);
-                    buffW.write(inputLine);
+                    System.out.println(inputLine);
+                    buffW.write(inputLine+"\n");
                 }
                 buffW.close();
                 System.out.println("File Written");
@@ -141,8 +142,8 @@ public class GoogleSearchRestTest {
                 BufferedWriter buffW = new BufferedWriter(fileW);
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
-                    //System.out.println(inputLine);
-                    buffW.write(inputLine);
+                    System.out.println(inputLine);
+                    buffW.write(inputLine+"\n");
                 }
                 buffW.close();
                 System.out.println("File Written");
