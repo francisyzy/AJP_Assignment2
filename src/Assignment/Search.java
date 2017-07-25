@@ -39,19 +39,17 @@ public class Search extends Thread {
             final List<String> afound = new ArrayList<String>();
             final Matcher matcher = RESULT_REGEX.matcher(html);
             final Matcher smatcher = SEC_REGEX.matcher(html);
-            while (matcher.find()){
+            if (matcher.find()){
                 lifound.add(matcher.group(1));
             }
-            while (smatcher.find()){
+            else if (smatcher.find()){
                 lifound.add(smatcher.group(1));
             }
             
             for(String a : lifound){    
                 System.out.println(a);
                 
-                if(Main.result.size() < 10){
-                    Main.result.put(a, PageRead.readPage(a));
-                }
+                
             }
             
 
