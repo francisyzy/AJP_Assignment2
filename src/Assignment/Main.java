@@ -11,17 +11,22 @@ import java.util.*;
  * @author caeden
  */
 public class Main {
-    public static Map<String,StringBuilder> result = new HashMap();
-    public static void main(String[] args) {
+    public static Download dl = new Download();
+    public static HashSet<String> result = new HashSet();
+    public static void main(String[] args) throws InterruptedException {
         String yahoo = "https://sg.search.yahoo.com/search?p=";
         String bing = "https://www.bing.com/search?q=";
         
-            StringBuffer text = new StringBuffer("a b");
+            StringBuffer text = new StringBuffer("ha");
             String ysearch = yahoo + text.toString().replaceAll(" ", "+");
             String bsearch = bing + text.toString().replaceAll(" ", "+");
-            Search yaho = new Search(ysearch);
-            //yaho.start();
-            Search bs = new Search(bsearch);
+            Search yaho = new Search(ysearch,dl);
+            yaho.start();
+            Search bs = new Search(bsearch,dl);
             bs.start();
+            yaho.join();
+            bs.join();
+            
+            dl.startdownload(1);
     }
 }

@@ -5,18 +5,17 @@
  */
 package Assignment;
 
+import java.util.HashSet;
+
 /**
  *
  * @author caeden
  */
-public class Seed {
-    private String website;
-    private StringBuilder html;
-    
-    public Seed(String web,StringBuilder ht){
-        website = web;
-        html = ht;
-    }
+public class Save {
+    public HashSet<String> readydownload;
+    public HashSet<String> downloaded;
+    public HashSet<String> processing;
+    public HashSet<String> downloadfail;
     
     
     
