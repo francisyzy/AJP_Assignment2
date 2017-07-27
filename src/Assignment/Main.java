@@ -27,6 +27,6 @@ public class Main {
             yaho.join();
             bs.join();
             
-            dl.startdownload(1);
+            dl.startdownload(2);
     }
 }
