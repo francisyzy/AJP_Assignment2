@@ -12,7 +12,7 @@ import java.util.*;
  */
 public class Main {
     public static Download dl = new Download();
-    public static HashSet<String> result = new HashSet();
+    //public static ArrayList<String> result = new ArrayList();
     public static void main(String[] args) throws InterruptedException {
         String yahoo = "https://sg.search.yahoo.com/search?p=";
         String bing = "https://www.bing.com/search?q=";

@@ -43,7 +43,6 @@ public class Search extends Thread {
             StringBuilder html = PageRead.readPage(url);
             String seed = "";
             System.out.println("Runing Thread");
-            System.out.println(html);
             final List<String> lifound = new ArrayList<>();
             final List<String> afound = new ArrayList<>();
             final Matcher bingmatcher = RESULT_REGEX.matcher(html);
