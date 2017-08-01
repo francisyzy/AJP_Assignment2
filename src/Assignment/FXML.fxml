@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.web.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1101.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Assignment.FXMLController">
+   <children>
+      <Label fx:id="searchLabel" layoutX="6.0" layoutY="33.0" text="Search" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="33.0" />
+      <TextField fx:id="searchInput" layoutX="6.0" layoutY="50.0" prefHeight="27.0" prefWidth="189.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="50.0" />
+      <Button fx:id="searchBtn" layoutX="195.0" layoutY="50.0" mnemonicParsing="false" text="Search" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="50.0" />
+      <Label fx:id="TitleLabel1" layoutY="16.0" prefHeight="17.0" prefWidth="102.0" text="Webcrawler" />
+      <ListView fx:id="listOutput" layoutX="6.0" layoutY="200.0" prefHeight="470.0" prefWidth="520.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="200.0" />
+      <CheckBox fx:id="checkBing" layoutX="8.0" layoutY="88.0" mnemonicParsing="false" text="Bing" />
+      <CheckBox fx:id="checkYahoo" layoutX="8.0" layoutY="106.0" mnemonicParsing="false" text="Yahoo" />
+      <CheckBox fx:id="checkGoogle" layoutX="8.0" layoutY="124.0" mnemonicParsing="false" text="Google" />
+      <WebView fx:id="viewWeb" layoutX="613.0" layoutY="87.0" prefHeight="558.0" prefWidth="448.0" />
+      <Button fx:id="threadSetBtn" layoutX="455.0" layoutY="50.0" mnemonicParsing="false" text="Set" />
+      <TextField fx:id="threadInput" layoutX="266.0" layoutY="50.0" prefHeight="27.0" prefWidth="189.0" />
+      <Label fx:id="threadLabel" layoutX="266.0" layoutY="33.0" prefHeight="17.0" prefWidth="63.0" text="Treads" />
+   </children>
+</AnchorPane>
