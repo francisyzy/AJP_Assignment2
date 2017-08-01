@@ -13,7 +13,7 @@ import java.util.HashSet;
  * @author caeden
  */
 public class Download {
-    public ArrayList<String> result;
+    public ArrayList<String> result;//list of all URL downloaded
     public HashSet<String> downloaded;
     public HashSet<String> processing;
     public HashSet<String> downloadfail;
