@@ -6,6 +6,7 @@
 package Assignment;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 
 /**
@@ -60,6 +61,11 @@ public class Download {
     
     public void addHTML(String html){
         htmlList.add(html);
+    }
+    
+    public void sortHTML(){//cannot work
+        Collections.sort(htmlList);
+        System.out.println("sorted");
     }
     
     public String getHTML(int index){

@@ -13,6 +13,7 @@ import java.io.IOException;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -143,6 +144,7 @@ public class FXMLController implements Initializable {
 //                startresult.add(b);
 //            }
             ArrayList<String> result = dl.getResult();
+            Collections.sort(result); //to sort in accending order
             ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
             listOutput.setItems(observableResult);
         });
@@ -184,6 +186,7 @@ public class FXMLController implements Initializable {
             {
                 System.out.println  ("You selected " + newVal);
                 ArrayList<String> result = dl.getResult();
+                Collections.sort(result); //to sort in accending order
                 //ArrayList<String> resultHTML = dl.getResult();
 //                for(int i = 0; i<=result.size();i++){
 //                    if(newVal.compareTo())){
@@ -198,10 +201,13 @@ public class FXMLController implements Initializable {
 //                }
                 int index = result.indexOf(newVal);
                 System.out.println("ID of the url they selected " + index);
+                
+                System.out.println("sorting");
+                /dl.sortHTML();//so the id same!!!
+                //sorting error idk why since the ID never line up the selected resource ≠ to the displayed raw HTML
                 String url = dl.getHTML(index);
                 //String url = FXMLController.class.getResource("URL0.html").toExternalForm();
                 viewWeb.getEngine().load(newVal);
-                
                 rawHTML.setText(url);
                 
                 System.out.println("User Search = " + GetUserSearch());

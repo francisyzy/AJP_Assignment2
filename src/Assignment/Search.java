@@ -18,6 +18,7 @@ public class Search extends Thread {
     public String url;
     private static final Pattern YAHOO_REGEX = Pattern.compile("result\"><h3 class=\"title\"><a href=\"(.+?)\" class=\"\">");
     private static final Pattern BING_REGEX = Pattern.compile("class=\"b_algo\"><h2><a href=\"(.+?)\" h=\"");
+    //private static final Pattern DUCK_REGEX = Pattern.compile("\\\"FirstURL\\\" : \\\"(http.*?)\\\"");
     private static final Pattern URL_REGEX = Pattern.compile("<a[^>]+href=\"(http.+?)\"");
     
     
