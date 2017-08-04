@@ -160,8 +160,7 @@ public class FXMLController implements Initializable {
                 System.out.println("ID of the url they selected " + index);
                 String url = dl.getHTML(index);
                 //String url = FXMLController.class.getResource("URL0.html").toExternalForm();
-                WebEngine engine = viewWeb.getEngine();
-                engine.load(url);
+                viewWeb.getEngine().load(url);
                 
             }         
         });
