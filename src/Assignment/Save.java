@@ -39,7 +39,10 @@ public class Save implements Runnable {
             File file = new File("URL"+number +".txt");
             try (Writer writer = new BufferedWriter(new OutputStreamWriter(
                 new FileOutputStream("URL"+number +".txt"), "utf-8"))) {
-                writer.write(PageRead.readPage(url).toString());
+                StringBuilder htmlfile =PageRead.readPage(url);
+                writer.write(htmlfile.toString());
+                SearchInput.dl.setHtml(number, htmlfile.toString());
+                
              } catch (Exception ex) {
                 Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
              }

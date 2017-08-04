@@ -61,8 +61,18 @@ public class Search extends Thread {
             while(urlmatcher.find()){
                 
                 if ((dl.checknum())){
-                    if(!dl.getResult().contains(urlmatcher.group(1)))
-                    dl.addresult(urlmatcher.group(1));
+                    String resulturl = urlmatcher.group(1);
+                    if(!dl.getResult().contains(resulturl)){
+                        try{
+                            //StringBuilder x = PageRead.readPage(resulturl);
+                            //dl.addHTML(x);
+                            dl.addresult(resulturl);
+                        }catch(Exception e){
+                            System.out.println("Unable to script the last html page, remove from the list.");
+                        }
+                    }
+                    
+                    
                 }else{
                     break;
                 }

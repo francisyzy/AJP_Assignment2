@@ -14,12 +14,14 @@ import java.util.HashSet;
  */
 public class Download {
     public ArrayList<String> result;//list of all URL downloaded
-    public HashSet<String> downloaded;
-    public HashSet<String> processing;
-    public HashSet<String> downloadfail;
+    public ArrayList<String> htmlList;//list of all HTML downloaded
     
     public Download(){
         result = new ArrayList();
+        htmlList = new ArrayList();
+        for (int i = 0; i < 10; i++) {
+        htmlList.add("");
+        }
     }
     
     public synchronized void addresult(String url){
@@ -54,6 +56,19 @@ public class Download {
     
     public String getURL(int index){
         return result.get(index);
+    }
+    
+    public void addHTML(String html){
+        htmlList.add(html);
+    }
+    
+    public String getHTML(int index){
+        return htmlList.get(index);
+    }
+    
+    public void setHtml(int index,String html){
+        //htmlList.add(index, html);
+        htmlList.set(index, html);
     }
     
     

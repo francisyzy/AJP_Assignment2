@@ -144,6 +144,7 @@ public class FXMLController implements Initializable {
             {
                 System.out.println  ("You selected " + newVal);
                 ArrayList<String> result = dl.getResult();
+                ArrayList<String> resultHTML = dl.getResult();
 //                for(int i = 0; i<=result.size();i++){
 //                    if(newVal.compareTo())){
 //                        
@@ -157,8 +158,8 @@ public class FXMLController implements Initializable {
 //                }
                 int index = result.indexOf(newVal);
                 System.out.println("ID of the url they selected " + index);
-                
-                String url = FXMLController.class.getResource("URL0.html").toExternalForm();
+                String url = dl.getHTML(index);
+                //String url = FXMLController.class.getResource("URL0.html").toExternalForm();
                 WebEngine engine = viewWeb.getEngine();
                 engine.load(url);
                 
