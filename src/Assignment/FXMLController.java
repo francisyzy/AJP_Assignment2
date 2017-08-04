@@ -199,13 +199,13 @@ public class FXMLController implements Initializable {
 //                        break;
 //                    }
 //                }
-                int index = result.indexOf(newVal);
-                System.out.println("ID of the url they selected " + index);
+                //int index = result.indexOf(newVal);
+                //System.out.println("ID of the url they selected " + index);
                 
-                System.out.println("sorting");
-                /dl.sortHTML();//so the id same!!!
+                //System.out.println("sorting");
+                ///dl.sortHTML();//so the id same!!!
                 //sorting error idk why since the ID never line up the selected resource ≠ to the displayed raw HTML
-                String url = dl.getHTML(index);
+                String url = dl.getMapValue(newVal);
                 //String url = FXMLController.class.getResource("URL0.html").toExternalForm();
                 viewWeb.getEngine().load(newVal);
                 rawHTML.setText(url);

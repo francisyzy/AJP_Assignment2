@@ -7,6 +7,7 @@ package Assignment;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 
 /**
@@ -16,6 +17,7 @@ import java.util.HashSet;
 public class Download {
     public ArrayList<String> result;//list of all URL downloaded
     public ArrayList<String> htmlList;//list of all HTML downloaded
+    public HashMap<String,String> urlMap = new HashMap<>();
     
     public Download(){
         result = new ArrayList();
@@ -77,6 +79,11 @@ public class Download {
         htmlList.set(index, html);
     }
     
+    public void putMap(String url,String html){
+        urlMap.put(url, html);
+    }
     
-    
+    public String getMapValue(String url){
+        return urlMap.get(url);
+    }
 }

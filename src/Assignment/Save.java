@@ -56,10 +56,12 @@ public class Save implements Runnable {
             try{
                 FileWriter fileW = new FileWriter(newFile);
                 BufferedWriter buffW = new BufferedWriter(fileW);
-                buffW.write(PageRead.readPage(url).toString());
+                String html = PageRead.readPage(url).toString();
+                buffW.write(html);
                 buffW.close();
                 System.out.println("File Written");
-                SearchInput.dl.setHtml(number, PageRead.readPage(url).toString().toString());  
+                SearchInput.dl.setHtml(number, html);
+                SearchInput.dl.putMap(url, html);
             }catch(Exception e){
                 e.printStackTrace();
             }
