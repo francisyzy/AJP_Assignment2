@@ -5,15 +5,13 @@
  */
 package Assignment;
 
+import static Assignment.SearchInput.dl;
+
 import java.net.URL;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -21,74 +19,94 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.web.WebView;
+import javax.swing.JOptionPane;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.web.WebEngine;
+
 
 /**
  * FXML Controller class
  *
  * @author francisyzy
  */
-//public class FXMLController implements Initializable {
-//
-//    @FXML
-//    Button searchBtn;
-//    @FXML
-//    TextField searchInput;
-//    @FXML
-//    CheckBox checkBing; 
-//    @FXML
-//    CheckBox checkYahoo;
-//    @FXML
-//    CheckBox checkGoogle;
-//    @FXML
-//    ListView listOutput;
-//    @FXML
-//    WebView viewWeb;
-//    @FXML
-//    Button threadSetBtn;
-//    @FXML
-//    TextField threadInput;
+public class FXMLController implements Initializable {
 
-//    /**
-//     * 
-//     * 
-//     * Initializes the controller class.
-//     */
-//    @Override
-//    public void initialize(URL url, ResourceBundle rb) {
-//        // TODO
-//        System.out.println("initialized");
-//        ObservableList<BusStop> startresult = FXCollections.observableArrayList();
-//        ObservableList<BusStop> endresult = FXCollections.observableArrayList();
-//        ObservableList<String> noresult = FXCollections.observableArrayList();
-//        ObservableList<String> update = FXCollections.observableArrayList();
-//        //MultipleSelectionModel<BusStop> ListOutputSel = ListOutput.getSelectionModel();
-//        ObservableList<BusStop> SearchBusService = FXCollections.observableArrayList();
-//        ObservableList<BusNo> SearchBusStop = FXCollections.observableArrayList();
-//        
-//        noresult.add("No Routes found for these two bus stops!");
-//        update.add("");
-//        
-//        
-//        //StartLocationSearchBtn.setOnAction(e -> ImportData.SearchBusStop(StartLocationSearchInput.getText()));
-//        
-//        StartLocationSearchBtn.setOnAction((ActionEvent e) -> {
-//            startresult.clear();
-//            try {
-//                Search = SearchBusStop(StartLocationSearchInput.getText());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
+    @FXML
+    Button searchBtn;
+    @FXML
+    TextField searchInput;
+    @FXML
+    CheckBox checkBing; 
+    @FXML
+    CheckBox checkYahoo;
+    @FXML
+    CheckBox checkGoogle;
+    @FXML
+    ListView listOutput;
+    @FXML
+    WebView viewWeb;
+    @FXML
+    Button threadSetBtn;
+    @FXML
+    TextField threadInput;
+
+    /**
+     * 
+     * 
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        // TODO
+        System.out.println("initialized");
+        //StartLocationSearchBtn.setOnAction(e -> ImportData.SearchBusStop(StartLocationSearchInput.getText()));
+        
+//        String userSearch;
+        
+        searchBtn.setOnAction((ActionEvent e) -> {
+            listOutput.setPlaceholder(new Label("No Content In List"));
+            listOutput.setItems(null);//?
+            
+            dl.result.clear();
+            
+            String UserSearch = null;
+            int threadCount = 0;
+            
+            if(searchInput.getText()==null){
+                JOptionPane.showMessageDialog(null, "Please enter something in the search field");
+            }else if(threadInput.getText()==null){
+                JOptionPane.showMessageDialog(null, "Please enter something in the thread field");
+            }else{
+                UserSearch = searchInput.getText();
+                threadCount = Integer.parseInt(threadInput.getText());
+                System.out.println("Search = " + UserSearch);
+                System.out.println("Thread Count = " + threadCount);
+            }
+            
+            SearchInput search = new SearchInput();
+            
+            try {
+                search.startSearch(UserSearch, threadCount);
+            } catch (InterruptedException ex) {
+                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+//            
 //            for(BusStop b : Search){
 //                //System.out.println(b.BusStopDescription);
 //                startresult.add(b);
 //            }
-//            StartLocationCombo.setItems(startresult);
-//        });
-//        
+            ArrayList<String> result = dl.getResult();
+            ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
+            listOutput.setItems(observableResult);
+        });
+        
 //        EndLocationSearchBtn.setOnAction((ActionEvent e) -> {
 //            //System.out.println(EndLocationCombo.getValue());
 //            endresult.clear();
@@ -108,13 +126,44 @@ import javafx.scene.web.WebView;
 //        //System.out.println("btnMapPressed")
 //        
 //        //Adding press link to map but nevermind no time do
-////        ListOutputSel.selectedItemProperty().addListener(new ChangeListener<BusStop>() {
-////            @Override
-////            public void changed(ObservableValue ov, BusStop oldVal, BusStop newVal)
-////            {
-////                System.out.println("You selected " + newVal);
-////            }        
-////        });
+        MultipleSelectionModel<String> listOutputSel = listOutput.getSelectionModel();
+//        listOutputSel.selectedItemProperty().addListener(new ChangeListener<String>() {
+//            @Override
+//            public void changed(ObservableValue ov, BusStop oldVal, BusStop newVal)
+//            {
+//                System.out.println("You selected " + newVal);
+//            }        
+//
+//            @Override
+//            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
+//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//            }
+//        });
+        listOutputSel.selectedItemProperty().addListener(new ChangeListener<String>() {
+            public void changed(ObservableValue<? extends String> changed, String oldVal, String newVal)
+            {
+                System.out.println  ("You selected " + newVal);
+                ArrayList<String> result = dl.getResult();
+//                for(int i = 0; i<=result.size();i++){
+//                    if(newVal.compareTo())){
+//                        
+//                    }
+//                }
+//                for (String element : result) {
+//                    if (String.equals(element)) {
+//                        found = true;
+//                        break;
+//                    }
+//                }
+                int index = result.indexOf(newVal);
+                System.out.println("ID of the url they selected " + index);
+                
+                String url = FXMLController.class.getResource("URL0.html").toExternalForm();
+                WebEngine engine = viewWeb.getEngine();
+                engine.load(url);
+                
+            }         
+        });
 //        
 ////        if(EndLocationCombo.selectionModelProperty() != null){
 ////            System.out.println("end combo box selected");
@@ -352,11 +401,11 @@ import javafx.scene.web.WebView;
 //                }
 //            }
 //        });//end of SearchBusStopCombo
-//                
-//        
-//    }//end of method
-//    
-//    
+                
+        
+    }//end of method
+    
+    
 //    public static ObservableList<BusStop> SearchBusStop(String SearchInput){
 //        ObservableList<BusStop> results = FXCollections.observableArrayList();
 //        System.out.println("Search Bus Stop Input " + SearchInput);
@@ -444,6 +493,6 @@ import javafx.scene.web.WebView;
 //        
 //        return trans;
 //    }
-//    
-//    
-//}
+    
+    
+}

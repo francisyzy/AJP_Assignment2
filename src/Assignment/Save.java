@@ -9,6 +9,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
@@ -26,7 +27,7 @@ public class Save implements Runnable {
     private String url;
     public Save(int number) {
         this.number = number;
-        url = Main.dl.getURL(number);
+        url = SearchInput.dl.getURL(number);
     }
    @Override
     public void run() {
@@ -34,23 +35,60 @@ public class Save implements Runnable {
         try {
             //Simulating processing time
             
-        	//perform tasks
-                File file = new File("URL"+number +".txt");
-                try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                    new FileOutputStream("URL"+number +".txt"), "utf-8"))) {
-                    writer.write(PageRead.readPage(url).toString());
-                 } catch (Exception ex) {
-                    Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
-                 }
+            //perform tasks
+            File file = new File("URL"+number +".txt");
+            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
+                new FileOutputStream("URL"+number +".txt"), "utf-8"))) {
+                writer.write(PageRead.readPage(url).toString());
+             } catch (Exception ex) {
+                Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
+             }
             Thread.sleep(500);
         } catch (InterruptedException e) {
             
             e.printStackTrace();
         }
         System.out.println("End downloading of Url :"+ url);
-    }
+    }//end of method
     
-    public static void WriteFile(BufferedReader in) throws IOException{
-        
-    }
+    public static void WriteJson(BufferedReader in) throws IOException{
+        File newFile = new File("Results.json");
+        if (newFile.exists()){
+            System.out.println(" File aleady Exist");
+            try{
+                FileWriter fileW = new FileWriter(newFile, true);
+                BufferedWriter buffW = new BufferedWriter(fileW);
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    System.out.println(inputLine);
+                    buffW.write(inputLine+"\n");
+                }
+                buffW.close();
+                System.out.println("File Written");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        }
+        else{
+            try{
+                newFile.createNewFile();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            
+            try{
+                FileWriter fileW = new FileWriter(newFile);
+                BufferedWriter buffW = new BufferedWriter(fileW);
+                String inputLine;
+                while ((inputLine = in.readLine()) != null) {
+                    System.out.println(inputLine);
+                    buffW.write(inputLine+"\n");
+                }
+                buffW.close();
+                System.out.println("File Written");
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+        } 
+    }//end of method
 }

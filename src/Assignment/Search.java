@@ -16,8 +16,8 @@ public class Search extends Thread {
     
     public static Download dl;
     public String url;
-    private static final Pattern RESULT_REGEX = Pattern.compile("result\"><h3 class=\"title\"><a href=\"(.+?)\" class=\"\">");
-    private static final Pattern SEC_REGEX = Pattern.compile("class=\"b_algo\"><h2><a href=\"(.+?)\" h=\"");
+    private static final Pattern BING_REGEX = Pattern.compile("result\"><h3 class=\"title\"><a href=\"(.+?)\" class=\"\">");
+    private static final Pattern YAHOO_REGEX = Pattern.compile("class=\"b_algo\"><h2><a href=\"(.+?)\" h=\"");
     private static final Pattern URL_REGEX = Pattern.compile("<a[^>]+href=\"(http.+?)\"");
     
     public  Search(String url){
@@ -45,8 +45,8 @@ public class Search extends Thread {
             System.out.println("Runing Thread");
             final List<String> lifound = new ArrayList<>();
             final List<String> afound = new ArrayList<>();
-            final Matcher bingmatcher = RESULT_REGEX.matcher(html);
-            final Matcher yahoomatcher = SEC_REGEX.matcher(html);
+            final Matcher bingmatcher = BING_REGEX.matcher(html);
+            final Matcher yahoomatcher = YAHOO_REGEX.matcher(html);
             if (bingmatcher.find()){
                 seed = bingmatcher.group(1);
             }
