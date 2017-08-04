@@ -36,19 +36,36 @@ public class Save implements Runnable {
             //Simulating processing time
             
             //perform tasks
-            File file = new File("URL"+number +".txt");
-            try (Writer writer = new BufferedWriter(new OutputStreamWriter(
-                new FileOutputStream("URL"+number +".txt"), "utf-8"))) {
-                StringBuilder htmlfile =PageRead.readPage(url);
-                writer.write(htmlfile.toString());
-                SearchInput.dl.setHtml(number, htmlfile.toString());
-                
-             } catch (Exception ex) {
-                Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
-             }
+            //File file = new File("URL"+number +".txt");
+//            try (Writer writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("URL"+number +".txt"), "utf-8"))) {
+//                StringBuilder htmlfile =PageRead.readPage(url);
+//                writer.write(htmlfile.toString());
+//                SearchInput.dl.setHtml(number, htmlfile.toString());  
+//             } catch (Exception ex) {
+//                Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
+//             }
+            
+            File newFile = new File("URL"+number +".html");
+            
+            try{
+            newFile.createNewFile();
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+
+            try{
+                FileWriter fileW = new FileWriter(newFile);
+                BufferedWriter buffW = new BufferedWriter(fileW);
+                buffW.write(PageRead.readPage(url).toString());
+                buffW.close();
+                System.out.println("File Written");
+                SearchInput.dl.setHtml(number, PageRead.readPage(url).toString().toString());  
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+            
             Thread.sleep(500);
         } catch (InterruptedException e) {
-            
             e.printStackTrace();
         }
         System.out.println("End downloading of Url :"+ url);
@@ -56,42 +73,24 @@ public class Save implements Runnable {
     
     public static void WriteJson(BufferedReader in) throws IOException{
         File newFile = new File("Results.json");
-        if (newFile.exists()){
-            System.out.println(" File aleady Exist");
-            try{
-                FileWriter fileW = new FileWriter(newFile, true);
-                BufferedWriter buffW = new BufferedWriter(fileW);
-                String inputLine;
-                while ((inputLine = in.readLine()) != null) {
-                    System.out.println(inputLine);
-                    buffW.write(inputLine+"\n");
-                }
-                buffW.close();
-                System.out.println("File Written");
-            }catch(Exception e){
-                e.printStackTrace();
-            }
+        try{
+            newFile.createNewFile();
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        else{
-            try{
-                newFile.createNewFile();
-            }catch(Exception e){
-                e.printStackTrace();
+
+        try{
+            FileWriter fileW = new FileWriter(newFile);
+            BufferedWriter buffW = new BufferedWriter(fileW);
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) {
+                System.out.println(inputLine);
+                buffW.write(inputLine+"\n");
             }
-            
-            try{
-                FileWriter fileW = new FileWriter(newFile);
-                BufferedWriter buffW = new BufferedWriter(fileW);
-                String inputLine;
-                while ((inputLine = in.readLine()) != null) {
-                    System.out.println(inputLine);
-                    buffW.write(inputLine+"\n");
-                }
-                buffW.close();
-                System.out.println("File Written");
-            }catch(Exception e){
-                e.printStackTrace();
-            }
-        } 
+            buffW.close();
+            System.out.println("File Written");
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }//end of method
 }

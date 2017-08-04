@@ -6,12 +6,18 @@
 package Assignment;
 
 import static Assignment.SearchInput.dl;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,6 +33,7 @@ import javax.swing.JOptionPane;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.control.MultipleSelectionModel;
+import javafx.scene.control.TextArea;
 import javafx.scene.web.WebEngine;
 
 
@@ -55,12 +62,37 @@ public class FXMLController implements Initializable {
     Button threadSetBtn;
     @FXML
     TextField threadInput;
+    @FXML
+    TextArea rawHTML;
+    @FXML
+    TextField textOutput;
 
     /**
      * 
      * 
      * Initializes the controller class.
      */
+    
+    private String userSearch;
+    private Long startTime;
+    
+    public void SetUserSearch(String userSearchIn){
+        userSearch = userSearchIn;
+    }
+    
+    public String GetUserSearch(){
+        return userSearch;
+    }
+    
+    public void SetStartTime(long startTimeIn){
+        startTime = startTimeIn;
+    }
+    
+    public long GetStartTime(){
+        return startTime;
+    }
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -69,9 +101,15 @@ public class FXMLController implements Initializable {
         
 //        String userSearch;
         
+        searchBtn.setDefaultButton(true);
+        
+        System.out.println(checkBing.isSelected());
+        
+        System.out.println(checkGoogle.isSelected());
+        
         searchBtn.setOnAction((ActionEvent e) -> {
             listOutput.setPlaceholder(new Label("No Content In List"));
-            listOutput.setItems(null);//?
+            //listOutput.setItems(null);//?
             
             dl.result.clear();
             
@@ -87,6 +125,8 @@ public class FXMLController implements Initializable {
                 threadCount = Integer.parseInt(threadInput.getText());
                 System.out.println("Search = " + UserSearch);
                 System.out.println("Thread Count = " + threadCount);
+                SetUserSearch(UserSearch);
+                SetStartTime(System.currentTimeMillis());//Time taken
             }
             
             SearchInput search = new SearchInput();
@@ -144,7 +184,7 @@ public class FXMLController implements Initializable {
             {
                 System.out.println  ("You selected " + newVal);
                 ArrayList<String> result = dl.getResult();
-                ArrayList<String> resultHTML = dl.getResult();
+                //ArrayList<String> resultHTML = dl.getResult();
 //                for(int i = 0; i<=result.size();i++){
 //                    if(newVal.compareTo())){
 //                        
@@ -160,7 +200,41 @@ public class FXMLController implements Initializable {
                 System.out.println("ID of the url they selected " + index);
                 String url = dl.getHTML(index);
                 //String url = FXMLController.class.getResource("URL0.html").toExternalForm();
-                viewWeb.getEngine().load(url);
+                viewWeb.getEngine().load(newVal);
+                
+                rawHTML.setText(url);
+                
+                System.out.println("User Search = " + GetUserSearch());
+                
+                Pattern userSearch_REGEX = Pattern.compile("("+GetUserSearch()+")", Pattern.CASE_INSENSITIVE);
+                
+                Matcher userSearchMatcher = userSearch_REGEX.matcher(url);
+                
+                int output = 0;
+                
+                while (userSearchMatcher.find()) {
+                    output++;
+                }
+                
+                textOutput.setText(Integer.toString(output));
+                
+                //debug
+                //System.out.println(url);
+                
+                //debug stuff below
+//                FileReader file;
+//                try {
+//                    file = new FileReader("URL0.html");
+//                    BufferedReader reader = new BufferedReader(file);
+//                    String line = reader.readLine();
+//                    while ((line = reader.readLine()) != null) {
+//                        System.out.println(line);
+//                    }
+//                } catch (FileNotFoundException ex) {
+//                    Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+//                } catch (IOException ex) {
+//                    Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+//                }
                 
             }         
         });

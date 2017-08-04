@@ -7,6 +7,8 @@ package Assignment;
 
 import java.io.*;
 import java.net.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.net.ssl.HttpsURLConnection;
 //import com.google.gson.*;
 import javax.json.*;
@@ -78,6 +80,7 @@ public class GoogleSearchRestTest {
 //
 //        in.close();
 //    }
+    private static final Pattern GOOGLE_REGEX = Pattern.compile("\\\"link\\\": \\\"(http.*?)\\\"");
     
     public void ConnectGoogle() throws Exception{
         String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
@@ -87,9 +90,19 @@ public class GoogleSearchRestTest {
         InputStream ins = con.getInputStream();
         InputStreamReader isr = new InputStreamReader(ins);
         BufferedReader in = new BufferedReader(isr);
-        System.out.println("Got Buffer Reader");
-        WriteJson(in);
-        System.out.println("Calling write json");
+        
+        final Matcher googlematcher = GOOGLE_REGEX.matcher((CharSequence) in);
+        
+        String seed = "";
+        
+        if (googlematcher.find()){
+            seed = googlematcher.group(1);
+        }
+        
+        StringBuilder resulthtml = PageRead.readPage(seed);
+        
+        
+        
         in.close();
         //return in;
     }
