@@ -71,6 +71,15 @@ public class Save implements Runnable {
             e.printStackTrace();
         }
         System.out.println("End downloading of Url :"+ url);
+        if(SearchInput.dl.checkMapnum()){
+            System.out.println("Total Time Taken :" + SearchInput.dl.getTime());
+        }
+        /*if(SearchInput.dl.checkMapnum())
+            try {
+                SearchInput.dl.stopTime();
+                } catch (IOException ex) {
+                    Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
+                }*/
     }//end of method
     
     public static void WriteJson(BufferedReader in) throws IOException{

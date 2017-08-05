@@ -5,19 +5,23 @@
  */
 package Assignment;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
 
 /**
  *
  * @author caeden
  */
 public class Download {
-    public ArrayList<String> result;//list of all URL downloaded
-    public ArrayList<String> htmlList;//list of all HTML downloaded
-    public HashMap<String,String> urlMap = new HashMap<>();
+    private ArrayList<String> result;//list of all URL downloaded
+    private ArrayList<String> htmlList;//list of all HTML downloaded
+    private HashMap<String,String> urlMap = new HashMap<>();
+    private long starttime;
     
     public Download(){
         result = new ArrayList();
@@ -80,5 +84,36 @@ public class Download {
     
     public String getMapValue(String url){
         return urlMap.get(url);
+    }
+    
+    public boolean checkMapnum(){
+        if (urlMap.size() == 10)
+            return true;
+        else
+            return false;
+    }
+    
+    public void stopTime() throws IOException{
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        Pane p = fxmlLoader.load(getClass().getResource("FXML.fxml").openStream());
+        FXMLController fooController = (FXMLController) fxmlLoader.getController();
+        
+        fooController.StopTime();
+    }
+    
+    
+    
+    public double getTime(){
+        double time = (System.currentTimeMillis() - this.starttime)/1000;
+        
+        return time;
+    }
+    
+    public void clearResult(){
+        result.clear();
+    }
+    
+    public void SetStartTime(){
+        starttime = System.currentTimeMillis();
     }
 }

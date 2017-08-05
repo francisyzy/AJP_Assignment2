@@ -87,8 +87,8 @@ public class FXMLController implements Initializable {
         return userSearch;
     }
     
-    public void SetStartTime(long startTimeIn){
-        startTime = startTimeIn;
+    public void SetStartTime(){
+        startTime = System.currentTimeMillis();
     }
     
     public long GetStartTime(){
@@ -120,7 +120,7 @@ public class FXMLController implements Initializable {
             listOutput.setPlaceholder(new Label("No Content In List"));
             //listOutput.setItems(null);//?
             
-            dl.result.clear();
+            dl.clearResult();
             
             String UserSearch = null;
             int threadCount = 0;
@@ -135,7 +135,7 @@ public class FXMLController implements Initializable {
                 System.out.println("Search = " + UserSearch);
                 System.out.println("Thread Count = " + threadCount);
                 SetUserSearch(UserSearch);
-                SetStartTime(System.currentTimeMillis());//Time taken
+                SetStartTime();//Time taken
             }
             
             SearchInput search = new SearchInput();

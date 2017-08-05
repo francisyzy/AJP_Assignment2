@@ -1,0 +1,2138 @@
+<!DOCTYPE html>
+<html xmlns:fb="http://ogp.me/ns/fb#" data-ng-app="core" data-ng-strict-di>
+<head>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+        <script type="text/javascript">
+        window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);
+        ;NREUM.info={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",licenseKey:"8d01ff17d1",applicationID:"50625650",sa:1}
+    </script>
+
+
+    <title>Freeform - Watch Full Episodes Online Now</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+    <base href="/" />
+
+    <style>
+        [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide:not(.ng-hide-animate) {
+            display: none !important;
+        }
+    </style>
+    <link type="text/css" rel="stylesheet" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/vendor.css" />
+    <link type="text/css" rel="stylesheet" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/default.css" />
+
+    <meta property="og:url" content="http://freeform.go.com/" />
+<meta property="og:image" content="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/og.png" />
+<meta property="og:title" content="Freeform - Watch Full Episodes Online Now" />
+<meta property="og:description" content="Watch Freeform (formerly ABC Family) TV shows online like Pretty Little Liars, Shadowhunters and more!" />
+<meta property="og:site_name" content="Freeform.com" />
+<meta property="fb:app_id" content="1683433491935834" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+
+    <meta property="og:type" content="website" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Freeform - Watch Full Episodes Online Now" />
+<meta name="twitter:description" content="Watch Freeform (formerly ABC Family) TV shows online like Pretty Little Liars, Shadowhunters and more!" />
+<meta name="twitter:image:src" content="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/og.png" />
+<meta name="twitter:domain" content="freeform.go.com/" />
+<meta name="twitter:site" content="freeformtv" />
+
+<link rel="apple-touch-icon" sizes="180x180" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/favicons/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/favicons/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/favicons/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="theme-color" content="#ffffff">
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+<link rel="canonical" href="http://freeform.go.com/" />
+<meta name="description" content="Watch Freeform (formerly ABC Family) TV shows online like Pretty Little Liars, Shadowhunters and more!"/>
+
+<meta property="fb:pages" content="9002965673"/>
+
+    <!-- Region: west-us -->
+    <script type="text/javascript">
+        var canShowAds = false;
+        var pageLoadStartTime = new Date().getTime();
+    </script>
+    <script type="text/javascript" src="https://freeform.azureedge.net/showms/2.14.3.build.3068/advert.js"></script>
+
+        <!-- Begin comScore Tag -->
+    <script>
+        var _comscore = _comscore || [];
+        _comscore.push({ c1: "2", c2: "3000014" });
+        (function() {
+            var s = document.createElement("script"), el = document.getElementsByTagName("script")[0];
+            s.async = true;
+            s.src = (document.location.protocol == "https:" ? "https://sb" : "http://b") +
+                ".scorecardresearch.com/beacon.js";
+            el.parentNode.insertBefore(s, el);
+        })();
+    </script>
+    <noscript>
+        <img src="http://b.scorecardresearch.com/p?c1=2&c2=3000014&cv=2.0&cj=1"/>
+    </noscript>
+    <!-- End comScore Tag -->
+
+        <script type="text/javascript">
+  (function(e,t){var n=e.amplitude||{_q:[],_iq:{}};var r=t.createElement("script");r.type="text/javascript";
+  r.async=true;r.src="https://d24n15hnbwhuhn.cloudfront.net/libs/amplitude-3.0.1-min.gz.js";
+  r.onload=function(){e.amplitude.runQueuedFunctions()};var i=t.getElementsByTagName("script")[0];
+  i.parentNode.insertBefore(r,i);function s(e,t){e.prototype[t]=function(){this._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+  return this}}var o=function(){this._q=[];return this};var a=["add","append","clearAll","prepend","set","setOnce","unset"];
+  for(var u=0;u<a.length;u++){s(o,a[u])}n.Identify=o;var c=function(){this._q=[];return this;
+  };var p=["setProductId","setQuantity","setPrice","setRevenueType","setEventProperties"];
+  for(var l=0;l<p.length;l++){s(c,p[l])}n.Revenue=c;var d=["init","logEvent","logRevenue","setUserId","setUserProperties","setOptOut","setVersionName","setDomain","setDeviceId","setGlobalUserProperties","identify","clearUserProperties","setGroup","logRevenueV2","regenerateDeviceId"];
+  function v(e){function t(t){e[t]=function(){e._q.push([t].concat(Array.prototype.slice.call(arguments,0)));
+  }}for(var n=0;n<d.length;n++){t(d[n])}}v(n);n.getInstance=function(e){e=(!e||e.length===0?"$default_instance":e).toLowerCase();
+  if(!n._iq.hasOwnProperty(e)){n._iq[e]={_q:[]};v(n._iq[e])}return n._iq[e]};e.amplitude=n;
+  })(window,document);
+
+  amplitude.getInstance().init("0a8f248176ee40bd81cc371b7cba515e", null,
+      {
+          includeGclid: true,
+          includeUtm: true,
+          includeReferrer: true
+      });
+    </script>
+
+        <link type="text/css" rel="stylesheet" href="https://fast.fonts.net/t/1.css?apiType=css&projectid=d088f566-b103-4997-b909-19a0dbf74323"/>
+
+    
+
+</head>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info = {"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"8d01ff17d1","applicationID":"50625650","transactionName":"NVNRYRdWV0tQWxcIXQwZfmMmGHFXXF0gDlwWRFxZCVJLF3hWBwRK","queueTime":0,"applicationTime":75,"ttGuid":"74A5FBC74004C6BF","agent":""}</script><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQIEVFdTGwYAUlNXAQQH"};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration=isNaN(t[1])?0:+t[1],t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,y,"fn-",s)}function i(t){g.push(t),h&&(x?x.then(a):w?w(a):(E=-E,O.data=E))}function a(){for(var t=0;t<g.length;t++)r([],g[t]);g.length&&(g=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m=l.PR,w=l.SI,v="readystatechange",y=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],g=[];n.exports=u;var b=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(v,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,b),b.prototype=p.prototype,d.inPlace(b.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var x=m&&m.resolve();if(!w&&!m){var E=1,O=document.createTextNode(E);new h(a).observe(O,{characterData:!0})}}else f.on("fn-end",function(t){t[0]&&t[0].type===v||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1044.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script><body data-window-resize-watcher class="home index " data-time-on-site ng-class="{'loading-container-overflow' : loadingSuspectTrackerImages, 'body-disable-scrolling': showMenu}">
+    <nav class="navbar navbar-top navbar-fixed-top navbar-dark bg-inverse" ng-class="{'menu-active' : showMenu}" id="menu" role="navigation" data-homepage-nav>
+        <div class="container">
+            <div id="menu-area" class="menu-control" data-menu>
+                <input type="checkbox" id="menu-toggle">
+                <div class="menu-open" ng-click="toggleMenu()">
+                    <span class="menu-icon"></span>
+                </div>
+            </div>
+
+                    <h1 class="unstyled">
+                        <a class="navbar-brand" href="/">
+                            <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/logo-freeform.png" class="img-fluid" alt="Freeform" />
+                        </a>
+                    </h1>
+
+                <a href="/watch-live" class="btn btn-small btn-outline cta-live">
+                    Live
+                </a>
+
+            </div>
+        </nav>
+        <div class="menu-overlay fade" ng-show="showMenu" ng-cloak>
+            <div class="menu-content" ng-class="{'mvpd-displayed': mvpdDisplayed}">
+                <mvpd-logo></mvpd-logo>
+
+<ul id="menu-main-menu" class="li-main">
+
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/" data-track-analytics data-category="Menu" data-action="Section" data-label="Home">Home</a>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/shows" data-track-analytics data-category="Menu" data-action="Section" data-label="Sections">Shows</a>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/movies" data-track-analytics data-category="Menu" data-action="Section" data-label="Sections">Movies</a>
+    </li>
+
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/watch-live" data-track-analytics data-category="Menu" data-action="Section" data-label="WatchLive">Watch Live</a>
+    </li>
+
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/apps" data-track-analytics data-category="Menu" data-action="Section" data-label="Apps">Apps</a>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/schedule" data-track-analytics data-category="Menu" data-action="Section" data-label="Schedule">Schedule</a>
+    </li>
+    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item">
+        <a href="/news" data-track-analytics data-category="Menu" data-action="Section" data-label="News">News</a>
+    </li>
+</ul>
+                <ul class="li-social li-unstyled text-center">
+    <li>
+        <a href="https://www.facebook.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://twitter.com/freeformtv" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </li>
+    <li>
+        <a href="http://freeform.tumblr.com/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Tumblr">
+            <i class="fa fa-tumblr"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.instagram.com/freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.pinterest.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Pinterest">
+            <i class="fa fa-pinterest-p"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.youtube.com/freeformnetwork" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="YouTube">
+            <i class="fa fa-youtube-play"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.snapchat.com/add/freeform" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Snapchat">
+            <i class="fa fa-snapchat-ghost"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://play.spotify.com/user/abcfamily" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Spotify">
+            <i class="fa fa-spotify"></i>
+        </a>
+    </li>
+</ul>
+
+<script>
+    var twitterAccounts = window["twitterAccountsOnShare"] || [];
+    twitterAccounts.push("freeformtv");
+    window["twitterAccountsOnShare"] = twitterAccounts;
+</script>
+
+            </div>
+        </div>
+    <div class="page-header-background">
+    <a href="http://freeform.go.com/shows/the-bold-type" class="link-wrap">
+        <!-- only add the "video-header" class if we're using a video -->
+        <header sn-skrollr
+                data-top-top="opacity: 1;"
+                data-top-bottom="opacity: 0;"
+                class="merchandising-unit page-header darken" data-responsive-image
+                data-src-xs="https://freeform.azureedge.net/showms/2017/206/e9b84107-14ce-48e1-b402-a6b9670c9417.png"
+                data-src-sm="https://freeform.azureedge.net/showms/2017/206/da1ea6ac-49e2-4d2b-a716-dbca6af55e28.png" data-is-background-image="true" 
+                style="background-color: #d00056">
+
+            <div class="container hero-info-container">
+                <div sn-skrollr data-0="transform: translateY(0px);" data-800="transform: translateY(100px);" class="header-info header-info-left" data-waypoint>
+                    <div class="tag-line animated fast fadeInUp">
+                        BINGE THE FIRST 5 EPISODES
+                    </div>
+                    <div class="show-title">
+                        <h2 class="ff-brand-pll m-t-1">THE BOLD TYPE</h2>
+                    </div>
+                    <div class="cta">
+                        <span class="btn btn-outline-primary text-left">WATCH NOW <i class="fa fa-angle-right"></i> </span>
+                    </div>
+                </div>
+
+            </div>
+        </header>
+    </a>
+</div>
+
+
+
+<section class="block section-schedule">
+    <div class="container">
+        <div class="row row-tight" data-watch-live-schedule data-should-show-times="false">
+            <div class="col-xs-12" ng-if="scheduleState === scheduleStates.default">
+                    <div class="schedule-inline hidden-md-up">
+        <div class="schedule-info">
+            <h3 class="h-light text-animated-one">
+                    <a href="/watch-live">
+                            <span class="heavy">
+        Watch Now
+    </span>
+    <span class="schedule-show-name">
+        The 700 Club
+    </span>
+
+                    </a>
+            </h3>
+            <h3 class="h-light text-animated-two">
+                    <a href="/watch-live">
+                            <span class="heavy">
+        On Next
+    </span>
+    <span class="schedule-show-name">
+        When In Rome
+    </span>
+
+                    </a>
+            </h3>
+        </div>
+        <div class="schedule-next">
+            <a href="/schedule">
+                Schedule <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+
+
+                    <div class="schedule-inline hidden-sm-down">
+        <div class="schedule-info">
+            <h3 class="h-light">
+                    <a href="/watch-live">
+                            <span class="schedule-title">
+            <span class="heavy">
+        Watch Now
+    </span>
+    <span class="schedule-show-name">
+        The 700 Club
+    </span>
+
+    </span>
+
+                    </a>
+            </h3>
+            <h3 class="h-light">
+                    <a href="/watch-live">
+                            <span class="schedule-title">
+            <span class="heavy">
+        On Next
+    </span>
+    <span class="schedule-show-name">
+        When In Rome
+    </span>
+
+    </span>
+
+                    </a>
+            </h3>
+        </div>
+        <div class="schedule-next">
+            <a href="/schedule">
+                Schedule <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+
+            </div>
+
+            <div class="col-xs-12" ng-if="scheduleState === scheduleStates.loading" ng-cloak>
+                <div class="schedule-inline">
+                    <div class="schedule-info">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/whatsonnow-mobile-loading.png" class="img-fluid whatsonnow-loading hidden-md-up" />
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/whatsonnow-loading.png" class="img-fluid whatsonnow-loading hidden-sm-down" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12" ng-if="scheduleState === scheduleStates.loaded" ng-cloak>
+                    <div class="schedule-inline hidden-md-up">
+        <div class="schedule-info">
+            <h3 class="h-light" ng-class="{'text-animated-one': $index === 0, 'text-animated-two': $index === 1}" ng-repeat="scheduleItem in scheduleItems">
+                    <a href="/watch-live">
+                            <span class="heavy" ng-if="$index === 0">
+        Watch Now
+    </span>
+    <span class="heavy" ng-if="$index === 1 && showTimes">
+        On Next {{scheduleItem.startAtTime}}
+    </span>
+    <span class="heavy" ng-if="$index === 1 && !showTimes">
+        On Next
+    </span>
+    <span class="schedule-show-name">
+        {{ scheduleItem.video.showtitle || scheduleItem.video.title || scheduleItem.title }}
+    </span>
+
+                    </a>
+            </h3>
+        </div>
+
+        <div class="schedule-next">
+            <a href="/schedule">
+                Schedule <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+
+                
+                    <div class="schedule-inline hidden-sm-down">
+        <div class="schedule-info">
+            <h3 class="h-light" ng-repeat="scheduleItem in scheduleItems">
+                    <a href="/watch-live">
+                            <span class="schedule-title">
+            <span class="heavy" ng-if="$index === 0">
+        Watch Now
+    </span>
+    <span class="heavy" ng-if="$index === 1 && showTimes">
+        On Next {{scheduleItem.startAtTime}}
+    </span>
+    <span class="heavy" ng-if="$index === 1 && !showTimes">
+        On Next
+    </span>
+    <span class="schedule-show-name">
+        {{ scheduleItem.video.showtitle || scheduleItem.video.title || scheduleItem.title }}
+    </span>
+
+    </span>
+
+                    </a>
+            </h3>
+        </div>
+        <div class="schedule-next">
+            <a href="/schedule">
+                Schedule <i class="fa fa-angle-right"></i>
+            </a>
+        </div>
+    </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    window["nowNextItems"] = [{"startTime":"2017-08-04T03:00:00","startAtDate":"08/03/2017","startAtTime":"11:00 PM","duration":"01:00:00","rating":"TV-G","title":"The 700 Club","displayTitle":"The 700 Club","blurb":"News from a Christian perspective; inspirational guests share stories of God at work in their lives.","onNow":false,"hasContent":false,"durationDisplay":"1h 0min"},{"url":"/movies/when-in-rome","movie":{"title":"When In Rome","urlName":"when-in-rome","description":"A New Yorker takes a whirlwind trip to Rome.","thumbnailImageUrl":"https://freeformproduction.blob.core.windows.net/showms/2017/191/ce55bb1f-ee35-4d5d-b4a9-09d6241a56dd.jpg","portraitImageUrl":"https://freeformproduction.blob.core.windows.net/showms/2017/191/2ff83053-2d2c-4cc1-827c-26baaaea5a66.jpg","requiresSignIn":true,"duration":"01:25:50.1120000","durationDisplay":"1h 25min","airDate":"2010","rating":"TV-14","collectionUrlName":"movies","partnerApiId":"VDKA3960167","url":"http://freeform.go.com/movies/when-in-rome"},"startTime":"2017-08-04T04:00:00","startAtDate":"08/04/2017","startAtTime":"12:00 AM","duration":"01:25:50.1120000","rating":"TV-14","title":"When In Rome","displayTitle":"When In Rome","blurb":"A New Yorker takes a whirlwind trip to Rome.","thumbnailImageUrl":"https://freeform.azureedge.net/showms/2017/191/ce55bb1f-ee35-4d5d-b4a9-09d6241a56dd.jpg","onNow":false,"hasContent":true,"durationDisplay":"1h 25min"}];
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="hidden-md-up">
+    <div class="block block-light block-swiper">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h2 class="h-underline">
+                        <span>Featured</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="swiper-container" data-carousel-swiper data-should-snap="true" data-slides-per-view='{"sm": 1.2, "md": 1.2, "lg": 1.2, "xl": 1.2, "xxl": 1.2, "xxxl": 1.2}'>
+            <div class="swiper-wrapper">
+<a href="/shows/shadowhunters/episodes/season-2/18-awake-arise-or-be-forever-fallen" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/213/944f5b86-73fd-4d82-ae4e-455d04c5edaa.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>SHADOWHUNTERS</div>
+                                    <div>WATCH THE NEW EPISODE</div>
+            </h4>
+    </div>
+
+
+</a><a href="/shows/the-fosters/episodes/season-5/4-too-fast-too-furious" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/214/c20557ce-001b-4aa5-a61e-1fa947d9771a.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>THE FOSTERS</div>
+                                    <div>LATEST EPISODE</div>
+            </h4>
+    </div>
+
+
+</a><a href="/shows/stitchers/episodes/season-3/8-dreamland" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/213/30043ba2-2d0f-4da8-b7b3-b48c8bf58b98.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>STITCHERS</div>
+                                    <div>WATCH THE NEW EPISODE</div>
+            </h4>
+    </div>
+
+
+</a><a href="/shows/famous-in-love" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay" style="background-image: url('https://freeform.azureedge.net/showms/2017/75/2de5736a-f68c-4e49-9171-dfad64a76f62.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>WATCH THE FULL SERIES</div>
+                                    <div>WITH NO SIGN IN</div>
+            </h4>
+        </div>
+
+
+</a><a href="/movies/disneys-descendants-2" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/203/f586db57-0619-4a1f-ba5d-e2b16f72f7c3.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>DESCENDANTS 2</div>
+                                    <div>WATCH THE FULL MOVIE</div>
+            </h4>
+    </div>
+
+
+
+
+
+</a><a href="/movies/dirty-dancing" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/190/4c9d36ee-3630-4c36-9efa-0704659985c9.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>DIRTY DANCING</div>
+                                    <div>STREAM IT NOW</div>
+            </h4>
+    </div>
+
+
+
+
+
+</a>            </div>
+        </div>
+    </div>
+</div>
+
+    <div class="hidden-sm-down">
+        <div class="block block-white block-grid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <h2 class="h-underline">
+                            <span>Featured</span>
+                        </h2>
+                    </div>
+                </div>
+                        <div class="row row-tight">
+                    <div class="col-md-4">
+                        <a href="/shows/shadowhunters/episodes/season-2/18-awake-arise-or-be-forever-fallen" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/213/944f5b86-73fd-4d82-ae4e-455d04c5edaa.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>SHADOWHUNTERS</div>
+                                    <div>WATCH THE NEW EPISODE</div>
+            </h4>
+    </div>
+
+
+</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/shows/the-fosters/episodes/season-5/4-too-fast-too-furious" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/214/c20557ce-001b-4aa5-a61e-1fa947d9771a.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>THE FOSTERS</div>
+                                    <div>LATEST EPISODE</div>
+            </h4>
+    </div>
+
+
+</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/shows/stitchers/episodes/season-3/8-dreamland" class="swiper-slide no-ani">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/213/30043ba2-2d0f-4da8-b7b3-b48c8bf58b98.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>STITCHERS</div>
+                                    <div>WATCH THE NEW EPISODE</div>
+            </h4>
+    </div>
+
+
+</a>
+                    </div>
+                        </div>
+                        <div class="row row-tight">
+                    <div class="col-md-4">
+                        <a href="/shows/famous-in-love" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay" style="background-image: url('https://freeform.azureedge.net/showms/2017/75/2de5736a-f68c-4e49-9171-dfad64a76f62.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>WATCH THE FULL SERIES</div>
+                                    <div>WITH NO SIGN IN</div>
+            </h4>
+        </div>
+
+
+</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/movies/disneys-descendants-2" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/203/f586db57-0619-4a1f-ba5d-e2b16f72f7c3.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>DESCENDANTS 2</div>
+                                    <div>WATCH THE FULL MOVIE</div>
+            </h4>
+    </div>
+
+
+
+
+
+</a>
+                    </div>
+                    <div class="col-md-4">
+                        <a href="/movies/dirty-dancing" class="swiper-slide">
+    <div class="card card-media embed-responsive embed-responsive-16by9">
+        <div class="embed-responsive-item">
+            <div class="card-overlay darken" style="background-image: url('https://freeform.azureedge.net/showms/2017/190/4c9d36ee-3630-4c36-9efa-0704659985c9.jpg');">
+                <div class="card-block">
+                    <div class="card-top">
+                        <div class="card-icon">
+                            <i class="fa fa-play pull-left"></i>
+                        </div>
+                        <p class="card-info pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card-btm card-btm-bar">
+            <h4 class="card-title text-uppercase">
+                    <div>DIRTY DANCING</div>
+                                    <div>STREAM IT NOW</div>
+            </h4>
+    </div>
+
+
+
+
+
+</a>
+                    </div>
+                        </div>
+            </div>
+        </div>
+    </div>
+<div class="block block-swiper block-swiper-portrait block-federal clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="/shows">
+                    <h2 class="h-underline">
+                        <span>Shows</span>
+                    </h2>
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <a href="/shows" class="btn btn-small btn-link btn-title pull-right">All <span class="hidden-xs-down">Shows&nbsp;</span><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-container" data-carousel-swiper data-slides-per-view='{"sm": 2.6, "md": 3.6, "lg": 3.6, "xl": 4.3, "xxl": 4.3, "xxxl": 5.3}'>
+    <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="/shows/shadowhunters">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/9f9c953a-f7d1-40d8-8325-e45e6092e8e8.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/42f0297a-83c4-4559-a060-d78d5e6ed1b7.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/stitchers">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/9ea84b88-4ea5-4bc7-9afe-17f14620812f.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/46ddd4f5-e234-41ef-bb0e-f0304168c056.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/the-bold-type">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/158/1fa6987d-d00d-48f5-8edf-7c247b3ffbff.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/158/cb762f51-b526-481d-bdbf-e852c0f67290.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/the-fosters">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/191/3101c408-3cab-41cf-9dae-c1b98de076a3.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/191/40de3dad-f048-40ef-880a-e89f5ff5d726.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/famous-in-love">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/75/6e8fe81a-44cb-419d-8975-7818be98c245.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/75/2de5736a-f68c-4e49-9171-dfad64a76f62.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/pretty-little-liars">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/95/35fc1c46-5ac4-4953-83e4-dd9731015189.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/95/ec24f317-1ce6-4932-8a1a-c87a5e4f9222.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/beyond">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/7d3b9888-3034-4e58-870e-dd4f8fff8de8.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/5f3d9425-b1bd-402e-9b75-d3bd0d7b00fc.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/young-hungry">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/f912eb8b-08ae-4fa6-8021-3bbcb9a7e481.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/3c5cc2e0-77ad-4ed0-8d13-7748fb3c2d0a.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/greek">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/dd5d853e-223d-4aa7-9bec-1ef2bdf6b5ec.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/401dcf55-1ac2-47bd-bf7b-f571f90bfca8.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/make-it-or-break-it">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/4528fbcf-0b05-44ee-a0c1-78148dd3164e.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/b6f25a3c-5b36-4300-8cf6-18f57407d5d5.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/truth-iliza">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/118/43cd657f-dc18-423e-a1cc-06e84ebbff4a.png" data-src-sm="https://freeform.azureedge.net/showms/2017/118/9fb040aa-f0d3-4aca-bbcd-d9183d9f11aa.png" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/wildfire">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/32/0be3dc85-2811-4f70-98f7-18429d1fa15d.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/32/2bc08d7c-a5c7-4947-a72f-47797e6bb687.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/party-of-five">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/60/162a5cb5-ba50-45cf-88c7-b0968a22bacf.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/60/0e4c9af9-b6e0-410a-a39c-6aece2ce6b9c.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/bunheads">
+                    <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/fb833da6-4fe3-4035-9a4c-ef52b93c91c2.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/5f8fc688-d748-4db7-ba90-e5c30ca8d485.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <a href="/shows/beautiful-people">
+                    <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/60/18047a37-22df-4f07-ab73-95e642e16069.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/60/01652203-ddeb-4cde-b4b4-96f87a7c8e5d.jpg" class="swiper-lazy img-fluid" />
+                </a>
+
+                <div class="swiper-lazy-preloader portrait-preloader">
+                </div>
+            </div>
+    </div>
+    <div class="swiper-nav swiper-next text-hide">
+        Next  <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="swiper-nav swiper-prev text-hide">
+        Previous <i class="fa fa-angle-left"></i>
+    </div>
+</div>
+</div><div class="block block-swiper block-swiper-portrait block-federal-2 clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="/movies">
+                    <h2 class="h-underline">
+                        <span>Movies</span>
+                    </h2>
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <a href="/movies" class="btn btn-small btn-link btn-title pull-right">All <span class="hidden-xs-down">Movies&nbsp;</span><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <div class="swiper-container movies-swiper-container" data-carousel-swiper data-slides-per-view='{"sm": 2.6, "md": 3.6, "lg": 4.3, "xl": 4.3, "xxl": 5.3, "xxxl": 8.3}'>
+    <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <a href="/movies/the-prince-me">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/129/f05191ee-416e-44b4-9b3b-7fbe493fec79.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Prince &amp; Me</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Prince & Me</h3>
+                            <span class="small sub-heading">2004</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>At college, a girl meets a boy who is a Danish prince.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/not-another-teen-movie">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/214/30cac51f-a36b-4bcf-a5cd-8d3ef39ec8de.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Not Another Teen Movie</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Not Another Teen Movie</h3>
+                            <span class="small sub-heading">2001</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A sendup of teen movies in the past 20 years.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/dirty-dancing">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/124/d1835ee8-0e60-446d-8ae7-9c1f8578d9a0.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Dirty Dancing</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Dirty Dancing</h3>
+                            <span class="small sub-heading">1987</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Spending the summer in camp, Frances Houseman falls in love.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/mirror-mirror">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/129/9ed8e42c-ea9d-4436-beb2-ccab4fe06a3b.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Mirror Mirror</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Mirror Mirror</h3>
+                            <span class="small sub-heading">2012</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>An evil queen steals control of a kingdom.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/if-i-stay">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/70/97b2ae71-71e7-4a2b-a143-88eb14e800dc.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>If I Stay</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>If I Stay</h3>
+                            <span class="small sub-heading">2014</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A girl in a coma is has an out-of-body experience.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/disneys-descendants-2">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/203/9c2c65dd-f91b-437e-968c-b67675d76374.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Disney&#39;s Descendants 2</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Disney's Descendants 2</h3>
+                            <span class="small sub-heading">2017</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>The story deepens in the sequel to "Descendants."</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/alvin-and-the-chipmunks">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/129/e43fae26-3a7e-4ac3-8bca-fc05335fed4b.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Alvin and the Chipmunks</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Alvin and the Chipmunks</h3>
+                            <span class="small sub-heading">2007</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A songwriter finds success with singing chipmunks.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/the-perks-of-being-a-wallflower">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/97/6e8cf0bb-da19-4f3e-a8f3-2242d80f4332.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Perks of Being A Wallflower</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Perks of Being A Wallflower</h3>
+                            <span class="small sub-heading">2012</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A freshman is taken under the wings of two seniors.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/twilight/twilight">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/8/2f7f0c52-cde2-4aa8-b0b7-53d8b00592e2.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Twilight</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Twilight</h3>
+                            <span class="small sub-heading">2008</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Teenager Bella Swan falls in love with vampire Edward Cullen.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/twilight/the-twilight-saga-new-moon">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/10/5b3e7253-7b66-4bcd-b494-4bdfb013834e.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Twilight Saga: New Moon</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Twilight Saga: New Moon</h3>
+                            <span class="small sub-heading">2009</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Edward leaves Bella after an attack that nearly claimed her life.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/twilight/the-twilight-saga-eclipse">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/8/192d6b5e-0947-421f-b0ee-6275a3d12fb4.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Twilight Saga: Eclipse</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Twilight Saga: Eclipse</h3>
+                            <span class="small sub-heading">2010</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Bella is forced to choose between vampire Edward and werewolf Jacob.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/twilight/the-twilight-saga-breaking-dawn-part-1">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/8/cd535fb9-5dfe-4922-9778-ba3659287c55.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Twilight Saga: Breaking Dawn Part 1</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Twilight Saga: Breaking Dawn Part 1</h3>
+                            <span class="small sub-heading">2011</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>The Quileutes close in on Edward and pregnant Bella.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/twilight/the-twilight-saga-breaking-dawn-part-2">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/8/d15a95d0-6608-48d5-8619-cdac493fb648.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Twilight Saga: Breaking Dawn Part 2</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Twilight Saga: Breaking Dawn Part 2</h3>
+                            <span class="small sub-heading">2012</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>The Cullens gather other vampires to protect Renesmee.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/the-spectacular-now">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/7/9f437d42-76ea-49c3-ab67-b377bf958036.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>The Spectacular Now</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>The Spectacular Now</h3>
+                            <span class="small sub-heading">2013</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A high school senior meets a not-typical "nice girl."</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/when-in-rome">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/191/2ff83053-2d2c-4cc1-827c-26baaaea5a66.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>When In Rome</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>When In Rome</h3>
+                            <span class="small sub-heading">2010</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>A New Yorker takes a whirlwind trip to Rome.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/lovestruck-the-musical">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform-dev.azureedge.net/showms/2017/7/823b2442-874b-4a5b-a604-379dab4634fe.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Lovestruck: The Musical</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="False" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Lovestruck: The Musical</h3>
+                            <span class="small sub-heading">2013</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Mirabella decides to quit the show to get married.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/home-alone-2-lost-in-new-york">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/129/882b74b3-be42-41da-a6e4-7e366be75a71.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Home Alone 2: Lost in New York</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="True" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Home Alone 2: Lost in New York</h3>
+                            <span class="small sub-heading">1992</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>The Home Alone boy finds himself in New York City.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/fallen">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/122/793c4387-43af-4649-a60a-8daa05018c09.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Fallen</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="False" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Fallen</h3>
+                            <span class="small sub-heading">2006</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>An 18-year-old, who struggles to come to to terms with his new identitity.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/fallen-the-journey">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/122/20fdb154-501e-4659-97af-ce884de92fd5.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Fallen: The Journey</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="False" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Fallen: The Journey</h3>
+                            <span class="small sub-heading">2007</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Aaron tries to rescue Vilma without drawing attention to his location.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="swiper-slide">
+                <a href="/movies/fallen-iii-the-destiny">
+                    <div class="swiper-lazy-preloader portrait-preloader">
+                        <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/portrait-placeholder.jpg" class="img-fluid swiper-lazy" />
+                    </div>
+                        <img data-src="https://freeform.azureedge.net/showms/2017/122/06f270dd-fd00-4a61-b8f4-d680d7d3a228.jpg" class="swiper-lazy img-fluid"/>
+                        <div class="movie-info hidden-sm-up">
+                            <strong>Fallen III: The Destiny</strong>
+                        </div>
+                    <div class="info-overlay">
+                        <p class="card-info card-info-top-right pull-right">
+                            <span class="sign-in-padlock" data-sign-in-padlock data-requires-sign-in="False" ng-cloak>
+    <i class="fa fa-lock"></i> Sign In
+</span>
+                        </p>
+                        <div class="info-content">
+                            <h3>Fallen III: The Destiny</h3>
+                            <span class="small sub-heading">2007</span>
+                            <hr class="hr-xs hr-left hr-colored">
+                            <p>Aaron and Vilma continue their quest to find the Light Bringer.</p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+    </div>
+
+    <div class="swiper-nav swiper-next text-hide">
+        Next <i class="fa fa-angle-right"></i>
+    </div>
+    <div class="swiper-nav swiper-prev text-hide">
+        Previous <i class="fa fa-angle-left"></i>
+    </div>
+</div>
+</div>
+<div class="articles-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+                <a href="/news">
+                    <h2 class="h-underline"><span>News</span></h2>
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <a href="/news" class="btn btn-title btn-link pull-right">More <span class="hidden-xs-down">News&nbsp;</span><i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+<div class="card-lister article-lister" data-infinite-scroll data-max-pages="479" data-load-more-path="">
+    <div class="cl-row">
+        <div class="cl-col cl-col-6">
+                    <a href="/shows/the-bold-type/news/will-kat-and-adena-be-able-to-work-things-out" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="will-kat-and-adena-be-able-to-work-things-out">
+            <div class="card card-stacked card-lg ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/213/a5873c78-e27b-4508-bddc-de14f6631807.png"
+ class="img-fluid" alt="The Bold Type - Will Kat And Adena Be Able To Work Things Out? - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-overflow">
+                        Will Kat And Adena Be Able To Work Things Out?
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">The Bold Type /  News</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 03
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        </div>
+        <div class="cl-col cl-col-6">
+        <a href="/shows/shadowhunters/news/go-behind-the-scenes-of-the-lightwood-family-reunion" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="go-behind-the-scenes-of-the-lightwood-family-reunion">
+            <div class="card card-inline ">
+                <div class="card-media-object">
+                        <div class="panel-play">
+                            <i class="fa fa-play"></i>
+                        </div>
+                    <img         src="https://freeform.azureedge.net/showms/2017/214/be1c86cb-e83c-4014-aed3-fabf21776b65.png"
+ class="img-fluid" alt="Shadowhunters - Go Behind The Scenes Of The Lightwood Family Reunion - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-text-sm card-overflow">
+                        Go Behind The Scenes Of The Lightwood Family Reunion
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">Shadowhunters /  Videos</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 03
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="/shows/famous-in-love/news/breaking-news-famous-in-love-starring-bella-thorne-renewed-for-season-2" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="breaking-news-famous-in-love-starring-bella-thorne-renewed-for-season-2">
+            <div class="card card-inline ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/215/94b4dfec-b8fb-4e53-9124-56f274776dde.png"
+ class="img-fluid" alt="Famous in Love - Breaking News: Famous in Love Starring Bella Thorne Renewed For Season 2 - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-text-sm card-overflow">
+                        Breaking News: Famous in Love Starring Bella Thorne Renewed For Season 2
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">Famous in Love /  News</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 03
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        <a href="/shows/stitchers/news/8-things-youll-understand-if-youre-a-little-obsessed-with-conspiracy-theories" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="8-things-youll-understand-if-youre-a-little-obsessed-with-conspiracy-theories">
+            <div class="card card-inline ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/213/32df7707-9ac6-48af-89af-584930583e1f.png"
+ class="img-fluid" alt="Stitchers - 8 Things You&#39;ll Understand If You&#39;re A Little Obsessed With Conspiracy Theories - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-text-sm card-overflow">
+                        8 Things You'll Understand If You're A Little Obsessed With Conspiracy Theories
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">Stitchers /  GIFs</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 03
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
+
+    
+
+    <div class="cl-row hidden-sm-down">
+        <div class="cl-col cl-col-6">
+                    <a href="/shows/the-bold-type/news/how-to-negotiate-your-salary-like-a-queen" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="how-to-negotiate-your-salary-like-a-queen">
+            <div class="card card-inline ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/212/00198e59-79de-4a71-910e-d194a599974c.png"
+ class="img-fluid" alt="The Bold Type - How To Negotiate Your Salary Like A Queen - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-text-sm card-overflow">
+                        How To Negotiate Your Salary Like A Queen
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">The Bold Type /  GIFs</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 03
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+                    <a href="/news/freeform-gets-grown-with-grown-ish-formerly-college-ish" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="freeform-gets-grown-with-grown-ish-formerly-college-ish">
+            <div class="card card-stacked card-lg ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/213/2ac4e6d0-2677-48fb-9646-3adac105ac95.jpg"
+ class="img-fluid" alt="News - Freeform Gets Grown With Grown-ish (Formerly College-ish) - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-overflow">
+                        Freeform Gets Grown With Grown-ish (Formerly College-ish)
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">News /  News</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 02
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        </div>
+
+        <div class="cl-col cl-col-6">
+                    <a href="/news/tell-us-about-your-squad-and-well-tell-you-which-show-you-should-be-watching" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="tell-us-about-your-squad-and-well-tell-you-which-show-you-should-be-watching">
+            <div class="card card-stacked card-lg ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/214/529a3ef4-8527-46f4-a8c9-e6026fa3fa8e.png"
+ class="img-fluid" alt="News - Tell Us About Your Squad And We&#39;ll Tell You Which Show You Should Be Watching - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-overflow">
+                        Tell Us About Your Squad And We'll Tell You Which Show You Should Be Watching
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">News /  Quizzes</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 02
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+                    <a href="/shows/the-fosters/news/do-you-remember-exactly-what-happened-in-season-5-episode-4" class="article-link" data-track-analytics data-category="ArticleLister" data-action="Click" data-label="do-you-remember-exactly-what-happened-in-season-5-episode-4">
+            <div class="card card-inline ">
+                <div class="card-media-object">
+                    <img         src="https://freeform.azureedge.net/showms/2017/214/21a28994-9f79-4a26-a430-56cd37446278.png"
+ class="img-fluid" alt="The Fosters - Do You Remember Exactly What Happened In Season 5 Episode 4?  - Thumb" />
+                </div>
+                <div class="card-block">
+                    <p class="card-text card-text-sm card-overflow">
+                        Do You Remember Exactly What Happened In Season 5 Episode 4? 
+                    </p>
+                    <div class="card-btm">
+                        <p class="card-info card-show-info text-muted">
+                            <span class="highlight">The Fosters /  Quizzes</span>
+                        </p>
+                    </div>
+                    <div class="card-btm-right">
+                        <p class="card-info card-show-info text-muted">
+                            Aug 02
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </a>
+
+        </div>
+    </div>
+
+    
+
+    <div class="cl-row hidden-sm-down">
+        <div class="cl-col cl-col-6">
+            
+        </div>
+        <div class="cl-col cl-col-6">
+
+            <div class="cl-row">
+                <div class="cl-col cl-col-6">
+                    
+                </div>
+                <div class="cl-col cl-col-6">
+                    
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    <div class="cl-row hidden-sm-down">
+        <div class="cl-col cl-col-4">
+            
+        </div>
+        <div class="cl-col cl-col-4">
+            
+        </div>
+        <div class="cl-col cl-col-4">
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 text-xs-center">
+                <a href="/news" class="btn btn-small btn-outline btn-outro">More News <i class="fa fa-angle-right"></i></a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+    <div class="block block-swiper block-swiper-portrait block-federal-3 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6">
+                    <h2 class="h-underline">
+                        <span>Recommended</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-container" data-carousel-swiper data-slides-per-view='{"sm": 2.6, "md": 3.6, "lg": 3.6, "xl": 4.3, "xxl": 4.3, "xxxl": 5.3}'>
+            <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="/shows/shadowhunters">
+                            <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/9f9c953a-f7d1-40d8-8325-e45e6092e8e8.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/42f0297a-83c4-4559-a060-d78d5e6ed1b7.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/stitchers">
+                            <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/9ea84b88-4ea5-4bc7-9afe-17f14620812f.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/46ddd4f5-e234-41ef-bb0e-f0304168c056.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/the-fosters">
+                            <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/191/3101c408-3cab-41cf-9dae-c1b98de076a3.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/191/40de3dad-f048-40ef-880a-e89f5ff5d726.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/the-bold-type">
+                            <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/158/1fa6987d-d00d-48f5-8edf-7c247b3ffbff.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/158/cb762f51-b526-481d-bdbf-e852c0f67290.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/famous-in-love">
+                            <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/75/6e8fe81a-44cb-419d-8975-7818be98c245.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/75/2de5736a-f68c-4e49-9171-dfad64a76f62.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/pretty-little-liars">
+                            <img data-responsive-image data-src-xs="https://freeform.azureedge.net/showms/2017/95/35fc1c46-5ac4-4953-83e4-dd9731015189.jpg" data-src-sm="https://freeform.azureedge.net/showms/2017/95/ec24f317-1ce6-4932-8a1a-c87a5e4f9222.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/beyond">
+                            <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/7d3b9888-3034-4e58-870e-dd4f8fff8de8.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/5f3d9425-b1bd-402e-9b75-d3bd0d7b00fc.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <a href="/shows/young-hungry">
+                            <img data-responsive-image data-src-xs="https://freeform-dev.azureedge.net/showms/2017/12/f912eb8b-08ae-4fa6-8021-3bbcb9a7e481.jpg" data-src-sm="https://freeform-dev.azureedge.net/showms/2017/12/3c5cc2e0-77ad-4ed0-8d13-7748fb3c2d0a.jpg" class="swiper-lazy img-fluid"/>
+                        </a>
+
+                        <div class="swiper-lazy-preloader portrait-preloader">
+                        </div>
+                    </div>
+            </div>
+            <div class="swiper-nav swiper-next text-hide">
+                Next <i class="fa fa-angle-right"></i>
+            </div>
+            <div class="swiper-nav swiper-prev text-hide">
+                Previous <i class="fa fa-angle-left"></i>
+            </div>
+        </div>
+    </div>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="row m-b-2">
+            <div class="col-xs-4">
+                <h5 class="h-colored">Freeform</h5>
+                <hr class="hr-xs hr-left" />
+                <ul class="li-footer-links">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    <li>
+                        <a href="/shows">Shows</a>
+                    </li>
+
+                    <li>
+                        <a href="/movies">Movies</a>
+                    </li>
+
+                    <li>
+                        <a href="/watch-live">Watch Live</a>
+                    </li>
+
+                    <li>
+                        <a href="/apps">Apps</a>
+                    </li>
+
+                    <li>
+                        <a href="/schedule">Schedule</a>
+                    </li>
+
+                    <li>
+                        <a href="/news">News</a>
+                    </li>
+
+                    <li>
+                        <a href="/books">Books</a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <div class="col-sm-4 col-xs-8">
+
+                <h5 class="h-colored">Help</h5>
+                <hr class="hr-xs hr-left" />
+                <ul class="li-footer-links">
+                    <li>
+                        <a href="/faq">Faq</a>
+                    </li>
+                    <li>
+                        <a href="/feedback">Contact</a>
+                    </li>
+                </ul>
+
+
+                <h5 class="h-colored">Legal</h5>
+                <hr class="hr-xs hr-left" />
+                <ul class="li-footer-links">
+                    <li>
+                        <a href="http://preferences-mgr.truste.com/?type=abcfamilymobile&affiliateid=115" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="InterestAds">Interest-based Ads</a>
+                    </li>
+                    <li>
+                        <a href="http://disneytermsofuse.com/" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="Terms">Terms of Use</a>
+                    </li>
+                    <li>
+                        <a href="http://disneyprivacycenter.com/" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="PrivacyPolicy">Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="https://disneyprivacycenter.com/notice-to-california-residents/" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="California">Your California Privacy Rights</a>
+                    </li>
+                    <li>
+                        <a href="https://disneyprivacycenter.com/kids-privacy-policy/english/" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="Childrens">Children's Online Privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="http://freeform.go.com/closed-captioning" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="ClosedCaptioning">Closed Captioning</a>
+                    </li>
+                    <li>
+                        <a href="http://www.nielsen.com/digitalprivacy" target="_blank" data-track-analytics data-category="Footer" data-action="Click" data-label="AboutNielsen">About Nielsen Measurement</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-sm-4 hidden-md-down">
+                <h5 class="h-li-social">Follow Freeform</h5>
+                <ul class="li-social li-unstyled text-center">
+    <li>
+        <a href="https://www.facebook.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://twitter.com/freeformtv" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </li>
+    <li>
+        <a href="http://freeform.tumblr.com/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Tumblr">
+            <i class="fa fa-tumblr"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.instagram.com/freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.pinterest.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Pinterest">
+            <i class="fa fa-pinterest-p"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.youtube.com/freeformnetwork" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="YouTube">
+            <i class="fa fa-youtube-play"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.snapchat.com/add/freeform" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Snapchat">
+            <i class="fa fa-snapchat-ghost"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://play.spotify.com/user/abcfamily" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Spotify">
+            <i class="fa fa-spotify"></i>
+        </a>
+    </li>
+</ul>
+
+<script>
+    var twitterAccounts = window["twitterAccountsOnShare"] || [];
+    twitterAccounts.push("freeformtv");
+    window["twitterAccountsOnShare"] = twitterAccounts;
+</script>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-5">
+                <img src="https://freeform.azureedge.net/showms/2.14.3.build.3068/images/freeform/freeform-lockup.png" class="footer-brand img-fluid center-block" alt="Freeform Logo" />
+            </div>
+            <div class="col-xs-7">
+                <p class="copyright">&copy; Freeform 2017</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 hidden-md-up">
+                <ul class="li-social li-unstyled text-center">
+    <li>
+        <a href="https://www.facebook.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Facebook">
+            <i class="fa fa-facebook"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://twitter.com/freeformtv" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Twitter">
+            <i class="fa fa-twitter"></i>
+        </a>
+    </li>
+    <li>
+        <a href="http://freeform.tumblr.com/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Tumblr">
+            <i class="fa fa-tumblr"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.instagram.com/freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Instagram">
+            <i class="fa fa-instagram"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.pinterest.com/Freeform/" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Pinterest">
+            <i class="fa fa-pinterest-p"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.youtube.com/freeformnetwork" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="YouTube">
+            <i class="fa fa-youtube-play"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://www.snapchat.com/add/freeform" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Snapchat">
+            <i class="fa fa-snapchat-ghost"></i>
+        </a>
+    </li>
+    <li>
+        <a href="https://play.spotify.com/user/abcfamily" target="_blank" data-track-analytics data-category="Homepage" data-action="SocialLink" data-label="Spotify">
+            <i class="fa fa-spotify"></i>
+        </a>
+    </li>
+</ul>
+
+<script>
+    var twitterAccounts = window["twitterAccountsOnShare"] || [];
+    twitterAccounts.push("freeformtv");
+    window["twitterAccountsOnShare"] = twitterAccounts;
+</script>
+            </div>
+        </div>
+    </div>
+</footer>
+    <script type="text/javascript">
+    var host = "http://freeform.go.com/";
+    var version = "2.14.3.build.3068";
+    var isMobileDevice = false;
+    var facebookApplicationId = 1683433491935834;
+    var facebookReady = false;
+    var useRemoteAssets = true;
+    var blobStorageContainerUrl = "https://freeformproduction.blob.core.windows.net/showms/";
+    var cdnUrl = "https://freeform.azureedge.net/showms/";
+    var alderaanConfig = {"ff":{"features":{"analytics":{"omniture":{"server":"http://w88.go.com","enabled":true,"account":"wdgabcfamilysite,wdgabcfamilyrollup,wdgwatchsitesroll,wdgwabcfamdesktop,wdgwabcsecondary,wdgasec,wdgafmfamily2,wdgdatgabcfamily,wdgdatgabcdisneyrollup"},"blueKai":{"id":"25021","enabled":true},"nielsen":{"dtvrEnabled":false,"dcrEnabled":false},"slogger":{"enabled":true},"comScore":{"enabled":true}},"videoPlayer":{"webPlayerLoaderUrl":"http://cdn1.edgedatg.com/aws/apps/datg/web-player-unity/1.0.10.20/js/embed.min.js"},"auth":{"authenticate":"https://api.auth.adobe.com/api/v1/authenticate","requestorID":"ABCFamily","accessEnablerJs":"//entitlement.auth.adobe.com/entitlement/AccessEnabler.js","jsAuthEnabled":"true","accessEnablerLoader":"/AccessEnablerLoader.swf","regCode":"https://api.auth.adobe.com/reggie/v1/(requestor)/regcode/(code)?format=json","checkAuthN":"https://api.auth.adobe.com/api/v1/checkauthn/(code)?requestor=(requestor)","accessEnabler":"//entitlement.auth.adobe.com/entitlement/AccessEnabler.swf","config":"https://api.auth.adobe.com/api/v1/config/(requestor)?format=json","checkAuthZ":"https://api.auth.adobe.com/api/v1/authorize/?deviceId=(device)&requestor=(requestor)&resource=(resource)"},"theme":{"logo":{"teal":"http://cdn1.edgedatg.com/aws/assets/cp/web/freeform/images/freeform_logo.png"}},"hba":{"enabled":true,"timeout":0}}},"webservices":{"layout":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.presentation.abc.go.com/api/ws/presentation/v2/layout/route.json"}},"ads":{"header":{"accept":"application/json","content-Type":"application/x-www-form-urlencoded"},"url":{"method":"Post","value":"https://api.ads.watchabc.go.com/vp2/ws/ads/2015/jsonp/ads.jsonp"}},"utils-support-proxy":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.utils.watchabc.go.com/vp2/ws/utils/2015/support/%BRANDID%/%DEVICEID%"}},"utils-support-create":{"header":{"accept":"application/json","content-Type":"application/x-www-form-urlencoded"},"url":{"method":"Post","value":"https://api.utils.watchabc.go.com/vp2/ws/utils/2013/support/ticket/create"}},"channels":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.contents.watchabc.go.com/vp2/ws/s/contents/3000/channels/%BRANDID%/%DEVICEID%/%AFFILIATE%"}},"distributors":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.contents.watchabc.go.com/vp2/ws/s/contents/3001/distributors/%BRANDID%/%DEVICEID%/%TIER%/%AFFILIATE%.jsonp"}},"module":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.presentation.abc.go.com/api/ws/presentation/v2/module/%ID%.json"}},"videos":{"header":{"accept":"application/json"},"url":{"method":"Get","value":"https://api.contents.watchabc.go.com/vp2/ws/contents/3000/videos/%BRANDID%/%DEVICEID%/%TYPE%/%SHOW%/%SEASON%/%VIDEO%/%START%/%LIMIT%.json"}},"geolocation":{"header":{"accept":"application/json","content-Type":"application/x-www-form-urlencoded"},"url":{"method":"Post","value":"https://api.utils.watchabc.go.com/vp2/ws/utils/2021/geo/video/geolocation/%BRANDID%/%DEVICEID%/%TYPE%/%AFFILIATE%.jsonp"}}}};
+    var omnitureConfig = {"pageName":"fam:homepage","siteSection":"fam:homepage","siteSectionLevel2":"fam:home","siteSectionLevel3":"fam:home","siteSectionLevel4":"","server":"10.75.4.7","events":[],"properties":{},"isActivateFlow":false};
+    var comScoreClientId = "3000014";
+    var playerCookieId = "datg-player-ff";
+    var playerEnvironment = "production";
+    var enableAmplitude = true;
+
+    var s_account = "wdgabcfamilysite,wdgabcfamilyrollup,wdgwatchsitesroll,wdgwabcfamdesktop,wdgwabcsecondary,wdgasec,wdgafmfamily2,wdgdatgabcfamily,wdgdatgabcdisneyrollup";
+</script>
+    <script type="text/javascript" src="https://freeform.azureedge.net/showms/2.14.3.build.3068/vendor.js"></script>
+    <script type="text/javascript" src="https://freeform.azureedge.net/showms/2.14.3.build.3068/templates.js"></script>
+    <script type="text/javascript" src="https://freeform.azureedge.net/showms/2.14.3.build.3068/core.js"></script>
+
+    
+        <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1427630917316862');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=1427630917316862&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Facebook Pixel Code -->
+    <script>
+        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+                n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+            n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+            document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '596286460563748');
+        fbq('track', 'PageView');
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display: none" src="https://www.facebook.com/tr?id=596286460563748&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+
+    <!-- Google Code for Remarketing Tag -->
+<!--------------------------------------------------
+Remarketing tags may not be associated with personally identifiable information or placed on pages related to sensitive categories. See more information and instructions on how to setup the tag on: http://google.com/ads/remarketingsetup
+--------------------------------------------------->
+<script type="text/javascript">
+/* <![CDATA[ */
+    var google_conversion_id = 872814848;
+    var google_custom_params = window.google_tag_params;
+    var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+    <div style="display:inline;">
+        <img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/872814848/?guid=ON&amp;script=0"/>
+    </div>
+</noscript>
+    <script>
+    window.twttr = (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+          t = window.twttr || {};
+        if (d.getElementById(id)) return t;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://platform.twitter.com/widgets.js";
+        fjs.parentNode.insertBefore(js, fjs);
+
+        t._e = [];
+        t.ready = function (f) {
+            t._e.push(f);
+        };
+
+        return t;
+    }(document, "script", "twitter-wjs"));
+
+    twttr.ready(function (twttr) {
+        twttr.events.bind('follow', function (event) {
+            var followedScreenName = event.data.screen_name;
+
+            if (event.target.className.indexOf("follow-page") !== -1) {
+                tracking.log("Follow", "TwitterFollow", followedScreenName);
+            } else {
+                tracking.log("HomePage", "TwitterFollow", followedScreenName);
+            }
+        });
+    });
+
+</script>
+    <script>
+    !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+
+    twq('init','nxlpe');
+    twq('track','PageView');
+</script>
+    <div id="tracking-container"></div>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments);
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g;
+        m.parentNode.insertBefore(a, m);
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-90425148-1', 'auto');
+    ga('require', 'displayfeatures');
+    ga('send', 'pageview');
+    globals.logItem("Sending PageView : /");
+</script>
+</body>
+</html>
