@@ -24,5 +24,7 @@
       <TextArea fx:id="rawHTML" editable="false" layoutX="940.0" layoutY="51.0" prefHeight="550.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="51.0" />
       <Label fx:id="outputLabel" layoutX="956.0" layoutY="16.0" text="Search Term Occurance" />
       <TextField fx:id="textOutput" editable="false" layoutX="1111.0" layoutY="11.0" />
+      <TextField fx:id="timeOutput" editable="false" layoutX="561.0" layoutY="11.0" />
+      <Label fx:id="timeLabel" layoutX="486.0" layoutY="16.0" text="Time taken" />
    </children>
 </AnchorPane>

@@ -67,6 +67,8 @@ public class FXMLController implements Initializable {
     TextArea rawHTML;
     @FXML
     TextField textOutput;
+    @FXML
+    TextField timeOutput;
 
     /**
      * 
