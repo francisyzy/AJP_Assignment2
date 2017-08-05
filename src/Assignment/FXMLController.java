@@ -95,6 +95,12 @@ public class FXMLController implements Initializable {
         return startTime;
     }
     
+    public void StopTime(){
+        double timetaken = (System.currentTimeMillis() - GetStartTime())/1000;
+        
+        timeOutput.setText(timetaken+"");
+    }
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {

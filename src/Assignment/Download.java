@@ -65,11 +65,6 @@ public class Download {
         htmlList.add(html);
     }
     
-    public void sortHTML(){//cannot work
-        Collections.sort(htmlList);
-        System.out.println("sorted");
-    }
-    
     public String getHTML(int index){
         return htmlList.get(index);
     }
