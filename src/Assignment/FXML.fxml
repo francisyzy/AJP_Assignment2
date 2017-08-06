@@ -14,9 +14,9 @@
       <Button fx:id="searchBtn" layoutX="195.0" layoutY="50.0" mnemonicParsing="false" text="Search" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="50.0" />
       <Label fx:id="TitleLabel1" layoutY="16.0" prefHeight="17.0" prefWidth="102.0" text="Webcrawler" />
       <ListView fx:id="listOutput" layoutX="6.0" layoutY="200.0" prefHeight="380.0" prefWidth="450.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="6.0" AnchorPane.topAnchor="200.0" />
-      <CheckBox fx:id="checkBing" layoutX="8.0" layoutY="88.0" mnemonicParsing="false" selected="true" text="Bing" />
-      <CheckBox fx:id="checkYahoo" layoutX="8.0" layoutY="106.0" mnemonicParsing="false" selected="true" text="Yahoo" />
-      <CheckBox fx:id="checkGoogle" layoutX="8.0" layoutY="124.0" mnemonicParsing="false" text="Google" />
+      <CheckBox fx:id="checkBing" layoutX="8.0" layoutY="118.0" mnemonicParsing="false" selected="true" text="Bing" />
+      <CheckBox fx:id="checkYahoo" layoutX="8.0" layoutY="136.0" mnemonicParsing="false" selected="true" text="Yahoo" />
+      <CheckBox fx:id="checkGoogle" layoutX="8.0" layoutY="154.0" mnemonicParsing="false" text="Google" />
       <WebView fx:id="viewWeb" layoutX="475.0" layoutY="51.0" prefHeight="550.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="51.0" />
 <!--      <Button fx:id="threadSetBtn" layoutX="455.0" layoutY="50.0" mnemonicParsing="false" text="Set" />-->
       <TextField fx:id="threadInput" layoutX="266.0" layoutY="50.0" prefHeight="27.0" prefWidth="189.0" text="2" />
@@ -26,5 +26,6 @@
       <TextField fx:id="textOutput" editable="false" layoutX="1111.0" layoutY="11.0" />
       <TextField fx:id="timeOutput" editable="false" layoutX="561.0" layoutY="11.0" />
       <Label fx:id="timeLabel" layoutX="486.0" layoutY="16.0" text="Time taken" />
+      <TextField fx:id="errorOutput" editable="false" layoutX="89.0" layoutY="3.0" prefHeight="27.0" prefWidth="347.0" />
    </children>
 </AnchorPane>

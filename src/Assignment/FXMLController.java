@@ -69,6 +69,8 @@ public class FXMLController implements Initializable {
     TextField textOutput;
     @FXML
     TextField timeOutput;
+    @FXML
+    TextField errorOutput;
 
     /**
      * 
@@ -119,6 +121,8 @@ public class FXMLController implements Initializable {
         
         System.out.println(checkBing.isSelected());
         
+        checkYahoo.isSelected();
+        
         System.out.println(checkGoogle.isSelected());
         
         searchBtn.setOnAction((ActionEvent e) -> {
@@ -132,11 +136,19 @@ public class FXMLController implements Initializable {
             String UserSearch = null;
             int threadCount = 0;
             
-            if(searchInput.getText()==null){
-                JOptionPane.showMessageDialog(null, "Please enter something in the search field");
-            }else if(threadInput.getText()==null){
-                JOptionPane.showMessageDialog(null, "Please enter something in the thread field");
+            errorOutput.setText("");
+            
+            if(searchInput.getText().isEmpty()){
+                errorOutput.setText("Please enter something in the search field");
+                //JOptionPane.showMessageDialog(null, "Please enter something in the search field");//causes crash
+            }else if(threadInput.getText().isEmpty()){
+                errorOutput.setText("Please enter something in the thread field");
+                //JOptionPane.showMessageDialog(null, "Please enter something in the thread field");//causes crash
+            }else if(! (checkYahoo.isSelected() || checkBing.isSelected() || checkGoogle.isSelected())){
+                errorOutput.setText("Please select an search engine");
+                //JOptionPane.showMessageDialog(null, "Please select an search engine");//causes crash
             }else{
+                System.out.println(searchInput.getText());
                 UserSearch = searchInput.getText();
                 threadCount = Integer.parseInt(threadInput.getText());
                 System.out.println("Search = " + UserSearch);
