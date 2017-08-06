@@ -17,6 +17,8 @@ import java.io.Writer;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.Pane;
 
 /**
  *
@@ -72,7 +74,12 @@ public class Save implements Runnable {
         }
         System.out.println("End downloading of Url :"+ url);
         if(SearchInput.dl.checkMapnum()){
-            System.out.println("Total Time Taken :" + SearchInput.dl.getTime());
+            System.out.println("Total Time Taken :" + SearchInput.dl.stopTime());
+//            try {
+//                updateTimer();
+//            } catch (IOException ex) {
+//                Logger.getLogger(Save.class.getName()).log(Level.SEVERE, null, ex);
+//            }
             TaskExecutor.canceltask();
         }
         /*if(SearchInput.dl.checkMapnum())
@@ -105,4 +112,26 @@ public class Save implements Runnable {
             e.printStackTrace();
         }
     }//end of method
+    
+     
+//    private FXMLController controller ;
+//
+//    public void setController(FXMLController controller) {
+//        this.controller = controller ;
+//    }
+
+//    public void updateTimer() throws IOException {
+//        System.out.println("Update Timer ran");
+////        try {
+////            if (controller != null) {
+////                controller.Timer(SearchInput.dl.getTime());
+////            }
+////        } catch (Exception e) {
+////            e.printStackTrace();
+////        }
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        Pane p = fxmlLoader.load(getClass().getResource("/Assignment/FXML.fxml").openStream());
+//        FXMLController Controller = (FXMLController) fxmlLoader.getController();
+//        Controller.Timer(SearchInput.dl.getTime());
+//    }//end of method
 }

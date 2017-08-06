@@ -22,6 +22,7 @@ public class Download {
     private ArrayList<String> htmlList;//list of all HTML downloaded
     private HashMap<String,String> urlMap = new HashMap<>();
     private long starttime;
+    private double stoptime;
     
     public Download(){
         result = new ArrayList();
@@ -93,20 +94,23 @@ public class Download {
             return false;
     }
     
-    public void stopTime() throws IOException{
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        Pane p = fxmlLoader.load(getClass().getResource("FXML.fxml").openStream());
-        FXMLController fooController = (FXMLController) fxmlLoader.getController();
-        
-        fooController.StopTime();
-    }
+//    public void stopTime() throws IOException{
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        Pane p = fxmlLoader.load(getClass().getResource("FXML.fxml").openStream());
+//        FXMLController fooController = (FXMLController) fxmlLoader.getController();
+//        
+//        fooController.StopTime();
+//    }
     
-    
-    
-    public double getTime(){
+    public double stopTime(){
         double time = (System.currentTimeMillis() - this.starttime)/1000;
+        stoptime = time;
         
         return time;
+    }
+    
+    public double getStopTime(){
+        return stoptime;
     }
     
     public void clearResult(){
