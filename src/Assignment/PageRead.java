@@ -39,39 +39,36 @@ public class PageRead {
 //        }
 //    }
     
-    public static StringBuilder readPage(String pageAddr) {
+    public static StringBuilder readPage(String pageAddr)throws Exception {
         URL url;
-        InputStream is = null;
-        BufferedReader br;
+        InputStream ins = null;
+        BufferedReader reader;
         String line;
         StringBuilder sb = new StringBuilder();
 
         try {
             url = new URL(pageAddr);
-            is = url.openStream();  // throws an IOException
-            br = new BufferedReader(new InputStreamReader(is));
+            ins = url.openStream();  // throws an IOException
+            reader = new BufferedReader(new InputStreamReader(ins));
 
-            while ((line = br.readLine()) != null) {
+            while ((line = reader.readLine()) != null) {
                 sb.append(line+"\n");
             }
-        } catch (MalformedURLException mue) {
-             mue.printStackTrace();
-        } catch (IOException ioe) {
-             ioe.printStackTrace();
-        } finally {
-            try {
-                if (is != null) is.close();
-            } catch (IOException ioe) {
-                // nothing to see here
-            }
+        } catch (MalformedURLException e) {
+             e.printStackTrace();
+        } catch (IOException e) {
+             e.printStackTrace();
         }
+        
+        ins.close();
+        
         return sb;
     }
     
     /*
     Google SSL Reader Old
     
-    String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
+        String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
         URL myurl = new URL(httpsURL);
         HttpsURLConnection con = (HttpsURLConnection)myurl.openConnection();
         System.out.println("Connecting");
