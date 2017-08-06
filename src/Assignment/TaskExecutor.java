@@ -11,6 +11,7 @@ package Assignment;
  */
 public class TaskExecutor implements Runnable {
     BlockingQueue<Runnable> queue;
+    private static boolean cancel = false;
     
     public TaskExecutor(BlockingQueue<Runnable> queue) {
         this.queue = queue;
@@ -19,7 +20,7 @@ public class TaskExecutor implements Runnable {
     @Override
     public void run() {
         try {
-            while (true) {
+            while (!cancel) {
                 String name = Thread.currentThread().getName();
                 Runnable task = queue.dequeue();
                 System.out.println("Task Started by Thread :" + name);
@@ -31,5 +32,9 @@ public class TaskExecutor implements Runnable {
             e.printStackTrace();
         }
 
+    }
+    
+    public static void canceltask(){
+        cancel = true;
     }
 }

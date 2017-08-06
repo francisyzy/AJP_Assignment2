@@ -73,6 +73,7 @@ public class Save implements Runnable {
         System.out.println("End downloading of Url :"+ url);
         if(SearchInput.dl.checkMapnum()){
             System.out.println("Total Time Taken :" + SearchInput.dl.getTime());
+            TaskExecutor.canceltask();
         }
         /*if(SearchInput.dl.checkMapnum())
             try {
