@@ -38,9 +38,9 @@ public class SearchInput {
         
         
         StringBuffer text = new StringBuffer(input);
-        String ysearch = yahoo + text.toString().replaceAll(" ", "+");
-        String bsearch = bing + text.toString().replaceAll(" ", "+");
-        String gsearch = google + text.toString().replaceAll(" ", "+");
+        String ysearch = yahoo + text.toString().replaceAll("%", "%25").replaceAll("\\+", "%2B").replaceAll(" ", "+");
+        String bsearch = bing + text.toString().replaceAll("%", "%25").replaceAll("\\+", "%2B").replaceAll(" ", "+");
+        String gsearch = google + text.toString().replaceAll("%", "%25").replaceAll("\\+", "%2B").replaceAll(" ", "+");
         
         
         if((yahooSelected)&&!(bingSelected)&&!(googleSelected)){
