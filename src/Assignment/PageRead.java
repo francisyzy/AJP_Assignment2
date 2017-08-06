@@ -13,6 +13,8 @@ package Assignment;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
  
 public class PageRead {
 //    public static StringBuilder readPage(String pageAddr) {
@@ -39,7 +41,7 @@ public class PageRead {
 //        }
 //    }
     
-    public static StringBuilder readPage(String pageAddr)throws Exception {
+    public static StringBuilder readPage(String pageAddr) {
         URL url;
         InputStream ins = null;
         BufferedReader reader;
@@ -60,7 +62,11 @@ public class PageRead {
              e.printStackTrace();
         }
         
-        ins.close();
+        try {
+            ins.close();
+        } catch (IOException ex) {
+            Logger.getLogger(PageRead.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
         return sb;
     }
