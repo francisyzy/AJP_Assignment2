@@ -5,7 +5,14 @@
  */
 package Assignment;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URL;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.net.ssl.HttpsURLConnection;
 
 /**
  *
@@ -13,54 +20,31 @@ import java.util.List;
  */
 public class GoogleSearch {
     
-    private ResponseData responseData;
-    public ResponseData getResponseData() {
-        return responseData;
-    }
-    public void setResponseData(ResponseData responseData) {
-        this.responseData = responseData;
-    }
-    public String toString() {
-        return "ResponseData[" + responseData + "]";
+    private static final Pattern GOOGLE_REGEX = Pattern.compile("\\\"link\\\": \\\"(http.*?)\\\"");
+    
+    public void ConnectGoogle() throws Exception{
+        String httpsURL = "https://www.googleapis.com/customsearch/v1?key=AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok&cx=002976313549948865923:30uboh7bkhw&q=lectures";
+        URL myurl = new URL(httpsURL);
+        HttpsURLConnection con = (HttpsURLConnection)myurl.openConnection();
+        System.out.println("Connecting");
+        InputStream ins = con.getInputStream();
+        InputStreamReader isr = new InputStreamReader(ins);
+        BufferedReader in = new BufferedReader(isr);
+        
+        final Matcher googlematcher = GOOGLE_REGEX.matcher((CharSequence) in);
+        
+        String seed = "";
+        
+        if (googlematcher.find()){
+            seed = googlematcher.group(1);
+        }
+        
+        StringBuilder resulthtml = PageRead.readPage(seed);
+        
+        
+        
+        in.close();
+        //return in;
     }
     
-    static class ResponseData {
-        private List<Result> results;
-        public List<Result> getResults() {
-            return results; 
-        }
-        public void setResults(List<Result> results) {
-            this.results = results;
-        }
-        public String toString() {
-            return "Results[" + results + "]";
-        }
-    }
-    
-    static class Result {
-        private String url;
-        private String title;
-        private String content;
-        public String getUrl() {
-            return url;
-        }
-        public String getTitle() {
-            return title;
-        }
-        public String getContent() {
-            return content;
-        }
-        public void setUrl(String url) {
-            this.url = url;
-        }
-        public void setTitle(String title) {
-            this.title = title;
-        }
-        public void setContent(String content) {
-            this.content = content;
-        }
-        public String toString() {
-            return "Result[url:" + url +",title:" + title + ",content:" + content + "]";
-        }
-    }   
 }
