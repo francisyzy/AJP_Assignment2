@@ -154,26 +154,29 @@ public class FXMLController implements Initializable {
                 System.out.println("Search = " + UserSearch);
                 System.out.println("Thread Count = " + threadCount);
                 SetUserSearch(UserSearch);
+                SearchInput search = new SearchInput(checkYahoo.isSelected(),checkBing.isSelected());
+            
+                try {
+                    search.startSearch(UserSearch, threadCount);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                ArrayList<String> result = dl.getResult();
+                Collections.sort(result); //to sort in accending order
+                ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
+                listOutput.setItems(observableResult);
 //                SetStartTime();//Time taken
             }
             
-            SearchInput search = new SearchInput();
             
-            try {
-                search.startSearch(UserSearch, threadCount);
-            } catch (InterruptedException ex) {
-                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-            }
             
 //            
 //            for(BusStop b : Search){
 //                //System.out.println(b.BusStopDescription);
 //                startresult.add(b);
 //            }
-            ArrayList<String> result = dl.getResult();
-            Collections.sort(result); //to sort in accending order
-            ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
-            listOutput.setItems(observableResult);
+            
         });
         
 //        EndLocationSearchBtn.setOnAction((ActionEvent e) -> {

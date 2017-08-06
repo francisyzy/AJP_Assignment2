@@ -1,0 +1,1096 @@
+<!DOCTYPE html>
+<html class="no-js ">
+<head>
+
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><script type="text/javascript">(window.NREUM||(NREUM={})).loader_config={xpid:"VQIEVFdTGwQGUFRRAwU="};window.NREUM||(NREUM={}),__nr_require=function(t,n,e){function r(e){if(!n[e]){var o=n[e]={exports:{}};t[e][0].call(o.exports,function(n){var o=t[e][1][n];return r(o||n)},o,o.exports)}return n[e].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<e.length;o++)r(e[o]);return r}({1:[function(t,n,e){function r(t){try{s.console&&console.log(t)}catch(n){}}var o,i=t("ee"),a=t(15),s={};try{o=localStorage.getItem("__nr_flags").split(","),console&&"function"==typeof console.log&&(s.console=!0,o.indexOf("dev")!==-1&&(s.dev=!0),o.indexOf("nr_dev")!==-1&&(s.nrDev=!0))}catch(c){}s.nrDev&&i.on("internal-error",function(t){r(t.stack)}),s.dev&&i.on("fn-err",function(t,n,e){r(e.stack)}),s.dev&&(r("NR AGENT IN DEVELOPMENT MODE"),r("flags: "+a(s,function(t,n){return t}).join(", ")))},{}],2:[function(t,n,e){function r(t,n,e,r,o){try{d?d-=1:i("err",[o||new UncaughtException(t,n,e)])}catch(s){try{i("ierr",[s,c.now(),!0])}catch(u){}}return"function"==typeof f&&f.apply(this,a(arguments))}function UncaughtException(t,n,e){this.message=t||"Uncaught error with no additional information",this.sourceURL=n,this.line=e}function o(t){i("err",[t,c.now()])}var i=t("handle"),a=t(16),s=t("ee"),c=t("loader"),f=window.onerror,u=!1,d=0;c.features.err=!0,t(1),window.onerror=r;try{throw new Error}catch(l){"stack"in l&&(t(8),t(7),"addEventListener"in window&&t(5),c.xhrWrappable&&t(9),u=!0)}s.on("fn-start",function(t,n,e){u&&(d+=1)}),s.on("fn-err",function(t,n,e){u&&(this.thrown=!0,o(e))}),s.on("fn-end",function(){u&&!this.thrown&&d>0&&(d-=1)}),s.on("internal-error",function(t){i("ierr",[t,c.now(),!0])})},{}],3:[function(t,n,e){t("loader").features.ins=!0},{}],4:[function(t,n,e){function r(t){}if(window.performance&&window.performance.timing&&window.performance.getEntriesByType){var o=t("ee"),i=t("handle"),a=t(8),s=t(7),c="learResourceTimings",f="addEventListener",u="resourcetimingbufferfull",d="bstResource",l="resource",p="-start",h="-end",m="fn"+p,w="fn"+h,v="bstTimer",y="pushState",g=t("loader");g.features.stn=!0,t(6);var b=NREUM.o.EV;o.on(m,function(t,n){var e=t[0];e instanceof b&&(this.bstStart=g.now())}),o.on(w,function(t,n){var e=t[0];e instanceof b&&i("bst",[e,n,this.bstStart,g.now()])}),a.on(m,function(t,n,e){this.bstStart=g.now(),this.bstType=e}),a.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),this.bstType])}),s.on(m,function(){this.bstStart=g.now()}),s.on(w,function(t,n){i(v,[n,this.bstStart,g.now(),"requestAnimationFrame"])}),o.on(y+p,function(t){this.time=g.now(),this.startPath=location.pathname+location.hash}),o.on(y+h,function(t){i("bstHist",[location.pathname+location.hash,this.startPath,this.time])}),f in window.performance&&(window.performance["c"+c]?window.performance[f](u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["c"+c]()},!1):window.performance[f]("webkit"+u,function(t){i(d,[window.performance.getEntriesByType(l)]),window.performance["webkitC"+c]()},!1)),document[f]("scroll",r,{passive:!0}),document[f]("keypress",r,!1),document[f]("click",r,!1)}},{}],5:[function(t,n,e){function r(t){for(var n=t;n&&!n.hasOwnProperty(u);)n=Object.getPrototypeOf(n);n&&o(n)}function o(t){s.inPlace(t,[u,d],"-",i)}function i(t,n){return t[1]}var a=t("ee").get("events"),s=t(18)(a,!0),c=t("gos"),f=XMLHttpRequest,u="addEventListener",d="removeEventListener";n.exports=a,"getPrototypeOf"in Object?(r(document),r(window),r(f.prototype)):f.prototype.hasOwnProperty(u)&&(o(window),o(f.prototype)),a.on(u+"-start",function(t,n){var e=t[1],r=c(e,"nr@wrapped",function(){function t(){if("function"==typeof e.handleEvent)return e.handleEvent.apply(e,arguments)}var n={object:t,"function":e}[typeof e];return n?s(n,"fn-",null,n.name||"anonymous"):e});this.wrapped=t[1]=r}),a.on(d+"-start",function(t){t[1]=this.wrapped||t[1]})},{}],6:[function(t,n,e){var r=t("ee").get("history"),o=t(18)(r);n.exports=r,o.inPlace(window.history,["pushState","replaceState"],"-")},{}],7:[function(t,n,e){var r=t("ee").get("raf"),o=t(18)(r),i="equestAnimationFrame";n.exports=r,o.inPlace(window,["r"+i,"mozR"+i,"webkitR"+i,"msR"+i],"raf-"),r.on("raf-start",function(t){t[0]=o(t[0],"fn-")})},{}],8:[function(t,n,e){function r(t,n,e){t[0]=a(t[0],"fn-",null,e)}function o(t,n,e){this.method=e,this.timerDuration="number"==typeof t[1]?t[1]:0,t[0]=a(t[0],"fn-",this,e)}var i=t("ee").get("timer"),a=t(18)(i),s="setTimeout",c="setInterval",f="clearTimeout",u="-start",d="-";n.exports=i,a.inPlace(window,[s,"setImmediate"],s+d),a.inPlace(window,[c],c+d),a.inPlace(window,[f,"clearImmediate"],f+d),i.on(c+u,r),i.on(s+u,o)},{}],9:[function(t,n,e){function r(t,n){d.inPlace(n,["onreadystatechange"],"fn-",s)}function o(){var t=this,n=u.context(t);t.readyState>3&&!n.resolved&&(n.resolved=!0,u.emit("xhr-resolved",[],t)),d.inPlace(t,w,"fn-",s)}function i(t){v.push(t),h&&(g=-g,b.data=g)}function a(){for(var t=0;t<v.length;t++)r([],v[t]);v.length&&(v=[])}function s(t,n){return n}function c(t,n){for(var e in t)n[e]=t[e];return n}t(5);var f=t("ee"),u=f.get("xhr"),d=t(18)(u),l=NREUM.o,p=l.XHR,h=l.MO,m="readystatechange",w=["onload","onerror","onabort","onloadstart","onloadend","onprogress","ontimeout"],v=[];n.exports=u;var y=window.XMLHttpRequest=function(t){var n=new p(t);try{u.emit("new-xhr",[n],n),n.addEventListener(m,o,!1)}catch(e){try{u.emit("internal-error",[e])}catch(r){}}return n};if(c(p,y),y.prototype=p.prototype,d.inPlace(y.prototype,["open","send"],"-xhr-",s),u.on("send-xhr-start",function(t,n){r(t,n),i(n)}),u.on("open-xhr-start",r),h){var g=1,b=document.createTextNode(g);new h(a).observe(b,{characterData:!0})}else f.on("fn-end",function(t){t[0]&&t[0].type===m||a()})},{}],10:[function(t,n,e){function r(t){var n=this.params,e=this.metrics;if(!this.ended){this.ended=!0;for(var r=0;r<d;r++)t.removeEventListener(u[r],this.listener,!1);if(!n.aborted){if(e.duration=a.now()-this.startTime,4===t.readyState){n.status=t.status;var i=o(t,this.lastSize);if(i&&(e.rxSize=i),this.sameOrigin){var c=t.getResponseHeader("X-NewRelic-App-Data");c&&(n.cat=c.split(", ").pop())}}else n.status=0;e.cbTime=this.cbTime,f.emit("xhr-done",[t],t),s("xhr",[n,e,this.startTime])}}}function o(t,n){var e=t.responseType;if("json"===e&&null!==n)return n;var r="arraybuffer"===e||"blob"===e||"json"===e?t.response:t.responseText;return h(r)}function i(t,n){var e=c(n),r=t.params;r.host=e.hostname+":"+e.port,r.pathname=e.pathname,t.sameOrigin=e.sameOrigin}var a=t("loader");if(a.xhrWrappable){var s=t("handle"),c=t(11),f=t("ee"),u=["load","error","abort","timeout"],d=u.length,l=t("id"),p=t(14),h=t(13),m=window.XMLHttpRequest;a.features.xhr=!0,t(9),f.on("new-xhr",function(t){var n=this;n.totalCbs=0,n.called=0,n.cbTime=0,n.end=r,n.ended=!1,n.xhrGuids={},n.lastSize=null,p&&(p>34||p<10)||window.opera||t.addEventListener("progress",function(t){n.lastSize=t.loaded},!1)}),f.on("open-xhr-start",function(t){this.params={method:t[0]},i(this,t[1]),this.metrics={}}),f.on("open-xhr-end",function(t,n){"loader_config"in NREUM&&"xpid"in NREUM.loader_config&&this.sameOrigin&&n.setRequestHeader("X-NewRelic-ID",NREUM.loader_config.xpid)}),f.on("send-xhr-start",function(t,n){var e=this.metrics,r=t[0],o=this;if(e&&r){var i=h(r);i&&(e.txSize=i)}this.startTime=a.now(),this.listener=function(t){try{"abort"===t.type&&(o.params.aborted=!0),("load"!==t.type||o.called===o.totalCbs&&(o.onloadCalled||"function"!=typeof n.onload))&&o.end(n)}catch(e){try{f.emit("internal-error",[e])}catch(r){}}};for(var s=0;s<d;s++)n.addEventListener(u[s],this.listener,!1)}),f.on("xhr-cb-time",function(t,n,e){this.cbTime+=t,n?this.onloadCalled=!0:this.called+=1,this.called!==this.totalCbs||!this.onloadCalled&&"function"==typeof e.onload||this.end(e)}),f.on("xhr-load-added",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&!this.xhrGuids[e]&&(this.xhrGuids[e]=!0,this.totalCbs+=1)}),f.on("xhr-load-removed",function(t,n){var e=""+l(t)+!!n;this.xhrGuids&&this.xhrGuids[e]&&(delete this.xhrGuids[e],this.totalCbs-=1)}),f.on("addEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-added",[t[1],t[2]],n)}),f.on("removeEventListener-end",function(t,n){n instanceof m&&"load"===t[0]&&f.emit("xhr-load-removed",[t[1],t[2]],n)}),f.on("fn-start",function(t,n,e){n instanceof m&&("onload"===e&&(this.onload=!0),("load"===(t[0]&&t[0].type)||this.onload)&&(this.xhrCbStart=a.now()))}),f.on("fn-end",function(t,n){this.xhrCbStart&&f.emit("xhr-cb-time",[a.now()-this.xhrCbStart,this.onload,n],n)})}},{}],11:[function(t,n,e){n.exports=function(t){var n=document.createElement("a"),e=window.location,r={};n.href=t,r.port=n.port;var o=n.href.split("://");!r.port&&o[1]&&(r.port=o[1].split("/")[0].split("@").pop().split(":")[1]),r.port&&"0"!==r.port||(r.port="https"===o[0]?"443":"80"),r.hostname=n.hostname||e.hostname,r.pathname=n.pathname,r.protocol=o[0],"/"!==r.pathname.charAt(0)&&(r.pathname="/"+r.pathname);var i=!n.protocol||":"===n.protocol||n.protocol===e.protocol,a=n.hostname===document.domain&&n.port===e.port;return r.sameOrigin=i&&(!n.hostname||a),r}},{}],12:[function(t,n,e){function r(){}function o(t,n,e){return function(){return i(t,[f.now()].concat(s(arguments)),n?null:this,e),n?void 0:this}}var i=t("handle"),a=t(15),s=t(16),c=t("ee").get("tracer"),f=t("loader"),u=NREUM;"undefined"==typeof window.newrelic&&(newrelic=u);var d=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],l="api-",p=l+"ixn-";a(d,function(t,n){u[n]=o(l+n,!0,"api")}),u.addPageAction=o(l+"addPageAction",!0),u.setCurrentRouteName=o(l+"routeName",!0),n.exports=newrelic,u.interaction=function(){return(new r).get()};var h=r.prototype={createTracer:function(t,n){var e={},r=this,o="function"==typeof n;return i(p+"tracer",[f.now(),t,e],r),function(){if(c.emit((o?"":"no-")+"fn-start",[f.now(),r,o],e),o)try{return n.apply(this,arguments)}finally{c.emit("fn-end",[f.now()],e)}}}};a("setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(t,n){h[n]=o(p+n)}),newrelic.noticeError=function(t){"string"==typeof t&&(t=new Error(t)),i("err",[t,f.now()])}},{}],13:[function(t,n,e){n.exports=function(t){if("string"==typeof t&&t.length)return t.length;if("object"==typeof t){if("undefined"!=typeof ArrayBuffer&&t instanceof ArrayBuffer&&t.byteLength)return t.byteLength;if("undefined"!=typeof Blob&&t instanceof Blob&&t.size)return t.size;if(!("undefined"!=typeof FormData&&t instanceof FormData))try{return JSON.stringify(t).length}catch(n){return}}}},{}],14:[function(t,n,e){var r=0,o=navigator.userAgent.match(/Firefox[\/\s](\d+\.\d+)/);o&&(r=+o[1]),n.exports=r},{}],15:[function(t,n,e){function r(t,n){var e=[],r="",i=0;for(r in t)o.call(t,r)&&(e[i]=n(r,t[r]),i+=1);return e}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],16:[function(t,n,e){function r(t,n,e){n||(n=0),"undefined"==typeof e&&(e=t?t.length:0);for(var r=-1,o=e-n||0,i=Array(o<0?0:o);++r<o;)i[r]=t[n+r];return i}n.exports=r},{}],17:[function(t,n,e){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],18:[function(t,n,e){function r(t){return!(t&&t instanceof Function&&t.apply&&!t[a])}var o=t("ee"),i=t(16),a="nr@original",s=Object.prototype.hasOwnProperty,c=!1;n.exports=function(t,n){function e(t,n,e,o){function nrWrapper(){var r,a,s,c;try{a=this,r=i(arguments),s="function"==typeof e?e(r,a):e||{}}catch(f){l([f,"",[r,a,o],s])}u(n+"start",[r,a,o],s);try{return c=t.apply(a,r)}catch(d){throw u(n+"err",[r,a,d],s),d}finally{u(n+"end",[r,a,c],s)}}return r(t)?t:(n||(n=""),nrWrapper[a]=t,d(t,nrWrapper),nrWrapper)}function f(t,n,o,i){o||(o="");var a,s,c,f="-"===o.charAt(0);for(c=0;c<n.length;c++)s=n[c],a=t[s],r(a)||(t[s]=e(a,f?s+o:o,i,s))}function u(e,r,o){if(!c||n){var i=c;c=!0;try{t.emit(e,r,o,n)}catch(a){l([a,e,r,o])}c=i}}function d(t,n){if(Object.defineProperty&&Object.keys)try{var e=Object.keys(t);return e.forEach(function(e){Object.defineProperty(n,e,{get:function(){return t[e]},set:function(n){return t[e]=n,n}})}),n}catch(r){l([r])}for(var o in t)s.call(t,o)&&(n[o]=t[o]);return n}function l(n){try{t.emit("internal-error",n)}catch(e){}}return t||(t=o),e.inPlace=f,e.flag=a,e}},{}],ee:[function(t,n,e){function r(){}function o(t){function n(t){return t&&t instanceof r?t:t?c(t,s,i):i()}function e(e,r,o,i){if(!l.aborted||i){t&&t(e,r,o);for(var a=n(o),s=h(e),c=s.length,f=0;f<c;f++)s[f].apply(a,r);var d=u[y[e]];return d&&d.push([g,e,r,a]),a}}function p(t,n){v[t]=h(t).concat(n)}function h(t){return v[t]||[]}function m(t){return d[t]=d[t]||o(e)}function w(t,n){f(t,function(t,e){n=n||"feature",y[e]=n,n in u||(u[n]=[])})}var v={},y={},g={on:p,emit:e,get:m,listeners:h,context:n,buffer:w,abort:a,aborted:!1};return g}function i(){return new r}function a(){(u.api||u.feature)&&(l.aborted=!0,u=l.backlog={})}var s="nr@context",c=t("gos"),f=t(15),u={},d={},l=n.exports=o();l.backlog=u},{}],gos:[function(t,n,e){function r(t,n,e){if(o.call(t,n))return t[n];var r=e();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(t,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return t[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(t,n,e){function r(t,n,e,r){o.buffer([t],r),o.emit(t,n,e)}var o=t("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(t,n,e){function r(t){var n=typeof t;return!t||"object"!==n&&"function"!==n?-1:t===window?0:a(t,i,function(){return o++})}var o=1,i="nr@id",a=t("gos");n.exports=r},{}],loader:[function(t,n,e){function r(){if(!x++){var t=b.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(u.abort,3e4),!(t&&t.licenseKey&&t.applicationID&&n))return u.abort();f(y,function(n,e){t[n]||(t[n]=e)}),c("mark",["onload",a()+b.offset],null,"api");var e=l.createElement("script");e.src="https://"+t.agent,n.parentNode.insertBefore(e,n)}}function o(){"complete"===l.readyState&&i()}function i(){c("mark",["domContent",a()+b.offset],null,"api")}function a(){return E.exists&&performance.now?Math.round(performance.now()):(s=Math.max((new Date).getTime(),s))-b.offset}var s=(new Date).getTime(),c=t("handle"),f=t(15),u=t("ee"),d=window,l=d.document,p="addEventListener",h="attachEvent",m=d.XMLHttpRequest,w=m&&m.prototype;NREUM.o={ST:setTimeout,CT:clearTimeout,XHR:m,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var v=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1026.min.js"},g=m&&w&&w[p]&&!/CriOS/.test(navigator.userAgent),b=n.exports={offset:s,now:a,origin:v,features:{},xhrWrappable:g};t(12),l[p]?(l[p]("DOMContentLoaded",i,!1),d[p]("load",r,!1)):(l[h]("onreadystatechange",o),d[h]("onload",r)),c("mark",["firstbyte",s],null,"api");var x=0,E=t(17)},{}]},{},["loader",2,10,4,3]);</script>
+<meta name="description" content="ABC's 2017 Fall Primetime Schedule has been announced! Get the scoop on all the new and returning shows right here!" />
+<meta name="keywords" content="ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced!, ABC New Shows blogs" />
+<link rel="alternate" href="android-app://com.disney.datg.videoplatforms.android.abc/abcplayer" />
+<link rel="apple-touch-icon" href="//cdn1.edgedatg.com/aws/abc/prod/images/abclogo_57x57.png" />
+<link rel="shortcut icon" href="//cdn1.edgedatg.com/aws/abc/prod/images/favicon-abc.ico" />
+<meta name="apple-itunes-app" content="app-id=364191819, app-argument=http://abc.go.com/watch-live" />
+<meta name="google-play-app" content="app-id=com.disney.datg.videoplatforms.android.abc" />
+<meta name="google-site-verification" content="U_5rA3lHEyQuPWd3EHhOBfNDoweYB-btpslPdxUKpCs" />
+<meta name="msApplication-ID" content="App" />
+<meta name="msApplication-PackageFamilyName" content="ABC.ABCPlayer" />
+<meta name="msapplication-TileColor" content="#2D2D2D" />
+<meta name="msapplication-TileImage" content="//cdn1.edgedatg.com/aws/abc/prod/images/favicon_ie10.png" />
+<meta name="msvalidate.01" content="0EABD001D404EA9DDE2025E9E4F14CAF" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta property="fb:app_id" content="137585909851" />
+<meta property="og:app_id" content="137585909851" />
+<meta name="og:image" content="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023812/e91d23fe8736d47e7d2d605e18ee1094/1000x563-Q90_e91d23fe8736d47e7d2d605e18ee1094.jpg" />
+<link rel="canonical" href="https://abc.go.com/shows/abc-new-shows/news/shows/abc-fall-lineup-2017-tv-schedule-and-new-shows-announced" />
+<meta name="twitter:site" content="@ABCNetwork" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="og:description" content="ABC's 2017 Fall Primetime Schedule has been announced! Get the scoop on all the new and returning shows right here!" />
+<meta name="twitter:image" content="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023812/e91d23fe8736d47e7d2d605e18ee1094/1000x563-Q90_e91d23fe8736d47e7d2d605e18ee1094.jpg" />
+<meta name="og:image" content="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023812/e91d23fe8736d47e7d2d605e18ee1094/1000x563-Q90_e91d23fe8736d47e7d2d605e18ee1094.jpg" />
+<meta name="og:title" content="ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced! | ABC New Shows" />
+<meta name="og:url" content="https://abc.go.com/shows/abc-new-shows/news/shows/abc-fall-lineup-2017-tv-schedule-and-new-shows-announced" />
+<meta property="og:site_name" content="ABC" />
+<title>ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced! | ABC New Shows</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" type="text/css" href="//cdn1.edgedatg.com/aws/site/3.3.0.10/css/production/001/001/abcfonts.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn1.edgedatg.com/aws/site/3.3.0.10/css/production/001/001/abc.css"/>
+<script type="text/javascript" src="//cdn1.edgedatg.com/aws/site/3.3.0.10/js/production/001/001/modernizr.js"></script>
+<script type="text/javascript" src="https://cdn1.edgedatg.com/aws/apps/datg/web-js-telemetry-service/1.0.0.6/production/js/datgts.js"></script>
+<script type="text/javascript" src="https://cdn.unid.go.com/js/unid.min.js" data-client="DATG-ABCDOTCOM.WEB"></script>
+<script type="text/javascript" src="//cdn1.edgedatg.com/aws/apps/datg/web-player-unity/1.0.10.20/js/embed.min.js"></script>
+
+<!-- nielsen scripts --> <script type="text/javascript" src="//secure-dcr.imrworldwide.com/novms/js/2/ggcmb510.js"></script><script type="text/javascript">window.addEventListener && window.addEventListener('load', function() {NOLCMB && NOLCMB.getInstance('DCR').ggInitialize({apid: 'P5D99BE17-C04D-4521-9B5D-43B97D3B7A4A', sfcode: 'dcr', apn: 'ABC', nsdkv: '511'});});</script>
+<!-- optimizely --> <script src="//cdn.optimizely.com/js/9823262.js"></script>
+</head>
+<body  data-l-id="1628670" data-l-name="" data-l-type="" class="butterscotch t-dark butterscotch content-gutter"  data-show-title="ABC New Shows">
+
+
+<!-- crazy egg scripts --> <script type="text/javascript"> setTimeout(function() {var a=document.createElement("script"); var b=document.getElementsByTagName("script")[0]; a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0013/8430.js?"+Math.floor(new Date().getTime()/3600000); a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)} , 1); </script><div class="page-wrapper">
+    
+    <div  data-m-id="2022943" data-m-name="flyout" data-m-type="livetvalert"     class="module m-live-tv-alert flyout"
+>
+</div>    
+    <div class="header-modules">
+        <header
+   data-m-id="52087" data-m-name="main_menu" data-m-type="menu" class="m-menu module ">
+  <div class="m-menu-wrapper">
+          <section class="m-mvpdauth">
+    <div class="row">            <span class="mvpd-auth-bar-text"></span>
+            </div>
+</section>        <div class="row m-menu-row">
+      <aside class="m-menu-logo-title small-10">
+                  <a href="http://abc.go.com">
+            <img class="m-menu-logo left" src="https://cdn1.edgedatg.com/aws/assets/cp/web/abc/images/abc_butterscotch_logo_v2.png"
+                 alt="ABC"/>
+          </a>
+                <script type="application/ld+json">
+                    {
+                        "@context": "http://schema.org/",
+                        "@type": "abc.com",
+                        "url": "http://abc.go.com",
+                        "logo": "https://cdn1.edgedatg.com/aws/assets/cp/web/abc/images/abc_butterscotch_logo_v2.png"
+                    }
+                </script>
+                              <div
+              class="m-menu-page-title hide-for-large-up m-menu-page-title-only ">
+              <a href="/shows/abc-new-shows"
+                 class="m-menu-showtitle text3 regular black truncate-text">ABC New Shows</a>
+                        <span class="m-menu-tune-in text6 light grey"><span
+                            class="bold"></span></span>
+            </div>
+                        </aside>
+      <nav class="m-menu-global-navigation small-1">
+                  <a class="m-menu-mobile-global-link faded-grey hide-for-large-up right" href="#" data-t-id="l43">
+            <span class="m-menu-mobile-bar"></span>
+            <span class="m-menu-mobile-bar"></span>
+            <span class="m-menu-mobile-bar"></span>
+            <span class="m-menu-mobile-bar"></span>
+          </a>
+                <ul class="m-menu-global-list-navigation inline-list show-for-large-up">
+                            <li data-t-id="l0">
+                    <div class="m-menu-global-section">
+                      <a class="light faded-grey m-menu-item m-menu-showlist-link"
+                         href="#"
+                         target="module">
+                        shows                                                  <span class="abc-icon-arrow-down faded-grey"></span>
+                                              </a>
+                    </div>
+                  </li>
+                                  <li data-t-id="l1">
+                    <div class="m-menu-global-section">
+                      <a class="light faded-grey m-menu-item m-menu--link"
+                         href="/schedule"
+                         target="_self">
+                        schedule                                              </a>
+                    </div>
+                  </li>
+                                  <li data-t-id="l2">
+                    <div class="m-menu-global-section">
+                      <a class="light faded-grey m-menu-item m-menu-live-link"
+                         href="/watch-live"
+                         target="_self">
+                        live tv                                              </a>
+                    </div>
+                  </li>
+                                  <li data-t-id="l3">
+                    <div class="m-menu-global-section">
+                      <a class="light faded-grey m-menu-item m-menu-favorites-link"
+                         href="/my-profile"
+                         target="_self">
+                        continue watching                                              </a>
+                    </div>
+                  </li>
+                                  <li data-t-id="l4">
+                    <div class="m-menu-global-section">
+                      <a class="light faded-grey m-menu-item m-menu-apps-link"
+                         href="/apps"
+                         target="_self">
+                        apps                                              </a>
+                    </div>
+                  </li>
+                                      <li
+            data-t-id="l5"            >
+              <div class="m-menu-global-section">
+                <a class="light faded-grey m-menu-global-link" href="#">
+                  More
+                  <span class="abc-icon-arrow-down faded-grey"></span>
+                </a>
+              </div>
+            </li>
+                            </ul>
+      </nav>
+              <div class="m-menu-global-navigation-search-icon">
+          <a class="light faded-grey m-menu-search-link abc-icon-magnify-glass" href="#" data-t-id="l44"></a>
+        </div>
+          </div>
+  </div>
+      <form class="m-menu-search" method="get" action="//search.abc.go.com/search">
+    <div class="m-menu-search-wrapper">
+        <div class="row">
+            <header class="m-menu-search-form columns">
+                <div class="m-menu-search-close abc-icon-circle-close grey"></div>
+                <button type="submit" class="m-menu-search-icon abc-icon-magnify-glass grey"></button>
+                <input class="grey" name="q" id="searchInput" type="text"/>
+                <label class="m-menu-search-label grey">Start Typing...</label>
+            </header>
+            <div class="searchResults" data-ramp-ac-input="searchInput"
+                 data-ramp-ac-config="//embed.widget.cx/sites/abccom/ac.json" data-ramp-ac=""></div>
+        </div>
+    </div>
+</form>        <section class="mobile-menu row ">
+    <div class="m-menu-drop-nav">
+        <div class="row">
+            <div class="columns navigation-group">
+                <ul class="show-list-navigation navigation-group no-list-style">
+                    
+                                <li>
+                                    <span class="navigation-group-link text4 extra-light lowercase"
+                                          data-t-id="l6">
+                                        <a href="/shows/abc-new-shows"
+                                           target="_self"
+                                           class="dark-grey">Home                                        </a>
+                                    </span>
+                                </li>
+                            
+                                <li>
+                                    <span class="navigation-group-link text4 extra-light lowercase"
+                                          data-t-id="l7">
+                                        <a href="/shows/abc-new-shows/video"
+                                           target="_self"
+                                           class="dark-grey">Videos                                        </a>
+                                    </span>
+                                </li>
+                            
+                                <li>
+                                    <span class="navigation-group-link text4 extra-light lowercase"
+                                          data-t-id="l8">
+                                        <a href="/shows/abc-new-shows/news"
+                                           target="_self"
+                                           class="dark-grey">News                                        </a>
+                                    </span>
+                                </li>
+                                            </ul>
+                                    <div class="social-icons">
+                                                    <a href="https://www.twitter.com/ABCNetwork"
+                               class="icon grey abc-icon-twitter"
+                               target="_blank"></a>
+                                                    <a href="https://www.facebook.com/ABCNetwork"
+                               class="icon grey abc-icon-facebook"
+                               target="_blank"></a>
+                                                    <a href="http://abc-television.tumblr.com/"
+                               class="icon grey abc-icon-tumblr"
+                               target="_blank"></a>
+                                                    <a href="https://www.instagram.com/abcnetwork"
+                               class="icon grey abc-icon-instagram"
+                               target="_blank"></a>
+                                                    <a href="http://www.pinterest.com/abctelevision"
+                               class="icon grey abc-icon-pinterest"
+                               target="_blank"></a>
+                                            </div>
+                            </div>
+        </div>
+    </div>
+    <header class="mobile-menu-section-header hide-for-large-up">
+        <div class="row">
+            <div class="columns">
+                <span
+                    class="text4 dark-grey lowercase navtitle">abc.com</span>
+                <hr/>
+            </div>
+        </div>
+    </header>
+            <div class="m-menu-drop-nav m-menu-show-drop-nav">
+            <div class="row">
+                <div class="columns navigation-group">
+                    <header class="m-menu-drop-nav-header show-for-large-up">
+                        <span class="navigation-group-link text4 grey lowercase navtitle">Shows</span>
+                        <hr/>
+                    </header>
+                    <ul class="show-list-navigation navigation-group no-list-style">
+                        <li class="expandable-list" data-t-id="l0"><a
+                                class="hide-for-large-up extra-light dark-text expanded-list-title"
+                                href="#">Shows <span
+                                    class="abc-icon-arrow-down icon expand-arrow"></span></a>
+                            <ul class="m-menu-link-list collapsed-list">
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l18">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/american-housewife"
+                                                class="dark-grey">American Housewife</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l19">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/the-bachelorette"
+                                                class="dark-grey">The Bachelorette</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l20">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/battle-of-the-network-stars"
+                                                class="dark-grey">Battle of the Network Stars</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l21">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/blackish"
+                                                class="dark-grey">black-ish</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l22">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/boy-band"
+                                                class="dark-grey">Boy Band</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l23">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/celebrity-family-feud"
+                                                class="dark-grey">Celebrity Family Feud</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l24">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/descendants-2-abc"
+                                                class="dark-grey">Disney's Descendants 2</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l25">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/designated-survivor"
+                                                class="dark-grey">Designated Survivor</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l26">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/general-hospital"
+                                                class="dark-grey">General Hospital</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l27">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/the-gong-show"
+                                                class="dark-grey">The Gong Show</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l28">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/greys-anatomy"
+                                                class="dark-grey">Grey's Anatomy</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l29">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/jimmy-kimmel-live"
+                                                class="dark-grey">Jimmy Kimmel Live!</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l30">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/modern-family"
+                                                class="dark-grey">Modern Family</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l31">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/scandal"
+                                                class="dark-grey">Scandal</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l32">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/somewhere-between"
+                                                class="dark-grey">Somewhere Between</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l33">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/speechless"
+                                                class="dark-grey">Speechless</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l34">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/steve-harveys-funderdome"
+                                                class="dark-grey">Steve Harvey's FUNDERDOME</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l35">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/still-star-crossed"
+                                                class="dark-grey">Still Star-Crossed</a></span>
+                                        </li>
+
+                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l36">
+                                        <span class="navigation-group-link text4 extra-light"><a
+                                                href="/shows/the-100000-pyramid"
+                                                class="dark-grey">The $100,000 Pyramid</a></span>
+                                        </li>
+
+                                                                    <li class="m-menu-link-list-item" data-t-id="l37">
+                                <span class="navigation-group-link text5 subtitle m-menu-shows-all-link lowercase"><a
+                                        href="/shows">View All Shows <span
+                                            class="abc-icon-arrow-right"></span></a></span>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+                <div class="m-menu-drop-nav m-menu-global-drop-nav">
+            <div class="row">
+                <div class="columns navigation-group">
+                    <header class="m-menu-drop-nav-header show-for-large-up">
+                    <span class="navigation-group-link text4 grey lowercase navtitle">
+                        abc.com</span>
+                        <hr/>
+                    </header>
+                    <ul class="show-list-navigation navigation-group m-menu-link-list">
+                                                                                                                                                                                                                                                                                                                        
+                                        <li class="m-menu-link-list-item" data-t-id="l1">
+                                        <span class="navigation-group-link text4 extra-light lowercase"><a
+                                                href="/schedule"
+                                                class="dark-grey">schedule</a></span>
+                                        </li>
+
+                                                                                                                                                                                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l2">
+                                        <span class="navigation-group-link text4 extra-light lowercase"><a
+                                                href="/watch-live"
+                                                class="dark-grey">live tv</a></span>
+                                        </li>
+
+                                                                                                                                                                                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l3">
+                                        <span class="navigation-group-link text4 extra-light lowercase"><a
+                                                href="/my-profile"
+                                                class="dark-grey">continue watching</a></span>
+                                        </li>
+
+                                                                                                                                                                                                    
+                                        <li class="m-menu-link-list-item" data-t-id="l4">
+                                        <span class="navigation-group-link text4 extra-light lowercase"><a
+                                                href="/apps"
+                                                class="dark-grey">apps</a></span>
+                                        </li>
+
+                                                                                                                                                                                                                                                                                                                
+                                <li class="m-menu-link-list-item" data-t-id="l38">
+                                <span class="navigation-group-link text4 extra-light lowercase"><a
+                                        href="http://oscar.go.com"
+                                        target="_self"
+                                        class="dark-grey">oscar.com</a></span>
+                                </li>
+
+                            
+                                <li class="m-menu-link-list-item" data-t-id="l39">
+                                <span class="navigation-group-link text4 extra-light lowercase"><a
+                                        href="/music-lounge"
+                                        target="_self"
+                                        class="dark-grey">music</a></span>
+                                </li>
+
+                            
+                                <li class="m-menu-link-list-item" data-t-id="l40">
+                                <span class="navigation-group-link text4 extra-light lowercase"><a
+                                        href="http://abcnews.go.com"
+                                        target="_self"
+                                        class="dark-grey">abc news</a></span>
+                                </li>
+
+                            
+                                <li class="m-menu-link-list-item" data-t-id="l41">
+                                <span class="navigation-group-link text4 extra-light lowercase"><a
+                                        href="http://freeform.go.com"
+                                        target="_self"
+                                        class="dark-grey">freeform</a></span>
+                                </li>
+
+                            
+                                <li class="m-menu-link-list-item" data-t-id="l42">
+                                <span class="navigation-group-link text4 extra-light lowercase"><a
+                                        href="/faq"
+                                        target="_self"
+                                        class="dark-grey">faq</a></span>
+                                </li>
+
+                            
+                        <li class="m-menu-link-list-item mvpd-sign-out" data-t-id="l45">
+                            <span class="navigation-group-link text4 extra-light lowercase hi"></span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+        <div class="m-menu-drop-nav m-menu-show-drop-nav show-for-large-up">
+    <div class="row">
+        <div class="columns navigation-group">
+            <header class="m-menu-drop-nav-header show-for-large-up">
+                <span class="navigation-group-link text4 grey lowercase navtitle">Shows</span>
+                <hr/>
+            </header>
+            <ul class="show-list-navigation navigation-group no-list-style">
+                <li class="expandable-list"><!--
+                 --><a class="hide-for-large-up extra-light dark-text expanded-list-title"
+                       href="#">Shows <!--
+                    --><span class="abc-icon-arrow-down icon expand-arrow"></span><!--
+                --></a>
+                    <ul class="m-menu-link-list collapsed-list">
+                                                        <li class="m-menu-link-list-item" data-t-id="l18">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/american-housewife"
+                                           class="faded-grey">American Housewife</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l19">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/the-bachelorette"
+                                           class="faded-grey">The Bachelorette</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l20">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/battle-of-the-network-stars"
+                                           class="faded-grey">Battle of the Network Stars</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l21">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/blackish"
+                                           class="faded-grey">black-ish</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l22">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/boy-band"
+                                           class="faded-grey">Boy Band</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l23">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/celebrity-family-feud"
+                                           class="faded-grey">Celebrity Family Feud</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l24">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/descendants-2-abc"
+                                           class="faded-grey">Disney's Descendants 2</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l25">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/designated-survivor"
+                                           class="faded-grey">Designated Survivor</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l26">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/general-hospital"
+                                           class="faded-grey">General Hospital</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l27">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/the-gong-show"
+                                           class="faded-grey">The Gong Show</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l28">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/greys-anatomy"
+                                           class="faded-grey">Grey's Anatomy</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l29">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/jimmy-kimmel-live"
+                                           class="faded-grey">Jimmy Kimmel Live!</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l30">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/modern-family"
+                                           class="faded-grey">Modern Family</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l31">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/scandal"
+                                           class="faded-grey">Scandal</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l32">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/somewhere-between"
+                                           class="faded-grey">Somewhere Between</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l33">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/speechless"
+                                           class="faded-grey">Speechless</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l34">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/steve-harveys-funderdome"
+                                           class="faded-grey">Steve Harvey's FUNDERDOME</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l35">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/still-star-crossed"
+                                           class="faded-grey">Still Star-Crossed</a><!--
+                                 --></span>
+                                </li>
+                                                            <li class="m-menu-link-list-item" data-t-id="l36">
+                                    <span class="navigation-group-link text-header-nav extra-light"><!--
+                                     --><a href="/shows/the-100000-pyramid"
+                                           class="faded-grey">The $100,000 Pyramid</a><!--
+                                 --></span>
+                                </li>
+                                                    <li class="m-menu-link-list-item" data-t-id="l37">
+                            <a class="button navigation-group-link subtitle m-menu-shows-all-link lowercase" href="/shows">view all shows</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+    <div class="m-menu-drop-nav m-menu-global-drop-nav show-for-large-up">
+    <div class="row">
+        <div class="columns navigation-group">
+            <header class="m-menu-drop-nav-header show-for-large-up">
+                <span
+                    class="navigation-group-link text4 grey lowercase navtitle">abc.com</span>
+                <hr/>
+            </header>
+            <ul class="show-list-navigation navigation-group m-menu-link-list">
+                
+                        <li class="m-menu-link-list-item" data-t-id="l38">
+                            <span class="navigation-group-link text-header-nav extra-light lowercase"><a
+                                    href="http://oscar.go.com"
+                                    target="_self"
+                                    class="faded-grey">oscar.com</a></span>
+                        </li>
+
+                    
+                        <li class="m-menu-link-list-item" data-t-id="l39">
+                            <span class="navigation-group-link text-header-nav extra-light lowercase"><a
+                                    href="/music-lounge"
+                                    target="_self"
+                                    class="faded-grey">music</a></span>
+                        </li>
+
+                    
+                        <li class="m-menu-link-list-item" data-t-id="l40">
+                            <span class="navigation-group-link text-header-nav extra-light lowercase"><a
+                                    href="http://abcnews.go.com"
+                                    target="_self"
+                                    class="faded-grey">abc news</a></span>
+                        </li>
+
+                    
+                        <li class="m-menu-link-list-item" data-t-id="l41">
+                            <span class="navigation-group-link text-header-nav extra-light lowercase"><a
+                                    href="http://freeform.go.com"
+                                    target="_self"
+                                    class="faded-grey">freeform</a></span>
+                        </li>
+
+                    
+                        <li class="m-menu-link-list-item" data-t-id="l42">
+                            <span class="navigation-group-link text-header-nav extra-light lowercase"><a
+                                    href="/faq"
+                                    target="_self"
+                                    class="faded-grey">faq</a></span>
+                        </li>
+
+                                    <li class="m-menu-link-list-item mvpd-sign-out" data-t-id="l45">
+                    <span class="navigation-group-link text4 extra-light lowercase hi"></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+  </header>
+        <section
+     data-m-id="1628642" data-m-name="show_menu" data-m-type="submenu"     class="module m-submenu showheader show-for-large-up ">
+    <section class="m-submenu-show-branding"
+             style="background-image : url('https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/showimages/b460768ed01247756c4e7853cc772a39/3200x180-Q90_b460768ed01247756c4e7853cc772a39.jpg'); background-color : #c3d2d0;">
+        <div class="m-submenu-show-branding-wrapper row">
+            <h1 class="m-submenu-logo-h1">
+                <a href="/shows/abc-new-shows" class="m-submenu-logo text-center">
+                    <img class="m-submenu-logo" src="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/showimages/461ab557f1b0a3fbd9b61b6a81c57fb5/640x180-Q100_461ab557f1b0a3fbd9b61b6a81c57fb5.png" alt="ABC New Shows"/>
+                </a>
+            </h1>
+            <span class="m-submenu-tunein text5 light text-center"><span class="bold"></span></span>
+        </div>
+    </section>
+            <section class="show-subnav">
+            <div class="wrapper">
+                <div class="row">
+                    <nav class="columns small-12 xlarge-7 show-list-navigation-column">
+                        <ul class="inline-list show-list-navigation">
+                            <li class="show-list-nav-item" data-t-id="l6"><a class="extra-light text7 dark-text"
+                                  target="_self"
+                                  href="/shows/abc-new-shows">Home</a></li>
+<li class="show-list-nav-item" data-t-id="l7"><a class="extra-light text7 dark-text"
+                                  target="_self"
+                                  href="/shows/abc-new-shows/video">Videos</a></li>
+<li class="show-list-nav-item" data-t-id="l8"><a class="extra-light text7 dark-text"
+                                  target="_self"
+                                  href="/shows/abc-new-shows/news">News</a></li>
+                            <li class="show-list-nav-item show-list-nav-item-social">
+                                                                    <div class="social-icons hide-for-xlarge-up">
+                                                                                    <a class="icon grey abc-icon-twitter" href="https://www.twitter.com/ABCNetwork" target="_blank"></a>
+                                                                                    <a class="icon grey abc-icon-facebook" href="https://www.facebook.com/ABCNetwork" target="_blank"></a>
+                                                                                    <a class="icon grey abc-icon-tumblr" href="http://abc-television.tumblr.com/" target="_blank"></a>
+                                                                                    <a class="icon grey abc-icon-instagram" href="https://www.instagram.com/abcnetwork" target="_blank"></a>
+                                                                                    <a class="icon grey abc-icon-pinterest" href="http://www.pinterest.com/abctelevision" target="_blank"></a>
+                                                                            </div>
+                                                            </li>
+                            <li class="show-list-nav-item show-list-nav-more" data-t-id="l46">
+                                <a class="extra-light show-list-nav-more-link dark-text text7" href="#">More
+                                    <span class="abc-icon-arrow-down icon"></span></a>
+
+                                <section class="dropdownlist">
+                                    <div class='dropdownlist-wrapper'>
+                                        <ul class="no-list-style dropdownlist-list"></ul>
+                                    </div>
+                                </section>
+
+                            </li>
+                        </ul>
+                    </nav>
+                                            <div class="social-icons text-right columns xlarge-5 show-for-xlarge-up">
+                                                            <a href="https://www.twitter.com/ABCNetwork"
+                                   class="icon grey abc-icon-twitter"
+                                   target="_blank"></a>
+                                                            <a href="https://www.facebook.com/ABCNetwork"
+                                   class="icon grey abc-icon-facebook"
+                                   target="_blank"></a>
+                                                            <a href="http://abc-television.tumblr.com/"
+                                   class="icon grey abc-icon-tumblr"
+                                   target="_blank"></a>
+                                                            <a href="https://www.instagram.com/abcnetwork"
+                                   class="icon grey abc-icon-instagram"
+                                   target="_blank"></a>
+                                                            <a href="http://www.pinterest.com/abctelevision"
+                                   class="icon grey abc-icon-pinterest"
+                                   target="_blank"></a>
+                                                    </div>
+                                    </div>
+            </div>
+        </section>
+        <section class="m-submenu-drawer">
+        <div class="row">
+            <div class="columns">
+                <ul class="large-block-grid-5">
+                                    </ul>
+            </div>
+        </div>
+    </section>
+</section>
+    </div>
+
+    <main class="content region">
+        <div class="modules">
+            <section
+     data-m-id="801981" data-m-name="messages" data-m-type="messages"     class="module m-message module-static row ">
+    <div class="columns large-3 m-message-alert-icon">
+        <span class="icon abc-icon-alert"></span>
+    </div>
+    <div class="columns large-8 messages-wrapper"></div>
+    <div class="close columns large-1">
+        <div class="abc-icon-close iconfont"></div>
+    </div>
+</section>                <article  data-m-id="84283" data-m-name="blog_detail" data-m-type="blog"         class="module m-blog_detail columns xlarge-8 ">
+        <div class="columns">
+            <header>
+                <h1 class="module-title text1 light dark-grey">ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced!                </h1>
+                <span class="text5 subheader extra-light grey">By Ann B. Clark | Jul 24th, 2017                </span>
+                <div class="m-sharebar"></div>
+            </header>
+        </div>
+        <div class="columns nogutter">
+            <section class="m-blog_detail-body copy-content description"><p>  ABC's 2017 Fall Primetime Schedule and Premiere Dates have been announced! The fall lineup includes new series <em>The Good Doctor</em>, <em>The Mayor</em>, <em>Kevin (Probably) Saves the World (</em>formerly<em> The Gospel of Kevin)</em>, <em>Marvel's Inhumans</em> and <em>Ten Days in the Valley</em> alongside returning favorites like <em>Designated Survivor, Modern Family</em>, <em>Scandal</em>, <em>Grey's Anatomy</em>, <em>Dancing with the Stars</em>, <em>black-ish</em>, <em>American Housewife</em> and much more! ABC's fall schedule and premiere dates are listed below with additional shows debuting at a later date in the 2017-2018 TV Season. See a breakdown of the lineup with new shows in <strong>bold</strong> below the grid. <strong><a href="#premieredateorder">Click here to jump down to the list by premiere date.</a></strong></p><div class="aspect-ratio-buffer aspect-59x50 m-ad ">
+    <div class="ad-wrapper">
+        <div class="center-box m-adblock adblock320x250 cast-ad-unit columns medium-12">
+            <div class="centered">
+                <span class="_fwph" id="rectangle">
+    <form style="display:none" id="_fw_form_rectangle">
+        <input type="hidden" value="ptgt=s&envp=g_js&slid=rectangle&slau=Rectangle 300x250&w=300&h=250&cd=300,250" id="_fw_input_rectangle" name="_fw_input_rectangle">
+    </form>
+    <span class="_fwac" id="_fw_container_rectangle"></span>
+</span>            </div>
+        </div>
+    </div>
+</div> <p>  <img datg-data-id="3844736" datg-model="ImageSource" src="http://datg-cms-source-repo.s3-website-us-east-1.amazonaws.com/ABC/SCHED2017BILLBOARDTABLET/96841b80-cfdf-44af-9aeb-cbcfa3f45ad0.jpg" /></p> <p style="text-align: center;">  <strong>MONDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/dancing-with-the-stars">Dancing with the Stars</a></em> SEASON 25 PREMIERE MONDAY SEPTEMBER 18 8|7c</p> <p style="text-align: center;">  <strong><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/the-good-doctor-coming-soon-to-abc">The Good Doctor</a></em></strong> SERIES PREMIERE MONDAY SEPTEMBER 25 10|9c</p> <div class="abcmedia video" data-name="ABC_0130-SCLP1-7229-0_TheGoodDoctorOfficialTrailer_SneakPeek_10094363_Video">  <video data-name="ABC_0130-SCLP1-7229-0_TheGoodDoctorOfficialTrailer_SneakPeek_10094363_Video" height="240" id="VDKA3844293" width="426"></video> </div> <p style="text-align: center;">  <strong>TUESDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/the-middle">The Middle</a></em> SEASON 9 PREMIERE TUESDAY OCTOBER 3 8|7c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/fresh-off-the-boat">Fresh Off the Boat</a></em> SEASON 4 PREMIERE TUESDAY OCTOBER 3 8:30|7:30c (new time period)</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/blackish">black-ish</a></em> SEASON 4 PREMIERE TUESDAY OCTOBER 3 9|8c <strong>(new day and time period)</strong></p> <p style="text-align: center;">  <strong><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/the-mayor-coming-soon-to-abc">The Mayor</a></em> SERIES PREMIERE TUESDAY OCTOBER 3 9:30|8:30c</strong></p> <div class="abcmedia video" data-name="ABC_0127-SCLP1-7247-0_TheMayorOfficialTrailer_SneakPeek_10094357_Video">  <video data-name="ABC_0127-SCLP1-7247-0_TheMayorOfficialTrailer_SneakPeek_10094357_Video" height="240" id="VDKA3844458" width="426"></video> </div> <p style="text-align: center;">  <strong><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/the-gospel-of-kevin-coming-soon-to-abc">Kevin (Probably) Saves the World (</a></em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/the-gospel-of-kevin-coming-soon-to-abc">formerly</a><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/the-gospel-of-kevin-coming-soon-to-abc"> The Gospel of Kevin)</a></em> SERIES PREMIERE TUESDAY OCTOBER 3 10|9c</strong></p> <p style="text-align: center;"> </p> <br /> <p style="text-align: center;">  <strong>WEDNESDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/the-goldbergs">The Goldbergs</a></em> SEASON 5 PREMIERE WEDNESDAY SEPTEMBER 27 8|7c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/speechless">Speechless</a></em> SEASON 2 PREMIERE WEDNESDAY SEPTEMBER 27 8:30|7:30c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/modern-family">Modern Family</a></em> SEASON 9 PREMIERE WEDNESDAY SEPTEMBER 27 9|8c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/american-housewife">American Housewife</a></em> SEASON 2 PREMIERE WEDNESDAY SEPTEMBER 27 9:30|8:30c <strong>(new day and time period)</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/designated-survivor">Designated Survivor</a></em> SEASON 2 PREMIERE WEDNESDAY SEPTEMBER 27 10|9c</p> <p style="text-align: center;">  <strong>THURSDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/greys-anatomy">Grey's Anatomy</a></em> SEASON 14 PREMIERE THURSDAY SEPTEMBER 28 8|7c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/scandal">Scandal</a></em> SEASON 7 PREMIERE THURSDAY OCTOBER 5 9|8c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/how-to-get-away-with-murder">How to Get Away with Murder</a></em> SEASON 4 PREMIERE THURSDAY SEPTEMBER 28 10|9c</p> <p style="text-align: center;">  <strong>FRIDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/once-upon-a-time">Once Upon a Time</a></em> SEASON 7 PREMIERE FRIDAY OCTOBER 6 8|7c <strong>(new day and time period)</strong></p> <p style="text-align: center;">  <strong><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/marvels-inhumans-coming-soon-to-abc">Marvel's Inhumans</a></em> SERIES PREMIERE FRIDAY SEPTEMBER 29 9|8c</strong></p> <p style="text-align: center;">  20/20 10|9c</p> <p style="text-align: center;">  <strong>SATURDAY </strong></p> <p style="text-align: center;">  Saturday Night Football</p> <p style="text-align: center;">  <strong>SUNDAY</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/americas-funniest-home-videos">America's Funniest Home Videos</a></em> SEASON 28 PREMIERE SUNDAY NOVEMBER 26 7|6c</p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/to-tell-the-truth">To Tell the Truth</a></em> SEASON 3 PREMIERE SUNDAY OCTOBER 8 8|7c <strong>(new day and time period)</strong></p> <p style="text-align: center;">  <em><a href="http://abc.go.com/shows/shark-tank">Shark Tank</a></em> 2-HOUR SEASON 9 PREMIERE 8|7c <strong>(new day)</strong></p> <p style="text-align: center;">  <strong><em><a href="http://abc.go.com/shows/abc-new-shows/news/shows/ten-days-in-the-valley-coming-soon-to-abc">Ten Days in the Valley</a></em> SERIES PREMIERE SUNDAY OCTOBER 1 10|9c</strong></p> <p style="text-align: center;"> </p> <div class="abcmedia video" data-name="ABC_0006-OTTV1-7232-0_TenDaysintheValleyOfficialTrailer_SneakPeek_10096901_Video">  <video data-name="ABC_0006-OTTV1-7232-0_TenDaysintheValleyOfficialTrailer_SneakPeek_10096901_Video" height="240" id="VDKA3930173" width="426"></video> </div> <p style="text-align: center;">  <a href="http://abc.go.com/shows/abc-new-shows" target="_self"><strong>Check out ABC's new Fall 2017-2018 TV shows here!</strong></a></p> <p style="text-align: center;">  <strong><a name="premieredateorder">PREMIERE DATE ORDER</a></strong></p> <p>  <u>Monday, September 18</u></p> <p>  Dancing with the Stars (Season 25 premiere) 8:00-10:00 p.m.</p> <p>  <u>Monday, September 25</u></p> <p>  <strong>The Good Doctor (Series premiere) </strong>10:00-11:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Wednesday, September 27</u></p> <p>  The Goldbergs (Season 5 premiere) 8:00-8:30 p.m. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  Speechless (Season 2 premiere) 8:30-9:00 p.m. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  Modern Family (Season 9 premiere) 9:00-9:30 p.m. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  American Housewife (Season 2 premiere; new day and time) 9:30-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  Designated Survivor (Season 2 premiere) 10:00-11:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Thursday, September 28</u></p> <p>  Grey's Anatomy (two-hour Season 14 premiere) 8:00-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  How to Get Away with Murder (Season 4 premiere) 10:00-11:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Friday, September 29</u></p> <p>  <strong>Marvel's Inhumans (two-hour series premiere) </strong>8:00-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Sunday, October 1</u></p> <p>  The Toy Box (Season 2 premiere; new day and time) 7:00-8:00 p.m. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  Shark Tank (two-hour Season 9 premiere; new day and time) 8:00-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <strong>Ten Days in the Valley (Series premiere) </strong>10:00-11:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Tuesday, October 3</u></p> <p>  The Middle (Season 9 premiere) 8:00-8:30 p.m. &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  Fresh Off the Boat (Season 4 premiere; new time) 8:30-9:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  black-ish (Season 4 premiere; new day and time) 9:00-9:30 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <strong>The Mayor (Series premiere) </strong>9:30-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <strong>Kevin (Probably) Saves the World (formerly "The Gospel of Kevin") (Series premiere) </strong>10:00-11:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Thursday, October 5</u></p> <p>  Scandal (Season 7 premiere) 9:00-10:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Friday, October 6</u></p> <p>  Once Upon a Time (Season 7 premiere; new day and time) 8:00-9:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Sunday, October 8</u></p> <p>  To Tell the Truth (Season 3 premiere; new day and time) 8:00-9:00 p.m.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p> <p>  <u>Sunday, November 26</u></p> <p>  America's Funniest Home Videos (Season 28 premiere) 7:00-8:00 p.m.</p>            </section>
+        </div>
+        
+    <div class="columns comments">
+        <div class="m-blog_detail-comments" id="comments">
+            <h2 class="text2 extra-light dark-grey lowercase module-comment-title">Comments</h2>
+                        <div class="privacyNote extra-light text5 grey">
+                Use a <a class="privacyLink grey" href="http://www.facebook.com">Facebook account</a> to add a
+                comment, subject to Facebook's
+                <a class="privacyLink grey" href="https://www.facebook.com/policies/">Terms of Service</a>
+                and <a class="privacyLink grey" href="https://www.facebook.com/about/privacy/">Privacy Policy</a>.
+                Your Facebook name, photo &amp; other personal information you make public on
+                Facebook will appear with your comment, and may be used on ABC's media platforms.
+                <a class="privacyLink grey" href="/faq#facebookcomments">Learn more.</a>
+            </div>
+            <div class="fb-comments"
+                 data-href="https://abc.go.com/shows/abc-new-shows/news/shows/abc-fall-lineup-2017-tv-schedule-and-new-shows-announced"
+                 data-numposts="5"
+                 data-colorscheme="light" data-width="100%">
+            </div>
+        </div>
+    </div>
+    </article>
+    <section  data-m-id="1628659" data-m-name="related_blogs" data-m-type="tilegroup"          class="module m-tilegroup tile-grid columns xlarge-4 tile-strip right-rail right-rail-ad "
+                                data-img-config="{&quot;web&quot;:{&quot;width&quot;:&quot;330&quot;},&quot;web-retina&quot;:{&quot;width&quot;:&quot;528&quot;},&quot;tablet&quot;:{&quot;width&quot;:&quot;330&quot;},&quot;tablet-retina&quot;:{&quot;width&quot;:&quot;528&quot;},&quot;mobile&quot;:{&quot;width&quot;:&quot;300&quot;},&quot;mobile-retina&quot;:{&quot;width&quot;:&quot;512&quot;},&quot;default&quot;:{&quot;width&quot;:&quot;1&quot;}}"
+                >
+        <div class="columns">
+            <h2 class="module-title lowercase text2">Related Posts</h2>
+    </div>
+        <div class="columns">
+            <ul class="tiles  small-block-grid-1 medium-block-grid-3 large-block-grid-3 xlarge-block-grid-1 slider-strip row nogutter
+            "
+                data-sliderstrip-settings=""><li  data-sm-id="" data-sm-name="" data-sm-type="blog"     class="tile tile-content-overlay"
+    data-t-id="blogblog.2022817"    >
+    <a href="/shows/abc-new-shows/news/shows/the-mayor-coming-soon-to-abc"
+       target="_self"
+       class="background-link aspect-ratio-buffer bg-gradient aspect-16x9">
+            <picture class="background fluid-img lazyload">
+                <source class="mobile-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/528x299-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/330x186-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 1x"
+                media="(max-width: 671px)"/>
+                        <source class="tablet-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/528x299-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/330x186-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 1x"
+                media="(max-width: 999px)"/>
+                        <source class="web-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/528x299-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/330x186-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg 1x"
+                media="(min-width: 1000px)"/>
+                        <img
+            src="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022817/2fa61ba58eb5df42e5c19109dfb66acd/148x83-Q90_2fa61ba58eb5df42e5c19109dfb66acd.jpg"
+            class="lazyload fluid-img"
+            alt=""/>
+            </picture>
+    </a>
+    <a href="/shows/abc-new-shows/news/shows/the-mayor-coming-soon-to-abc"
+       target="_self">
+                <section class="details">
+                            <span class="text4 subheader capitalize">
+                    News                </span>
+                        <span class="text3 title">"The Mayor" Series Premiere TUESDAY OCTOBER 3 9:30|8:30c on ABC</span>
+        </section>
+    </a>
+</li><li  data-sm-id="" data-sm-name="" data-sm-type="blog"     class="tile tile-content-overlay"
+    data-t-id="blogblog.2022888"    >
+    <a href="/shows/abc-new-shows/news/shows/the-good-doctor-coming-soon-to-abc"
+       target="_self"
+       class="background-link aspect-ratio-buffer bg-gradient aspect-16x9">
+            <picture class="background fluid-img lazyload">
+                <source class="mobile-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/528x299-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/330x186-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 1x"
+                media="(max-width: 671px)"/>
+                        <source class="tablet-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/528x299-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/330x186-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 1x"
+                media="(max-width: 999px)"/>
+                        <source class="web-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/528x299-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/330x186-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg 1x"
+                media="(min-width: 1000px)"/>
+                        <img
+            src="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2022888/ec3d5e342d43e2a8863da5b288140d61/148x83-Q90_ec3d5e342d43e2a8863da5b288140d61.jpg"
+            class="lazyload fluid-img"
+            alt=""/>
+            </picture>
+    </a>
+    <a href="/shows/abc-new-shows/news/shows/the-good-doctor-coming-soon-to-abc"
+       target="_self">
+                <section class="details">
+                            <span class="text4 subheader capitalize">
+                    News                </span>
+                        <span class="text3 title">"The Good Doctor" Series Premiere MONDAY SEPTEMBER 25 10|9c on ABC</span>
+        </section>
+    </a>
+</li><li  data-sm-id="" data-sm-name="" data-sm-type="blog"     class="tile tile-content-overlay"
+    data-t-id="blogblog.2023562"    >
+    <a href="/shows/abc-new-shows/news/shows/ten-days-in-the-valley-coming-soon-to-abc"
+       target="_self"
+       class="background-link aspect-ratio-buffer bg-gradient aspect-16x9">
+            <picture class="background fluid-img lazyload">
+                <source class="mobile-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/528x299-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/330x186-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 1x"
+                media="(max-width: 671px)"/>
+                        <source class="tablet-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/528x299-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/330x186-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 1x"
+                media="(max-width: 999px)"/>
+                        <source class="web-source"
+                srcset="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/528x299-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 2x, https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/330x186-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg 1x"
+                media="(min-width: 1000px)"/>
+                        <img
+            src="https://cdn1.edgedatg.com/aws/v2/abc/ABCNewShows/blog/2023562/9dad5d9743d1dd011e1ddc7ffc0ae3a6/148x83-Q90_9dad5d9743d1dd011e1ddc7ffc0ae3a6.jpg"
+            class="lazyload fluid-img"
+            alt=""/>
+            </picture>
+    </a>
+    <a href="/shows/abc-new-shows/news/shows/ten-days-in-the-valley-coming-soon-to-abc"
+       target="_self">
+                <section class="details">
+                            <span class="text4 subheader capitalize">
+                    News                </span>
+                        <span class="text3 title">"Ten Days in the Valley" Series Premiere SUNDAY OCTOBER 1 10|9c on ABC</span>
+        </section>
+    </a>
+</li>            </ul>
+            <div class="m-tilegroup-arrow m-tilegroup-arrow-prev">
+    <span class="abc-icon-arrow-left icon dark-grey"></span>
+</div>
+<div class="m-tilegroup-arrow m-tilegroup-arrow-next">
+    <span class="abc-icon-arrow-right icon dark-grey"></span>
+</div>
+                    </div>
+    </section>
+        </div>
+    </main>
+
+    <div class="footer-modules">
+        <section  data-m-id="480446" data-m-name="breadcrumbs" data-m-type="breadcrumbs"     class="module module-row row ">
+    <div id="breadcrumb-data">
+        <nav class="breadcrumbs">
+            <ul class="inline-list">
+                                        <li class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <span class="abc-icon-arrow-right breadcrumb-icon"></span>
+                            <a href="/shows/abc-new-shows"  class="breadcrumb-link" itemprop="url"
+                               title="what's on tonight ABC New Shows">
+                                <span class="extra-light text7" itemprop="title">ABC New Shows</span>
+                            </a>
+                        </li>
+                                            <li class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <span class="abc-icon-arrow-right breadcrumb-icon"></span>
+                            <a href="/shows/abc-new-shows/news"  class="breadcrumb-link" itemprop="url"
+                               title="what's on tonight News & Blogs">
+                                <span class="extra-light text7" itemprop="title">News & Blogs</span>
+                            </a>
+                        </li>
+                                            <li class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <span class="abc-icon-arrow-right breadcrumb-icon"></span>
+                            <a href="/shows/abc-new-shows/news/shows"  class="breadcrumb-link" itemprop="url"
+                               title="what's on tonight Shows">
+                                <span class="extra-light text7" itemprop="title">Shows</span>
+                            </a>
+                        </li>
+                                            <li class="breadcrumb" itemscope itemtype="http://data-vocabulary.org/Breadcrumb">
+                            <span class="abc-icon-arrow-right breadcrumb-icon"></span>
+                            <a href="/shows/abc-new-shows/news/shows/abc-fall-lineup-2017-tv-schedule-and-new-shows-announced"  class="breadcrumb-link" itemprop="url"
+                               title="what's on tonight ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced!">
+                                <span class="extra-light text7" itemprop="title">ABC Fall Lineup 2017: Premiere Dates, New Shows & TV Schedule Announced!</span>
+                            </a>
+                        </li>
+                                </ul>
+        </nav>
+    </div>
+</section>            <section  data-m-id="87261" data-m-name="footer_schedule" data-m-type="schedule"         class="module m-schedule ">
+        <div class="row nogutter">
+            <div class="columns nogutter m-schelude-column-wrapper">
+                <div class="row m-schedule-cta"><span class="text4 textblock white light lowercase columns">what's on tonight</span>                                    </div>
+                <ul class="m-schedule-programs no-list-style"
+                    >
+                    
+<li class="row m-schedule-program">
+    <span class="text4 textblock white light columns">
+        <span class="m-schedule-program-time">7|6c</span>
+        <span class="m-schedule-program-name ultra-light">
+                            <a href="/shows/americas-funniest-home-videos">America's Funniest Home Videos</a>
+                    </span>
+    </span>
+</li>
+
+<li class="row m-schedule-program">
+    <span class="text4 textblock white light columns">
+        <span class="m-schedule-program-time">8|7c</span>
+        <span class="m-schedule-program-name ultra-light">
+                            <a href="/shows/celebrity-family-feud">Celebrity Family Feud</a>
+                    </span>
+    </span>
+</li>
+
+<li class="row m-schedule-program">
+    <span class="text4 textblock white light columns">
+        <span class="m-schedule-program-time">9|8c</span>
+        <span class="m-schedule-program-name ultra-light">
+                            <a href="/shows/steve-harveys-funderdome">Steve Harvey's FUNDERDOME</a>
+                    </span>
+    </span>
+</li>
+
+<li class="row m-schedule-program">
+    <span class="text4 textblock white light columns">
+        <span class="m-schedule-program-time">10|9c</span>
+        <span class="m-schedule-program-name ultra-light">
+                            <a href="/shows/the-100000-pyramid">The $100,000 Pyramid</a>
+                    </span>
+    </span>
+</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+        <footer  data-m-id="589244" data-m-name="footer_menu" data-m-type="menu" class="module m-footer "
+>
+    <div class="row">
+        <section class="columns">
+                            <ul class="m-footer-links no-list-style">
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="/info"
+                                 title="company info"
+                                 target="_self">company info</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="/feedback"
+                                 title="contact"
+                                 target="_self">contact</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="http://preferences-mgr.truste.com/?type=abc&affiliateId=115"
+                                 title="interest-based ads"
+                                 target="_blank">interest-based ads</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="http://disneytermsofuse.com/"
+                                 title="terms of use"
+                                 target="_blank">terms of use</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="http://disneyprivacycenter.com/"
+                                 title="privacy policy"
+                                 target="_blank">privacy policy</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="https://disneyprivacycenter.com/notice-to-california-residents/"
+                                 title="your california privacy rights"
+                                 target="_blank">your california privacy rights</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="https://disneyprivacycenter.com/kids-privacy-policy/english/"
+                                 title="children's online privacy policy"
+                                 target="_blank">children's online privacy policy</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="/closed-captioning"
+                                 title="closed captioning"
+                                 target="_self">closed captioning</a>
+    </li>
+                                                <li class="m-footer-link"><a class="extra-light grey lowercase"
+                                 href="http://www.nielsen.com/digitalprivacy"
+                                 title="about Nielsen measurement"
+                                 target="_blank">about Nielsen measurement</a>
+    </li>
+                                                        </ul>
+                        <div class="m-footer-social-links">
+                                    <a class="icon light-grey abc-icon-twitter" href="http://twitter.com/ABCNetwork"
+                       target="_blank"
+                       title="Twitter"></a>
+                                                    <a class="icon light-grey abc-icon-facebook" href="http://www.facebook.com/ABCNetwork?ref=ts"
+                       target="_blank" title="Facebook"></a>
+                                                    <a class="icon light-grey abc-icon-googleplus" href="https://plus.google.com/+ABCNetwork"
+                       target="_blank" title="Google+"></a>
+                            </div>
+        </section>
+    </div>
+</footer>    </div>
+
+</div>
+
+    <section  data-m-id="81604" data-m-name="admarker_81604" data-m-type="admarker" data-m-slid="rectangle" data-m-slau="Rectangle 300x250"         class="module m-admarker module-marker ">
+    </section>
+    <section  data-m-id="273793" data-m-name="admarker_273793" data-m-type="admarker" data-m-slid="SponsoredByLogo" data-m-slau="SponsoredByLogo%201000x90"         class="module m-admarker module-marker ">
+    </section>
+<script type="text/javascript">
+    (function () {
+                var fwmrmRandomNumber = Math.floor(Math.random() * 100000) + 10000;
+        window._fw_linktag_params = {
+            scan_delay: 0,
+            allow_rescan_after: 15000,
+                        server: "2912a.v.fwmrm.net",
+            network_id: "168234",
+            profile: "abc_bc_linktag2_live",
+            other_global_params: "csid=abc_shows_abc-new-shows_news&caid=shows;target=abc-fall-lineup-2017-tv-schedule-and-new-shows-announced&sfid=109036&pvrn=" + fwmrmRandomNumber,
+            key_values: ""
+        };
+
+                var e = function () {
+            if (document.addEventListener) document.removeEventListener('DOMContentLoaded', e, false);
+            else window.detachEvent('onload', e);
+            window._fw_page_ready = true;
+        };
+        if (document.addEventListener) document.addEventListener('DOMContentLoaded', e, false);
+        else if (window.attachEvent) window.attachEvent('onload', e);
+                var lt = document.createElement('script');
+        lt.type = 'text/javascript';
+        lt.async = true;
+
+                lt.src = "https://mssl.fwmrm.net/p/abc_live/LinkTag2.js";
+
+                var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(lt, s);
+            })();
+</script>
+<script type="text/javascript">
+    var clientConfig = {"freeWheel":{"siteSectionFallbackId":"109036","siteSectionId":"abc_shows_abc-new-shows_news","collection":"","networkId":"168234","serverUrl":"2912a.v.fwmrm.net"},"omnitureConfig":{"pageName":"abc:shows:abc-new-shows:news:shows:abc-fall-lineup-2017-tv-schedule-and-new-shows-announced","channel":"abc:shows","server":"10.231.56.185","language":"en","optimizelyEnabled":"true","account":"wdgabcsite,wdgabcrollup,wdgwatchsitesroll,wdgwabcdesktop,wdgwabcsecondary,wdgasec,wdgabccom,wdgdatgabc,wdgdatgabcdisneyrollup","contextData":{"swid":"[getSWID]","device_type":"[getDeviceType]","mvpd":"[getAuthNStatus]","mvpd_user_id":"[getMvpdUserId]","platform":"[getOsAndBrowser]","connection_type":"","device_version":"[getOS]","flash_version":"[getFlashVersion]","os_version":"[getOsVersion]","device":"[getDeviceName]","orientation":"[getInterfaceOrientation]","registered_user_flag":"[checkIfUserRegistered]","media_display_outlet":"native","authenticated_user_flag":"false","content_language":"en","app_version":"3.3.0.10","event":"","page_url":"http:\/\/abc.go.com\/shows\/abc-new-shows\/news\/shows\/abc-fall-lineup-2017-tv-schedule-and-new-shows-announced","site_differentiator":"abc:site","site_section_level2":"abc:shows","site_section_level3":"abc:shows:show detail","site_section_level4":"abc:shows:show detail:news","video_network":"abc","video_show_name":"abc-new-shows","page_name_custom":"abc:shows:abc-new-shows:news:shows:abc-fall-lineup-2017-tv-schedule-and-new-shows-announced"}},"embedPlayerParams":{"siteSectionLevel2":"abc:shows","siteSectionLevel3":"abc:shows:show detail","siteSectionLevel4":"abc:shows:show detail:news","startSource":"abc:shows:show detail:news:manual"},"messages":{"downloadApp":{"ios_msg":{"linkHref":"abcplayer:\/\/blog","storeHref":"https:\/\/control.kochava.com\/v1\/cpi\/click?campaign_id=kowatch-abc----ios54248de49c329a305fe22e358a&network_id=1971&device_id=device_id&site_id=1"},"android_msg":{"linkHref":"intent:\/\/abcplayer\/blog\/#Intent;scheme=http;package=com.disney.datg.videoplatforms.android.abc;S.browser_fallback_url=https:\/\/control.kochava.com\/v1\/cpi\/click?campaign_id=kowatch-abc----android54248bfb86df3ca932505993ae&network_id=1971&device_id=device_id&site_id=1;end","storeHref":"https:\/\/control.kochava.com\/v1\/cpi\/click?campaign_id=kowatch-abc----android54248bfb86df3ca932505993ae&network_id=1971&device_id=device_id&site_id=1"},"kindle_msg":{"linkHref":"amzn:\/\/apps\/android?p=com.disney.datg.videoplatforms.android.amazon.kindle.abc","storeHref":"amzn:\/\/apps\/android?p=com.disney.datg.videoplatforms.android.amazon.kindle.abc"}}},"environment":"production","telemetryConfig":{"brand_id":"001","device_id":"001","show_id":"SH55127502","content_id":"2023812","collection_id":"1628659","site_section_level2":"abc:shows","site_section_level3":"abc:shows:show detail","site_section_level4":"abc:shows:show detail:news","network":"abc","app_name":"ABC","app_build_number":"3.3.0.10","environment":"production","layout_type":"blog","page_name":"abc:shows:abc-new-shows:news:shows:abc-fall-lineup-2017-tv-schedule-and-new-shows-announced","modules":{"801981":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/801981.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"messages","module-type":"messages","module-id":"801981","module-position":-1},"589241":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/589241.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"comments","module-type":"comments","module-id":"589241","module-position":-1},"2022943":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/2022943.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"flyout","module-type":"livetvalert","module-id":"2022943","module-position":0},"52087":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/52087.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"main_menu","module-type":"menu","module-id":"52087","module-position":1},"1628642":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/1628642.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"show_menu","module-type":"submenu","module-id":"1628642","module-position":2},"84283":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/84283.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"blog_detail","module-type":"blog","module-id":"84283","module-position":3},"1628659":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/1628659.json?brand=001&device=001&authlevel=0&show=SH55127502&size=3&start=0&blogcategory=1628818&blog=2023812","module-name":"related_blogs","module-type":"tilegroup","module-id":"1628659","module-position":4},"480446":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/480446.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"breadcrumbs","module-type":"breadcrumbs","module-id":"480446","module-position":5},"87261":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/87261.json?brand=001&device=001&authlevel=0&show=SH55127502&starttime=20170806-1900&endtime=20170806-2359&offset=-0700","module-name":"footer_schedule","module-type":"schedule","module-id":"87261","module-position":6},"589244":{"uri":"https:\/\/api.presentation.abc.go.com\/api\/ws\/presentation\/v2\/module\/589244.json?brand=001&device=001&authlevel=0&show=SH55127502","module-name":"footer_menu","module-type":"menu","module-id":"589244","module-position":7}},"modules_list":[801981,589241,2022943,52087,1628642,84283,1628659,480446,87261,589244]},"appVersion":"3.3.0.10","trackingConfig":{"modules":{"m52087":{"mp":1,"id":"52087","o":{"t":"main_menu"}},"m2022943":{"mp":0,"id":"2022943","o":{"t":"flyout"}},"m1628642":{"mp":2,"id":"1628642","o":{"t":"show_menu","vg":"drama","cl":"en","vsn":"ABC New Shows","vp":"ABC"}},"m84283":{"mp":3,"id":"84283","o":{"t":"blog_detail"}},"m1628659":{"mp":4,"id":"1628659","o":{"t":"Related Posts"}},"m480446":{"mp":5,"id":"480446","o":{"t":"breadcrumbs"}},"m87261":{"mp":6,"id":"87261","o":{"t":"footer_schedule"}},"m589244":{"mp":7,"id":"589244","o":{"t":"footer_menu"}}},"items":{"l0":{"tp":"cl1","pId":"52087","cta":"shows"},"l1":{"tp":"cl1","pId":"52087","cta":"schedule"},"l2":{"tp":"cl1","pId":"52087","cta":"live tv"},"l3":{"tp":"cl1","pId":"52087","cta":"continue watching"},"l4":{"tp":"cl1","pId":"52087","cta":"apps"},"l5":{"tp":"cl1","pId":"52087","cta":"more"},"l18":{"tp":"cl1","pId":"52087","cta":"American Housewife"},"l19":{"tp":"cl1","pId":"52087","cta":"The Bachelorette"},"l20":{"tp":"cl1","pId":"52087","cta":"Battle of the Network Stars"},"l21":{"tp":"cl1","pId":"52087","cta":"black-ish"},"l22":{"tp":"cl1","pId":"52087","cta":"Boy Band"},"l23":{"tp":"cl1","pId":"52087","cta":"Celebrity Family Feud"},"l24":{"tp":"cl1","pId":"52087","cta":"Disney's Descendants 2"},"l25":{"tp":"cl1","pId":"52087","cta":"Designated Survivor"},"l26":{"tp":"cl1","pId":"52087","cta":"General Hospital"},"l27":{"tp":"cl1","pId":"52087","cta":"The Gong Show"},"l28":{"tp":"cl1","pId":"52087","cta":"Grey's Anatomy"},"l29":{"tp":"cl1","pId":"52087","cta":"Jimmy Kimmel Live!"},"l30":{"tp":"cl1","pId":"52087","cta":"Modern Family"},"l31":{"tp":"cl1","pId":"52087","cta":"Scandal"},"l32":{"tp":"cl1","pId":"52087","cta":"Somewhere Between"},"l33":{"tp":"cl1","pId":"52087","cta":"Speechless"},"l34":{"tp":"cl1","pId":"52087","cta":"Steve Harvey's FUNDERDOME"},"l35":{"tp":"cl1","pId":"52087","cta":"Still Star-Crossed"},"l36":{"tp":"cl1","pId":"52087","cta":"The $100,000 Pyramid"},"l37":{"tp":"cl1","pId":"52087","cta":"view all shows"},"l38":{"tp":"cl1","pId":"52087","cta":"oscar.com"},"l39":{"tp":"cl1","pId":"52087","cta":"music"},"l40":{"tp":"cl1","pId":"52087","cta":"abc news"},"l41":{"tp":"cl1","pId":"52087","cta":"freeform"},"l42":{"tp":"cl1","pId":"52087","cta":"faq"},"l43":{"tp":"cl1","pId":"52087","cta":"menu"},"l44":{"tp":"cl1","pId":"52087","cta":"search"},"l45":{"tp":"cl1","pId":"52087","cta":"sign out"},"l6":{"tp":"cl3","pId":"1628642","cta":"Home"},"l7":{"tp":"cl3","pId":"1628642","cta":"Videos"},"l8":{"tp":"cl3","pId":"1628642","cta":"News"},"l46":{"tp":"cl3","pId":"1628642","cta":"more"}}}};
+</script>
+
+
+<!-- Google Tag Manager --> <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-NFKTSR"height="0" width="0"style="display:none;visibility:hidden"></iframe></noscript><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-NFKTSR');</script> <!-- End Google Tag Manager -->
+<script type="text/javascript" src="//cdn1.edgedatg.com/aws/site/3.3.0.10/js/production/001/001/datg.js"></script>
+    <!-- SITE BUILD NUMBER: 3.3.0.10 -->
+<!-- CORE BUILD NUMBER: 2.3.0.12 -->
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"8d01ff17d1","applicationID":"7645344","transactionName":"NVNRYRdWV0tQWxcIXQwZcEAWQ1ZVHloPDlU=","queueTime":0,"applicationTime":145,"atts":"GRRGF19MRBQTWUFbSR9L","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>

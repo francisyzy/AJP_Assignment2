@@ -21,14 +21,14 @@ public class Search extends Thread {
     //private static final Pattern DUCK_REGEX = Pattern.compile("\\\"FirstURL\\\" : \\\"(http.*?)\\\"");
     private static final Pattern URL_REGEX = Pattern.compile("<a[^>]+href=\"(http.+?)\"");
     
+    private final Pattern regex;
     
-    public Search(String url){
-        this.url = url;
-    }
     
-    public Search(String url, Download d){
+    
+    public Search(String url, Download d, String regex){
         this.url = url;
         dl = d;
+        this.regex =  Pattern.compile(regex);
     }
     
     //debug
@@ -49,14 +49,18 @@ public class Search extends Thread {
         System.out.println("Runing Thread");
         final List<String> lifound = new ArrayList<>();
         final List<String> afound = new ArrayList<>();
-        final Matcher bingmatcher = YAHOO_REGEX.matcher(html);
-        final Matcher yahoomatcher = BING_REGEX.matcher(html);
-        if (bingmatcher.find()){
+        //final Matcher bingmatcher = YAHOO_REGEX.matcher(html);
+        //final Matcher yahoomatcher = BING_REGEX.matcher(html);
+        final Matcher matcher = regex.matcher(html);
+        if (matcher.find()){
+            seed = matcher.group(1);
+        }
+        /*if (bingmatcher.find()){
             seed = bingmatcher.group(1);
         }
         else if (yahoomatcher.find()){
             seed = yahoomatcher.group(1);
-        }
+        }*/
 
 
         StringBuilder resulthtml = PageRead.readPage(seed);
