@@ -44,7 +44,7 @@ public class PageRead {
 //			return new StringBuilder("");
 //        }
 //    }
-    
+    //code is modified from https://stackoverflow.com/questions/238547/how-do-you-programmatically-download-a-webpage-in-java/238634#238634
     public static StringBuilder readPage(String pageAddr) {
         URL url;
         InputStream ins = null;

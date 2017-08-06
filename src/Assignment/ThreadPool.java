@@ -9,6 +9,7 @@ package Assignment;
  *
  * @author caeden
  */
+//code refer from http://tutorials.jenkov.com/java-concurrency/thread-pools.html
 public class ThreadPool {
 	
     BlockingQueue <Runnable> queue;
