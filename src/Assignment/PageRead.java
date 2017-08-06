@@ -13,6 +13,7 @@ package Assignment;
 import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 import java.util.logging.Level;
 import java.util.logging.Logger;
  
@@ -50,6 +51,9 @@ public class PageRead {
 
         try {
             url = new URL(pageAddr);
+            URLConnection conn = url.openConnection();
+            conn.setRequestProperty("User-Agent", "Mozilla/5.0 (Windows NT 5.1; rv:19.0) Gecko/20100101 Firefox/19.0");
+            conn.connect();
             ins = url.openStream();  // throws an IOException
             reader = new BufferedReader(new InputStreamReader(ins));
 

@@ -105,20 +105,21 @@ public class FXMLController implements Initializable {
         
         searchBtn.setDefaultButton(true);
         
-        //debug
-        System.out.println("Bing = " + checkBing.isSelected());
-        
-        System.out.println("Yahoo = " + checkYahoo.isSelected());
-        
-        System.out.println("Google = " + checkGoogle.isSelected());
-        
         searchBtn.setOnAction((ActionEvent e) -> {
             listOutput.setPlaceholder(new Label("No Content In List"));
             rawHTML.setText(null);
+            timeOutput.setText(null);
             viewWeb.getEngine().load(null);
             listOutput.setItems(null);
             dl.clearResult();
             //clearing previous result if any
+            
+            //debug
+            System.out.println("Bing = " + checkBing.isSelected());
+
+            System.out.println("Yahoo = " + checkYahoo.isSelected());
+
+            System.out.println("Google = " + checkGoogle.isSelected());
             
             String UserSearch = null;
             int threadCount = 0;
