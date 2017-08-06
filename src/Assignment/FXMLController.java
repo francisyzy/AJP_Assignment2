@@ -166,38 +166,8 @@ public class FXMLController implements Initializable {
             
         });
         
-//        EndLocationSearchBtn.setOnAction((ActionEvent e) -> {
-//            //System.out.println(EndLocationCombo.getValue());
-//            endresult.clear();
-//            try {
-//                Search = SearchBusStop(EndLocationSearchInput.getText());
-//            } catch (Exception ex) {
-//                Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//            for(BusStop b : Search){
-//                //System.out.println(b.BusStopDescription);
-//                endresult.add(b);
-//            }
-//            EndLocationCombo.setItems(endresult);
-//        });
-//        
-//        
-//        //System.out.println("btnMapPressed")
-//        
-//        //Adding press link to map but nevermind no time do
         MultipleSelectionModel<String> listOutputSel = listOutput.getSelectionModel();
-//        listOutputSel.selectedItemProperty().addListener(new ChangeListener<String>() {
-//            @Override
-//            public void changed(ObservableValue ov, BusStop oldVal, BusStop newVal)
-//            {
-//                System.out.println("You selected " + newVal);
-//            }        
-//
-//            @Override
-//            public void changed(ObservableValue<? extends String> ov, String t, String t1) {
-//                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-//            }
-//        });
+
         listOutputSel.selectedItemProperty().addListener(new ChangeListener<String>() {
             public void changed(ObservableValue<? extends String> changed, String oldVal, String newVal)
             {

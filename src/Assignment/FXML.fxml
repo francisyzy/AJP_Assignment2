@@ -18,7 +18,6 @@
       <CheckBox fx:id="checkYahoo" layoutX="8.0" layoutY="136.0" mnemonicParsing="false" selected="true" text="Yahoo" />
       <CheckBox fx:id="checkGoogle" layoutX="8.0" layoutY="154.0" mnemonicParsing="false" text="Google" />
       <WebView fx:id="viewWeb" layoutX="475.0" layoutY="51.0" prefHeight="550.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="51.0" />
-<!--      <Button fx:id="threadSetBtn" layoutX="455.0" layoutY="50.0" mnemonicParsing="false" text="Set" />-->
       <TextField fx:id="threadInput" layoutX="266.0" layoutY="50.0" prefHeight="27.0" prefWidth="189.0" text="2" />
       <Label fx:id="threadLabel" layoutX="266.0" layoutY="33.0" prefHeight="17.0" prefWidth="63.0" text="Treads" />
       <TextArea fx:id="rawHTML" editable="false" layoutX="940.0" layoutY="51.0" prefHeight="550.0" prefWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.topAnchor="51.0" />
