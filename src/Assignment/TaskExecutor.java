@@ -20,7 +20,7 @@ public class TaskExecutor implements Runnable {
     @Override
     public void run() {
         try {
-            while (!cancel) {
+            while (true) {
                 String name = Thread.currentThread().getName();
                 Runnable task = queue.dequeue();
                 System.out.println("Task Started by Thread :" + name);

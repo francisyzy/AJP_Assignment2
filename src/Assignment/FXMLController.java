@@ -123,7 +123,9 @@ public class FXMLController implements Initializable {
         
         searchBtn.setOnAction((ActionEvent e) -> {
             listOutput.setPlaceholder(new Label("No Content In List"));
-            //listOutput.setItems(null);//?
+            rawHTML.setText(null);
+            viewWeb.getEngine().load(null);
+            listOutput.setItems(null);
             
             dl.clearResult();
             
@@ -225,17 +227,26 @@ public class FXMLController implements Initializable {
                 
                 System.out.println("User Search = " + GetUserSearch());
                 
-                Pattern userSearch_REGEX = Pattern.compile("("+GetUserSearch()+")", Pattern.CASE_INSENSITIVE);
+                try{
+                        Pattern userSearch_REGEX = Pattern.compile("("+GetUserSearch()+")", Pattern.CASE_INSENSITIVE);
                 
-                Matcher userSearchMatcher = userSearch_REGEX.matcher(url);
+                        Matcher userSearchMatcher = userSearch_REGEX.matcher(url);
+                        int output = 0;
+
+                        while (userSearchMatcher.find()) {
+                            output++;
+                        }
+                        
+                        textOutput.setText(Integer.toString(output));
+                    }catch(Exception e){
+                        System.out.println("Caught exception");
+                    }
                 
-                int output = 0;
                 
-                while (userSearchMatcher.find()) {
-                    output++;
-                }
                 
-                textOutput.setText(Integer.toString(output));
+                
+                
+                
                 timeOutput.setText(SearchInput.dl.getStopTime()+"");
                 
                 //debug
