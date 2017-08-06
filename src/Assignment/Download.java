@@ -116,4 +116,7 @@ public class Download {
     public void SetStartTime(){
         starttime = System.currentTimeMillis();
     }
+    public void ClearMap(){
+        urlMap.clear();
+    }
 }

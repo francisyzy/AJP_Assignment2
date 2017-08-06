@@ -43,6 +43,7 @@ public class Search extends Thread {
     public void run(){
         
         dl.SetStartTime();
+        dl.ClearMap();
         StringBuilder html = PageRead.readPage(url);
         String seed = "";
         System.out.println("Runing Thread");
