@@ -89,20 +89,6 @@ public class FXMLController implements Initializable {
         return userSearch;
     }
     
-//    public void SetStartTime(){
-//        startTime = System.currentTimeMillis();
-//    }
-//    
-//    public long GetStartTime(){
-//        return startTime;
-//    }
-//    
-//    public void StopTime(){
-//        double timetaken = (System.currentTimeMillis() - GetStartTime())/1000;
-//        
-//        timeOutput.setText(timetaken+"");
-//    }
-    
     public void Timer(Double timetaken){
         System.out.println("Timer method ran");
         timeOutput.setText(timetaken+"");
@@ -119,19 +105,20 @@ public class FXMLController implements Initializable {
         
         searchBtn.setDefaultButton(true);
         
-        System.out.println(checkBing.isSelected());
-        
-        checkYahoo.isSelected();
-        
-        System.out.println(checkGoogle.isSelected());
+        //debug
+//        System.out.println(checkBing.isSelected());
+//        
+//        checkYahoo.isSelected();
+//        
+//        System.out.println(checkGoogle.isSelected());
         
         searchBtn.setOnAction((ActionEvent e) -> {
             listOutput.setPlaceholder(new Label("No Content In List"));
             rawHTML.setText(null);
             viewWeb.getEngine().load(null);
             listOutput.setItems(null);
-            
             dl.clearResult();
+            //clearing previous result if any
             
             String UserSearch = null;
             int threadCount = 0;
@@ -154,7 +141,7 @@ public class FXMLController implements Initializable {
                 System.out.println("Search = " + UserSearch);
                 System.out.println("Thread Count = " + threadCount);
                 SetUserSearch(UserSearch);
-                SearchInput search = new SearchInput(checkYahoo.isSelected(),checkBing.isSelected());
+                SearchInput search = new SearchInput(checkYahoo.isSelected(),checkBing.isSelected(), checkGoogle.isSelected());
             
                 try {
                     search.startSearch(UserSearch, threadCount);
@@ -166,12 +153,9 @@ public class FXMLController implements Initializable {
                 Collections.sort(result); //to sort in accending order
                 ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
                 listOutput.setItems(observableResult);
+                System.out.println(observableResult+"Result");
 //                SetStartTime();//Time taken
             }
-            
-            
-            
-//            
 //            for(BusStop b : Search){
 //                //System.out.println(b.BusStopDescription);
 //                startresult.add(b);

@@ -47,8 +47,8 @@ public class Search extends Thread {
         StringBuilder html = PageRead.readPage(url);
         String seed = "";
         System.out.println("Runing Thread");
-        final List<String> lifound = new ArrayList<>();
-        final List<String> afound = new ArrayList<>();
+        //final List<String> lifound = new ArrayList<>();
+        //final List<String> afound = new ArrayList<>();
         //final Matcher bingmatcher = YAHOO_REGEX.matcher(html);
         //final Matcher yahoomatcher = BING_REGEX.matcher(html);
         final Matcher matcher = regex.matcher(html);
