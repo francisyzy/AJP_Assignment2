@@ -150,6 +150,8 @@ public class FXMLController implements Initializable {
                     Logger.getLogger(FXMLController.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 
+                //1)	The 10 website URLs and its html page contents (saved locally) should be shown to the user through a GUI (For example, after clicking on a selected URL, the web page content will be shown in a text area). The website URLs are to be displayed in a list in ascending order.
+                
                 ArrayList<String> result = dl.getResult();
                 Collections.sort(result); //to sort in accending order
                 ObservableList<String> observableResult = FXCollections.observableArrayList(result); //convert the arraylist to obversable list
@@ -227,6 +229,8 @@ public class FXMLController implements Initializable {
                 
                 System.out.println("User Search = " + GetUserSearch());
                 
+                //10)	Keep track of the number of occurrences of the search phrase within the html page and display the number of occurrences. 
+
                 try{
                         Pattern userSearch_REGEX = Pattern.compile("("+GetUserSearch()+")", Pattern.CASE_INSENSITIVE);
                 
@@ -242,12 +246,7 @@ public class FXMLController implements Initializable {
                         System.out.println("Caught exception");
                     }
                 
-                
-                
-                
-                
-                
-                timeOutput.setText(SearchInput.dl.getStopTime()+"");
+                timeOutput.setText(SearchInput.dl.getStopTime()+"s");
                 
                 //debug
                 //System.out.println(url);
