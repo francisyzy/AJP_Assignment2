@@ -28,6 +28,8 @@ public class SearchInput {
         
         String yahoo = "https://sg.search.yahoo.com/search?p=";
         String bing = "https://www.bing.com/search?q=";
+        //API KEY from https://developers.google.com/custom-search/json-api/v1/overview
+        //Reference https://developers.google.com/custom-search/json-api/v1/using_rest
         String google = "https://www.googleapis.com/customsearch/v1?key="+g_api_key+"&cx=002976313549948865923:30uboh7bkhw&q=";
         
         String yahooregex = "result\"><h3 class=\"title\"><a href=\"(.+?)\" class=\"\">";
