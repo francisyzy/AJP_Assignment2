@@ -24,7 +24,7 @@ public class SearchInput {
     
     public void startSearch(String input, int threadCount) throws InterruptedException{
         
-        String g_api_key = "AIzaSyCEGJG94k2ERfopUDTab03R3kQX3E8m6ok";
+        String g_api_key = "";//get one from https://developers.google.com/custom-search/json-api/v1/overview
         
         String yahoo = "https://sg.search.yahoo.com/search?p=";
         String bing = "https://www.bing.com/search?q=";
