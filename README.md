@@ -6,4 +6,4 @@ Search engines Bing, and Yahoo is crawled via HTTP request where as Google uses 
 
 There will be ten web pages downloaded into the local machine. The files will be overwritten. The webpage download can show the number of occurrence to the search pharase.
 
-[Assignment Brief and Specs](ST0316 1718S1 Assignment Part 2.pdf)
+[Assignment Brief and Specs](ST0316-1718S1-Assignment-Part-2.pdf)
